@@ -83,12 +83,10 @@ function PagePricing({ navigate }) {
                 </tr>
               </thead>
               <tbody>
-                <tr><td>1億円以下の部分</td><td className="font-serif-en"><em>10</em>%</td></tr>
-                <tr><td>1億円超 〜 2億円以下の部分</td><td className="font-serif-en"><em>10</em>%</td></tr>
+                <tr><td>2億円以下の部分</td><td className="font-serif-en"><em>10</em>%</td></tr>
                 <tr><td>2億円超 〜 5億円以下の部分</td><td className="font-serif-en"><em>8</em>%</td></tr>
                 <tr><td>5億円超 〜 10億円以下の部分</td><td className="font-serif-en"><em>6</em>%</td></tr>
-                <tr><td>10億円超 〜 50億円以下の部分</td><td className="font-serif-en"><em>4</em>%</td></tr>
-                <tr><td>50億円超の部分</td><td className="font-serif-en"><em>4</em>%</td></tr>
+                <tr><td>10億円以上の部分</td><td className="font-serif-en"><em>4</em>%</td></tr>
               </tbody>
             </table>
             <p className="lehman-note">※ 最低報酬：800万円（消費税別）／実費（出張費・印紙代等）はお客様にご負担いただきます。</p>
