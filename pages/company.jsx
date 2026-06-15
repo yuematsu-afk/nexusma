@@ -32,7 +32,7 @@ function PageCompany({ navigate }) {
         <div className="container">
           <div className="ceo-grid">
             <div className="ceo-portrait-wrap">
-              <div className="ph ph-dark ceo-portrait" data-label="Portrait — placeholder" />
+              <div className="ph ph-dark visual visual-portrait ceo-portrait" data-label="Portrait" />
               <div className="ceo-portrait-cap">
                 <div className="font-serif-jp" style={{ fontSize: 18, color: "var(--ivory)", letterSpacing: "0.08em" }}>植松 勇樹</div>
                 <div className="font-serif-en" style={{ fontStyle: "italic", fontSize: 13, color: "var(--gold-400)", marginTop: 4 }}>Yuuki Uematsu — Founder & CEO</div>
@@ -108,7 +108,7 @@ function PageCompany({ navigate }) {
           <div className="team-grid">
             {members.map((m) => (
               <div key={m.name} className="member-card">
-                <div className="ph ph-dark member-portrait" data-label="Portrait" />
+                <div className="ph ph-dark visual visual-portrait member-portrait" data-label="Portrait" />
                 <div className="member-info">
                   <div className="member-role">{m.role}</div>
                   <div className="member-name font-serif-jp">{m.name}</div>

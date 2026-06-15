@@ -34,6 +34,7 @@ function PageCases({ navigate }) {
   const [reg, setReg] = useState("すべて");
   const [band, setBand] = useState("すべて");
   const [sort, setSort] = useState("新着順");
+  const [selectedCase, setSelectedCase] = useState(null);
 
   let cases = ALL_CASES.filter((c) =>
     (ind === "すべて" || c.industry === ind) &&
@@ -44,6 +45,59 @@ function PageCases({ navigate }) {
     cases = [...cases].sort((a, b) => parseFloat(b.revenue) - parseFloat(a.revenue));
   } else if (sort === "売上高 低い順") {
     cases = [...cases].sort((a, b) => parseFloat(a.revenue) - parseFloat(b.revenue));
+  }
+
+  if (selectedCase) {
+    return (
+      <main>
+        <PageHero
+          eyebrow="Mandate Detail"
+          title={`${selectedCase.industry}案件の概要。`}
+          lead="掲載内容は概要情報です。詳細情報の開示には、秘密保持と個別確認が必要です。"
+          crumbs={["案件一覧", selectedCase.id]}
+          navigate={navigate}
+        />
+        <section style={{ background: "var(--paper)" }}>
+          <div className="container">
+            <button className="btn btn-ghost" onClick={() => setSelectedCase(null)}>← 案件一覧へ戻る</button>
+            <div className="case-detail-layout">
+              <div className={`ph visual case-detail-image ${getVisualClass(selectedCase.industry)}`} />
+              <div className="case-detail-panel">
+                <div className="case-meta">
+                  <span className="tag tag-gold">{selectedCase.industry}</span>
+                  <span className="tag">{selectedCase.region}</span>
+                  <span className="tag">{selectedCase.years}</span>
+                  {selectedCase.status && <span className="tag tag-new">{selectedCase.status}</span>}
+                </div>
+                <h2>{selectedCase.note}</h2>
+                <p>
+                  当該案件は、事業承継または成長戦略を背景に検討される想定案件です。
+                  実際の詳細資料は、買収方針・資金計画・秘密保持の確認後に個別案内します。
+                </p>
+                <div className="case-detail-metrics">
+                  <div><span>売上高</span><strong>{selectedCase.revenue}</strong></div>
+                  <div><span>営業利益</span><strong>{selectedCase.profit}</strong></div>
+                  <div><span>従業員</span><strong>{selectedCase.emp}</strong></div>
+                  <div><span>地域</span><strong>{selectedCase.region}</strong></div>
+                </div>
+                <h3>想定される買い手像</h3>
+                <ul className="detail-list">
+                  <li>既存事業と隣接する顧客基盤・技術を取り込みたい企業</li>
+                  <li>地域展開またはロールアップを進めたい企業</li>
+                  <li>雇用と取引先関係の維持を重視できる企業</li>
+                </ul>
+                <h3>次のステップ</h3>
+                <p>
+                  詳細確認を希望される場合は、問い合わせフォームから買い手登録を行ってください。
+                  条件に合う場合のみ、ノンネーム情報から段階的にご案内します。
+                </p>
+                <button className="btn btn-primary" onClick={() => navigate("contact")}>詳細確認を相談する <span className="arrow" /></button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    );
   }
 
   return (
@@ -125,7 +179,7 @@ function PageCases({ navigate }) {
           <div className="case-grid">
             {cases.map((c) => (
               <article key={c.id} className="case-card card">
-                <div className="case-img ph" data-label="Industry photograph">
+                <div className={`case-img ph visual ${getVisualClass(c.industry)}`} data-label="Industry photograph">
                   {c.status && <span className={`case-status tag ${c.status === "新着" ? "tag-new" : "tag-success"}`}>{c.status}</span>}
                 </div>
                 <div className="case-body">
@@ -154,7 +208,7 @@ function PageCases({ navigate }) {
                   </div>
                   <div className="case-foot">
                     <span className="font-mono" style={{ fontSize: 11, color: "var(--ink-300)", letterSpacing: "0.1em" }}>{c.id}</span>
-                    <button className="case-detail-btn">詳細を見る →</button>
+                    <button className="case-detail-btn" onClick={() => setSelectedCase(c)}>詳細を見る →</button>
                   </div>
                 </div>
               </article>

@@ -13,7 +13,7 @@ function PageContact({ navigate }) {
     email: "",
     phone: "",
     message: "",
-    method: "online",
+    method: "email",
     agree: false,
   });
 
@@ -29,9 +29,35 @@ function PageContact({ navigate }) {
   const canNext = () => {
     if (step === 0) return data.role !== "";
     if (step === 1) return data.industry !== "" && data.revenue !== "" && data.timing !== "";
-    if (step === 2) return data.company && data.name && data.email && data.phone;
+    if (step === 2) return data.company && data.name && data.email;
     if (step === 3) return data.method !== "";
     return true;
+  };
+
+  const buildMailBody = () => [
+    "NexusM&A 無料相談フォーム",
+    "",
+    `ご立場: ${data.role === "seller" ? "売り手・譲渡をご検討" : data.role === "buyer" ? "買い手・M&Aで成長を志向" : "その他のご相談"}`,
+    `業種: ${data.industry}`,
+    `年商規模: ${data.revenue}`,
+    `ご検討時期: ${data.timing}`,
+    `ご関心事項: ${data.concerns.length ? data.concerns.join(" / ") : "なし"}`,
+    `会社名: ${data.company}`,
+    `お名前: ${data.name}`,
+    `メール: ${data.email}`,
+    `電話番号: ${data.phone || "未記入"}`,
+    `ご相談方法: ${({ email: "メールでまず相談", online: "オンライン面談", office: "弊社オフィスにて面談", visit: "貴社・ご指定場所まで訪問" })[data.method]}`,
+    "",
+    "ご相談内容:",
+    data.message || "未記入",
+  ].join("\n");
+
+  const submitByMail = () => {
+    const subject = `【NexusM&A 無料相談】${data.company} ${data.name}様`;
+    const mailto = `mailto:y.uematsu@sasa-eru.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(buildMailBody())}`;
+    window.location.href = mailto;
+    setStep(total);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const next = () => {
@@ -61,7 +87,8 @@ function PageContact({ navigate }) {
             </h2>
             <p style={{ color: "rgba(247,242,233,0.7)", marginTop: 28, fontSize: 15, lineHeight: 2, maxWidth: 560, margin: "28px auto 0" }}>
               担当者より、原則1〜2営業日以内にご連絡を差し上げます。<br />
-              ご登録いただいたメールアドレスに、受付完了のご連絡をお送りしました。
+              メール作成画面が開きますので、内容をご確認のうえ送信してください。<br />
+              送信後、原則1〜2営業日以内に y.uematsu@sasa-eru.com より返信いたします。
             </p>
             <div className="complete-meta">
               <div>
@@ -186,7 +213,7 @@ function PageContact({ navigate }) {
                 <div className="form-step">
                   <div className="form-step-eyebrow font-serif-en">Step 03 of {total - 1}</div>
                   <h3 className="font-serif-jp" style={{ fontSize: 28, marginTop: 14 }}>ご連絡先を教えてください。</h3>
-                  <p className="form-step-lead">担当者よりご連絡を差し上げます。</p>
+                  <p className="form-step-lead">電話番号は任意です。まずはメールのみでのご相談も可能です。</p>
 
                   <div className="field">
                     <label>会社名 <span className="req">必須</span></label>
@@ -208,7 +235,7 @@ function PageContact({ navigate }) {
                       <input type="email" value={data.email} onChange={(e) => update("email", e.target.value)} placeholder="example@company.co.jp" />
                     </div>
                     <div className="field">
-                      <label>電話番号 <span className="req">必須</span></label>
+                      <label>電話番号 <span className="optional">任意</span></label>
                       <input type="tel" value={data.phone} onChange={(e) => update("phone", e.target.value)} placeholder="03-1234-5678" />
                     </div>
                   </div>
@@ -226,10 +253,10 @@ function PageContact({ navigate }) {
                   <p className="form-step-lead">最初の対話の進め方をお選びいただけます。</p>
                   <div className="method-options">
                     {[
+                      { v: "email", title: "メールでまず相談", desc: "電話なしで、概要共有と次の進め方の確認から始めます。", icon: "email" },
                       { v: "online", title: "オンライン面談", desc: "Zoom / Microsoft Teams で実施。60〜90分。", icon: "online" },
                       { v: "office", title: "弊社オフィスにて面談", desc: "丸の内本社・各支社で対応。秘匿性を最優先。", icon: "office" },
                       { v: "visit", title: "貴社・ご指定場所まで訪問", desc: "首都圏／主要都市は当日中対応も可能。", icon: "visit" },
-                      { v: "phone", title: "電話・メールでまず情報交換", desc: "面談前にまずは概要をご相談いただけます。", icon: "phone" },
                     ].map((o) => (
                       <button key={o.v} className={`method-card ${data.method === o.v ? "selected" : ""}`} onClick={() => update("method", o.v)}>
                         <div className="method-check"><div className="method-check-inner" /></div>
@@ -258,14 +285,14 @@ function PageContact({ navigate }) {
                       <tr><th>会社名</th><td>{data.company}</td></tr>
                       <tr><th>お名前</th><td>{data.name}</td></tr>
                       <tr><th>メール</th><td>{data.email}</td></tr>
-                      <tr><th>電話番号</th><td>{data.phone}</td></tr>
-                      <tr><th>ご相談方法</th><td>{({ online: "オンライン面談", office: "弊社オフィスにて面談", visit: "貴社・ご指定場所まで訪問", phone: "電話・メールでまず情報交換" })[data.method]}</td></tr>
+                      <tr><th>電話番号</th><td>{data.phone || "—"}</td></tr>
+                      <tr><th>ご相談方法</th><td>{({ email: "メールでまず相談", online: "オンライン面談", office: "弊社オフィスにて面談", visit: "貴社・ご指定場所まで訪問" })[data.method]}</td></tr>
                       <tr><th>ご相談内容</th><td>{data.message || "—"}</td></tr>
                     </tbody>
                   </table>
                   <label className="agree-line">
                     <input type="checkbox" checked={data.agree} onChange={(e) => update("agree", e.target.checked)} />
-                    <span><a style={{ color: "var(--gold-700)", textDecoration: "underline" }}>個人情報保護方針</a>に同意の上、送信します。</span>
+                    <span><a onClick={(e) => { e.preventDefault(); navigate("privacy"); }} style={{ color: "var(--gold-700)", textDecoration: "underline" }}>個人情報保護方針</a>に同意の上、メールを作成します。</span>
                   </label>
                 </div>
               )}
@@ -280,8 +307,8 @@ function PageContact({ navigate }) {
                   </button>
                 )}
                 {step === total - 1 && (
-                  <button className="btn btn-primary" disabled={!data.agree} onClick={next} style={{ opacity: data.agree ? 1 : 0.4, cursor: data.agree ? "pointer" : "not-allowed" }}>
-                    送信する <span className="arrow" />
+                  <button className="btn btn-primary" disabled={!data.agree} onClick={submitByMail} style={{ opacity: data.agree ? 1 : 0.4, cursor: data.agree ? "pointer" : "not-allowed" }}>
+                    メールを作成する <span className="arrow" />
                   </button>
                 )}
               </div>

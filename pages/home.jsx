@@ -97,7 +97,7 @@ function PageHome({ navigate }) {
               <div className="hero-frame-corner tr" />
               <div className="hero-frame-corner bl" />
               <div className="hero-frame-corner br" />
-              <div className="ph ph-dark hero-ph" data-label="Conference room — placeholder" style={{ height: 560 }}>
+              <div className="ph ph-dark visual visual-boardroom hero-ph" data-label="Boardroom" style={{ height: 560 }}>
                 <div className="hero-overlay-mark">
                   <div className="hero-overlay-num font-serif-en">N°08</div>
                   <div className="hero-overlay-text">
@@ -234,7 +234,7 @@ function PageHome({ navigate }) {
           <div className="feature-grid">
             {featured.map((c) => (
               <article key={c.id} className="feature-card card" onClick={() => navigate("cases")}>
-                <div className="ph feature-img" data-label="Industry photograph" />
+                <div className={`ph visual feature-img ${getVisualClass(c.industry)}`} data-label="Industry photograph" />
                 <div className="feature-body">
                   <div className="feature-meta">
                     <span className="tag tag-gold">{c.industry}</span>

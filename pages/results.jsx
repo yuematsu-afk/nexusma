@@ -112,7 +112,7 @@ function PageResults({ navigate }) {
           {filtered.map((c, i) => (
             <article key={c.id} className={`study-row ${i % 2 === 1 ? "reverse" : ""}`}>
               <div className="study-img-wrap">
-                <div className="ph ph-dark study-img" data-label={`${c.industry} — placeholder`}>
+                <div className={`ph ph-dark visual study-img ${getVisualClass(c.industry)}`} data-label={`${c.industry}`}>
                   <div className="study-img-num font-serif-en">N°{String(i + 1).padStart(2, "0")}</div>
                 </div>
                 <div className="study-img-bar">

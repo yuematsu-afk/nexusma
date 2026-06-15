@@ -35,6 +35,12 @@ function App() {
     case "news": page = <PageNews navigate={navigate} />; break;
     case "contact": page = <PageContact navigate={navigate} />; break;
     case "diagnosis": page = <PageDiagnosis navigate={navigate} />; break;
+    case "faq": page = <PageInfo navigate={navigate} type="faq" />; break;
+    case "glossary": page = <PageInfo navigate={navigate} type="glossary" />; break;
+    case "privacy": page = <PageInfo navigate={navigate} type="privacy" />; break;
+    case "antisocial": page = <PageInfo navigate={navigate} type="antisocial" />; break;
+    case "sitemap": page = <PageInfo navigate={navigate} type="sitemap" />; break;
+    case "careers": page = <PageInfo navigate={navigate} type="careers" />; break;
     default: page = <PageHome navigate={navigate} />;
   }
 

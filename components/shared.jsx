@@ -86,6 +86,22 @@ function SectionHead({ eyebrow, title, lead, align = "center" }) {
   );
 }
 
+function getVisualClass(industry = "") {
+  if (industry.includes("IT") || industry.includes("SaaS")) return "visual-saas";
+  if (industry.includes("製造") || industry.includes("建設") || industry.includes("卸売")) return "visual-manufacturing";
+  if (industry.includes("薬局") || industry.includes("医療") || industry.includes("介護")) return "visual-healthcare";
+  if (industry.includes("物流")) return "visual-logistics";
+  if (industry.includes("食品") || industry.includes("農業") || industry.includes("飲食")) return "visual-food";
+  return "visual-office";
+}
+
+function getNewsVisual(tag = "") {
+  if (tag.includes("セミナー")) return "visual-boardroom";
+  if (tag.includes("コラム")) return "visual-office";
+  if (tag.includes("プレス")) return "visual-saas";
+  return "visual-office";
+}
+
 function Footer({ navigate }) {
   return (
     <footer className="site-footer">
@@ -113,7 +129,7 @@ function Footer({ navigate }) {
               <li><a onClick={() => navigate("results")}>成約実績</a></li>
               <li><a onClick={() => navigate("news")}>コラム・ニュース</a></li>
               <li><a onClick={() => navigate("diagnosis")}>匿名セルフチェック</a></li>
-              <li><a>用語集</a></li>
+              <li><a onClick={() => navigate("glossary")}>用語集</a></li>
             </ul>
           </div>
           <div>
@@ -122,16 +138,16 @@ function Footer({ navigate }) {
               <li><a onClick={() => navigate("company")}>会社概要</a></li>
               <li><a onClick={() => navigate("company")}>代表メッセージ</a></li>
               <li><a onClick={() => navigate("contact")}>お問い合わせ</a></li>
-              <li><a>採用情報</a></li>
+              <li><a onClick={() => navigate("careers")}>採用情報</a></li>
             </ul>
           </div>
         </div>
         <div className="footer-bottom">
           <div>© 2026 NexusM&amp;A All rights reserved.</div>
           <div className="legal">
-            <a>個人情報保護方針</a>
-            <a>反社会的勢力排除</a>
-            <a>サイトマップ</a>
+            <a onClick={() => navigate("privacy")}>個人情報保護方針</a>
+            <a onClick={() => navigate("antisocial")}>反社会的勢力排除</a>
+            <a onClick={() => navigate("sitemap")}>サイトマップ</a>
           </div>
         </div>
       </div>
@@ -182,4 +198,4 @@ function ProcessTimeline({ active = 0, onStep }) {
   );
 }
 
-Object.assign(window, { Brand, Header, PageHero, SectionHead, Footer, ProcessTimeline });
+Object.assign(window, { Brand, Header, PageHero, SectionHead, Footer, ProcessTimeline, getVisualClass, getNewsVisual });

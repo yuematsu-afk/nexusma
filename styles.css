@@ -403,6 +403,19 @@ nav.primary { display: flex; align-items: center; gap: 36px; }
     linear-gradient(135deg, var(--navy-700) 0%, var(--navy-900) 100%);
 }
 .ph-dark::after { color: var(--gold-400); }
+.ph.visual {
+  background-size: cover;
+  background-position: center;
+}
+.ph.visual::after { display: none; }
+.visual-boardroom { background-image: url("assets/boardroom.svg"); }
+.visual-manufacturing { background-image: url("assets/manufacturing.svg"); }
+.visual-saas { background-image: url("assets/saas.svg"); }
+.visual-healthcare { background-image: url("assets/healthcare.svg"); }
+.visual-logistics { background-image: url("assets/logistics.svg"); }
+.visual-food { background-image: url("assets/food.svg"); }
+.visual-office { background-image: url("assets/office.svg"); }
+.visual-portrait { background-image: url("assets/portrait.svg"); }
 
 /* ===== Animations ===== */
 @keyframes fadeUp {
