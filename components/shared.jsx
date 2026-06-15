@@ -28,6 +28,7 @@ function Header({ route, navigate }) {
     { id: "pricing", label: "料金プラン" },
     { id: "company", label: "会社概要" },
     { id: "news", label: "ニュース" },
+    { id: "diagnosis", label: "匿名診断" },
   ];
   return (
     <header className={`site-header ${scrolled ? "scrolled" : ""}`}>
@@ -102,6 +103,7 @@ function Footer({ navigate }) {
               <li><a onClick={() => navigate("service-seller")}>売り手の方へ</a></li>
               <li><a onClick={() => navigate("service-buyer")}>買い手の方へ</a></li>
               <li><a onClick={() => navigate("cases")}>案件一覧</a></li>
+              <li><a onClick={() => navigate("diagnosis")}>社長不在90日診断</a></li>
               <li><a onClick={() => navigate("pricing")}>料金プラン</a></li>
             </ul>
           </div>
@@ -110,7 +112,7 @@ function Footer({ navigate }) {
             <ul>
               <li><a onClick={() => navigate("results")}>成約実績</a></li>
               <li><a onClick={() => navigate("news")}>コラム・ニュース</a></li>
-              <li><a>FAQ</a></li>
+              <li><a onClick={() => navigate("diagnosis")}>匿名セルフチェック</a></li>
               <li><a>用語集</a></li>
             </ul>
           </div>

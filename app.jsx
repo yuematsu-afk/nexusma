@@ -34,6 +34,7 @@ function App() {
     case "company": page = <PageCompany navigate={navigate} />; break;
     case "news": page = <PageNews navigate={navigate} />; break;
     case "contact": page = <PageContact navigate={navigate} />; break;
+    case "diagnosis": page = <PageDiagnosis navigate={navigate} />; break;
     default: page = <PageHome navigate={navigate} />;
   }
 

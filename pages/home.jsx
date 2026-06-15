@@ -64,6 +64,9 @@ function PageHome({ navigate }) {
               経営者の決断に、最後まで誠実に寄り添います。
             </p>
             <div className="hero-ctas">
+              <button className="btn btn-primary" onClick={() => navigate("diagnosis")}>
+                匿名診断をする <span className="arrow" />
+              </button>
               <button className="btn btn-primary" onClick={() => navigate("contact")}>
                 無料で相談する <span className="arrow" />
               </button>
@@ -109,6 +112,33 @@ function PageHome({ navigate }) {
         <div className="hero-scroll">
           <div className="font-serif-en">scroll</div>
           <div className="hero-scroll-line" />
+        </div>
+      </section>
+
+      {/* MISSION STATEMENT */}
+      <section className="home-diagnosis-band">
+        <div className="container">
+          <div className="home-diagnosis-grid">
+            <div>
+              <div className="eyebrow">90 Days Continuity Check</div>
+              <h2 className="font-serif-jp">
+                明日から社長が90日不在でも、<br />
+                会社は回りますか。
+              </h2>
+              <p>
+                M&amp;Aを検討する前に、意思決定、顧客関係、資金情報、後継体制の偏りを10問で確認できます。
+                会社名・電話番号は不要。診断しただけで営業連絡が来ることはありません。
+              </p>
+            </div>
+            <div className="home-diagnosis-card">
+              <div className="font-serif-en">Anonymous Check</div>
+              <strong>10 Questions</strong>
+              <span>社内改善・採用・提携・第三者承継を横並びで比較</span>
+              <button className="btn btn-primary" onClick={() => navigate("diagnosis")}>
+                社長不在90日診断へ <span className="arrow" />
+              </button>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -252,6 +282,9 @@ function PageHome({ navigate }) {
               </p>
             </div>
             <div className="cta-actions">
+              <button className="btn btn-ghost-light" onClick={() => navigate("diagnosis")}>
+                まず匿名診断する
+              </button>
               <button className="btn btn-primary" onClick={() => navigate("contact")}>
                 無料相談を予約する <span className="arrow" />
               </button>
