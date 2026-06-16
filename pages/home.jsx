@@ -169,6 +169,7 @@ function PageHome({ navigate }) {
           <div className="services-grid">
             {services.map((s, i) => (
               <div className="service-card" key={s.side}>
+                <div className={`ph visual service-card-visual ${s.side === "Sellers" ? "visual-seller" : "visual-buyer"}`} />
                 <div className="service-num font-serif-en">{`0${i + 1}`}</div>
                 <div className="eyebrow">For {s.side}</div>
                 <h3 className="font-serif-jp" style={{ fontSize: 28, marginTop: 18 }}>{s.jp}</h3>

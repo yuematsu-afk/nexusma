@@ -165,6 +165,11 @@
   position: relative;
   transition: all 0.3s ease;
 }
+.service-card-visual {
+  height: 190px;
+  margin: -24px -16px 34px;
+  border: 1px solid var(--ink-100);
+}
 .service-card:hover {
   border-color: var(--gold-400);
   box-shadow: var(--shadow-lg);

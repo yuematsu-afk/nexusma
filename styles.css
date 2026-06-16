@@ -423,16 +423,29 @@ nav.primary { display: flex; align-items: center; gap: 36px; }
 .ph.visual {
   background-size: cover;
   background-position: center;
+  position: relative;
+  overflow: hidden;
 }
 .ph.visual::after { display: none; }
-.visual-boardroom { background-image: url("assets/boardroom.svg"); }
-.visual-manufacturing { background-image: url("assets/manufacturing.svg"); }
-.visual-saas { background-image: url("assets/saas.svg"); }
-.visual-healthcare { background-image: url("assets/healthcare.svg"); }
-.visual-logistics { background-image: url("assets/logistics.svg"); }
-.visual-food { background-image: url("assets/food.svg"); }
-.visual-office { background-image: url("assets/office.svg"); }
-.visual-portrait { background-image: url("assets/portrait.svg"); }
+.ph.visual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(10, 26, 48, 0.18), rgba(10, 26, 48, 0.02) 45%, rgba(201, 169, 97, 0.08)),
+    radial-gradient(circle at 80% 10%, rgba(247, 242, 233, 0.16), transparent 34%);
+  pointer-events: none;
+}
+.visual-boardroom { background-image: url("assets/generated/hero-advisory.webp"); }
+.visual-seller { background-image: url("assets/generated/seller-succession.webp"); }
+.visual-buyer { background-image: url("assets/generated/buyer-strategy.webp"); }
+.visual-manufacturing { background-image: url("assets/generated/industry-manufacturing.webp"); }
+.visual-saas { background-image: url("assets/generated/industry-saas.webp"); }
+.visual-healthcare { background-image: url("assets/generated/industry-healthcare.webp"); }
+.visual-logistics { background-image: url("assets/generated/industry-logistics.webp"); }
+.visual-food { background-image: url("assets/generated/industry-food.webp"); }
+.visual-office { background-image: url("assets/generated/news-insight.webp"); }
+.visual-portrait { background-image: url("assets/generated/company-profile.webp"); }
 
 /* ===== Animations ===== */
 @keyframes fadeUp {
