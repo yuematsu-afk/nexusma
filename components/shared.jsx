@@ -146,6 +146,7 @@ function Footer({ navigate }) {
           <div>© 2026 NexusM&amp;A All rights reserved.</div>
           <div className="legal">
             <a onClick={() => navigate("privacy")}>個人情報保護方針</a>
+            <a onClick={() => navigate("guideline")}>中小M&amp;Aガイドライン遵守</a>
             <a onClick={() => navigate("antisocial")}>反社会的勢力排除</a>
             <a onClick={() => navigate("sitemap")}>サイトマップ</a>
           </div>

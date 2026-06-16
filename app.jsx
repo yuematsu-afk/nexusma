@@ -39,6 +39,7 @@ function App() {
     case "glossary": page = <PageInfo navigate={navigate} type="glossary" />; break;
     case "privacy": page = <PageInfo navigate={navigate} type="privacy" />; break;
     case "antisocial": page = <PageInfo navigate={navigate} type="antisocial" />; break;
+    case "guideline": page = <PageInfo navigate={navigate} type="guideline" />; break;
     case "sitemap": page = <PageInfo navigate={navigate} type="sitemap" />; break;
     case "careers": page = <PageInfo navigate={navigate} type="careers" />; break;
     default: page = <PageHome navigate={navigate} />;

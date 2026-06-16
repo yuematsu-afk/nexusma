@@ -131,7 +131,8 @@ function PageCompany({ navigate }) {
               <tr><th>創業</th><td>2020年</td></tr>
               <tr><th>代表者</th><td>植松 勇樹</td></tr>
               <tr><th>所在地</th><td>京都府京都市</td></tr>
-              <tr><th>加盟団体</th><td>中小企業庁M&amp;A支援機関登録</td></tr>
+              <tr><th>登録</th><td>M&amp;A支援機関登録制度 登録支援機関</td></tr>
+              <tr><th>遵守方針</th><td><button className="text-link" onClick={() => navigate("guideline")}>中小M&amp;Aガイドライン遵守方針</button></td></tr>
             </tbody>
           </table>
         </div>

@@ -313,7 +313,24 @@ nav.primary { display: flex; align-items: center; gap: 36px; }
   letter-spacing: 0.06em;
   color: rgba(247, 242, 233, 0.45);
 }
-.footer-bottom .legal { display: flex; gap: 28px; }
+.footer-bottom .legal {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.text-link {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: var(--gold-700);
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.text-link:hover { color: var(--navy-900); }
 
 /* ===== Forms ===== */
 .field { display: block; margin-bottom: 26px; }
