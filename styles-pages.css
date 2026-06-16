@@ -957,6 +957,7 @@
   transform: translateY(-2px);
 }
 .full-text-document {
+  counter-reset: guideline-item;
   background: var(--white);
   border: 1px solid var(--ink-100);
   padding: 48px;
@@ -970,16 +971,69 @@
 .full-text-document .doc-title-line {
   color: var(--navy-900);
   font-family: var(--serif-jp);
-  font-size: 22px;
+  font-size: 24px;
   line-height: 1.7;
-  margin-bottom: 18px;
+  margin-bottom: 30px;
+  text-align: center;
 }
-.full-text-document .doc-section-line {
+.full-text-document .doc-center-line {
+  text-align: center;
   color: var(--navy-900);
   font-family: var(--serif-jp);
   font-size: 18px;
+  letter-spacing: 0.18em;
+  margin: 34px 0 28px;
+}
+.full-text-document .doc-end-line {
+  text-align: right;
+  color: var(--navy-900);
+  font-family: var(--serif-jp);
+  margin-top: 38px;
+}
+.full-text-document .doc-major-line {
+  color: var(--navy-900);
+  font-family: var(--serif-jp);
+  font-size: 19px;
   line-height: 1.8;
-  margin: 34px 0 16px;
+  margin: 42px 0 18px;
+  padding: 16px 20px;
+  background: var(--ivory);
+  border-left: 4px solid var(--gold-500);
+}
+.full-text-document .doc-sub-line {
+  color: var(--gold-700);
+  font-family: var(--serif-jp);
+  font-size: 17px;
+  line-height: 1.8;
+  margin: 30px 0 14px;
+  padding-left: 12px;
+  border-left: 2px solid var(--gold-400);
+}
+.full-text-document .doc-body-line {
+  counter-increment: guideline-item;
+  position: relative;
+  padding-left: 3.7em;
+  text-indent: 0;
+}
+.full-text-document .doc-body-line::before {
+  content: counter(guideline-item) ".";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2.8em;
+  color: var(--gold-700);
+  font-family: var(--serif-en);
+  font-style: italic;
+  text-align: right;
+}
+.full-text-document .doc-note-line {
+  color: var(--ink-500);
+  font-size: 13px;
+  line-height: 1.95;
+  margin-left: 3.7em;
+  padding: 12px 16px;
+  background: var(--paper);
+  border-left: 2px solid var(--ink-200);
 }
 
 /* Responsive */
@@ -1003,6 +1057,8 @@
   .sitemap-grid { grid-template-columns: 1fr; }
   .info-card { grid-template-columns: 1fr; padding: 26px 22px; }
   .full-text-document { padding: 30px 22px; font-size: 13.5px; }
+  .full-text-document .doc-body-line { padding-left: 3.2em; }
+  .full-text-document .doc-note-line { margin-left: 0; }
   .plan-card.featured { transform: none; }
   .lehman-table th:last-child, .lehman-table td:last-child { text-align: right; }
   .featured-news-body { padding: 32px 24px; }

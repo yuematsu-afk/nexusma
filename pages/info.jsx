@@ -1,7 +1,6 @@
 /* Informational pages */
 
 const GUIDELINE_FULL_TEXT = [
-  "（別紙1）HP掲載・顧客説明の際の参考資料",
   "中小M&Aガイドライン（第3版）遵守の宣言について",
   "SASAERU合同会社（NexusM&A）は、国が創設したM&A支援機関登録制度の登録を受けている支援機関であり、中小企業庁が定めた「中小M&Aガイドライン（第3版）」（令和6年8月）を遵守していることを、ここに宣言いたします。",
   "SASAERU合同会社（NexusM&A）は、中小M&Aガイドラインを遵守し、下記の取組・対応を実施しております。",
@@ -317,10 +316,23 @@ function PageInfo({ navigate, type }) {
           ) : page.fullText ? (
             <article className="full-text-document">
               {page.fullText.map((paragraph, i) => {
-                const isMainTitle = i <= 1;
-                const isSection = paragraph.startsWith("○") || paragraph.startsWith("【") || paragraph === "記" || paragraph === "以上";
+                const isMainTitle = i === 0;
+                const isCenter = paragraph === "記";
+                const isEnd = paragraph === "以上";
+                const isMajor = paragraph.startsWith("○");
+                const isSub = paragraph.startsWith("【");
+                const isNote = paragraph.startsWith("※");
+                const className = [
+                  isMainTitle ? "doc-title-line" : "",
+                  isCenter ? "doc-center-line" : "",
+                  isEnd ? "doc-end-line" : "",
+                  isMajor ? "doc-major-line" : "",
+                  isSub ? "doc-sub-line" : "",
+                  isNote ? "doc-note-line" : "",
+                  !isMainTitle && !isCenter && !isEnd && !isMajor && !isSub && !isNote ? "doc-body-line" : "",
+                ].filter(Boolean).join(" ");
                 return (
-                  <p key={`${i}-${paragraph.slice(0, 12)}`} className={isMainTitle ? "doc-title-line" : isSection ? "doc-section-line" : ""}>
+                  <p key={`${i}-${paragraph.slice(0, 12)}`} className={className}>
                     {paragraph}
                   </p>
                 );
