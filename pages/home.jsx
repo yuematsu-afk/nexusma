@@ -9,25 +9,25 @@ function PageHome({ navigate }) {
   }, []);
 
   const stats = [
-    { num: "0", suffix: "円", label: "着手金・中間金" },
-    { num: "100", suffix: "%", label: "秘密厳守" },
-    { num: "60", suffix: "以上", label: "対応可能業種数" },
-    { num: "2020", suffix: "年", label: "創業" },
+    { num: "全国", suffix: "", label: "対象エリア" },
+    { num: "全", suffix: "業種", label: "相談対象" },
+    { num: "登録", suffix: "", label: "M&A支援機関" },
+    { num: "無料", suffix: "", label: "初回相談" },
   ];
 
   const services = [
     {
       side: "Sellers",
       jp: "売り手の方へ",
-      lead: "次代へ託す、最良の選択を。",
-      points: ["事業承継・後継者問題の解決", "従業員・取引先を守る譲渡", "経営者保証の解除支援"],
+      lead: "次代へ託す選択肢を、静かに整理する。",
+      points: ["事業承継・後継者問題の整理", "従業員・取引先への影響確認", "経営者保証の扱いの検討"],
       cta: "service-seller",
     },
     {
       side: "Buyers",
       jp: "買い手の方へ",
-      lead: "戦略的成長のための、確かな案件を。",
-      points: ["独自ソーシングによる非公開案件", "業界別マッチング精度", "PMIまで伴走"],
+      lead: "成長戦略に合う可能性を、丁寧に検討する。",
+      points: ["投資方針・希望条件の整理", "候補案件の段階的な確認", "成約後の移行論点の整理"],
       cta: "service-buyer",
     },
   ];
@@ -54,10 +54,10 @@ function PageHome({ navigate }) {
         </div>
         <div className="container hero-grid">
           <div className="hero-copy">
-            <div className="eyebrow">Private M&amp;A Advisory · Since 2020</div>
+            <div className="eyebrow">Private M&amp;A Advisory</div>
             <h1 className="hero-title font-serif-jp">
               企業の一生に、<br />
-              <span className="hero-title-em">最善の選択肢</span>を。
+              <span className="hero-title-em">納得できる選択肢</span>を。
             </h1>
             <p className="hero-lead">
               中小企業の事業承継・成長戦略M&amp;Aに特化した独立系アドバイザリー。<br />
@@ -71,23 +71,23 @@ function PageHome({ navigate }) {
                 無料で相談する <span className="arrow" />
               </button>
               <button className="btn btn-ghost-light" onClick={() => navigate("cases")}>
-                案件を見る
+                案件イメージを見る
               </button>
             </div>
             <div className="hero-trust">
               <div className="trust-item">
-                <div className="trust-num font-serif-en">完全<span style={{fontSize:14}}>成功報酬</span></div>
-                <div className="trust-label">着手金・中間金 ¥0</div>
+                <div className="trust-num font-serif-en">事前<span style={{fontSize:14}}>説明</span></div>
+                <div className="trust-label">手数料・業務範囲を明確化</div>
               </div>
               <div className="trust-sep" />
               <div className="trust-item">
                 <div className="trust-num font-serif-en">秘密<span style={{fontSize:14}}>厳守</span></div>
-                <div className="trust-label">守秘義務契約のもと対応</div>
+                <div className="trust-label">秘密保持に配慮して対応</div>
               </div>
               <div className="trust-sep" />
               <div className="trust-item">
                 <div className="trust-num font-serif-en">初回<span style={{fontSize:14}}>無料</span></div>
-                <div className="trust-label">相談・企業評価無料</div>
+                <div className="trust-label">まずはメールでも相談可能</div>
               </div>
             </div>
           </div>
@@ -101,8 +101,8 @@ function PageHome({ navigate }) {
                 <div className="hero-overlay-mark">
                   <div className="hero-overlay-num font-serif-en">N°08</div>
                   <div className="hero-overlay-text">
-                    <div className="font-serif-en" style={{ fontStyle: "italic", fontSize: 13, color: "var(--gold-400)" }}>Featured Mandate</div>
-                    <div style={{ color: "var(--ivory)", fontSize: 15, marginTop: 4, fontFamily: "var(--serif-jp)" }}>関西・精密部品メーカー譲渡</div>
+                    <div className="font-serif-en" style={{ fontStyle: "italic", fontSize: 13, color: "var(--gold-400)" }}>Advisory Theme</div>
+                    <div style={{ color: "var(--ivory)", fontSize: 15, marginTop: 4, fontFamily: "var(--serif-jp)" }}>事業承継・成長戦略M&amp;A</div>
                   </div>
                 </div>
               </div>
@@ -152,8 +152,8 @@ function PageHome({ navigate }) {
           </h2>
           <div className="gold-rule" style={{ margin: "48px auto" }} />
           <p style={{ color: "var(--ink-500)", fontSize: 15, lineHeight: 2, maxWidth: 680, margin: "0 auto" }}>
-            私たちは、件数ではなく一件一件の質を、報酬ではなく経営者の納得を、最優先に考えます。<br />
-            京都を拠点に、全国の中小企業経営者の重要な決断に、誠実に寄り添います。
+            私たちは、件数だけではなく一件一件の質を、報酬だけではなく経営者の納得を大切に考えます。<br />
+            全国の中小企業経営者の重要な決断に、誠実に寄り添います。
           </p>
         </div>
       </section>
@@ -164,7 +164,7 @@ function PageHome({ navigate }) {
           <SectionHead
             eyebrow="Our Services"
             title="売り手にも、買い手にも、対等に。"
-            lead="どちらか一方に偏らない助言体制。中立性こそが、双方にとっての最大価値だと考えています。"
+            lead="どちらか一方に偏らない助言体制。中立性を大切にしながら、双方が納得できる接点を探します。"
           />
           <div className="services-grid">
             {services.map((s, i) => (
@@ -195,7 +195,7 @@ function PageHome({ navigate }) {
             <div className="eyebrow" style={{ color: "var(--gold-400)" }}>The Process</div>
             <h2 style={{ color: "var(--ivory)", fontSize: 38, marginTop: 16 }}>成約までの、6つの歩み。</h2>
             <p className="lead" style={{ color: "rgba(247,242,233,0.65)" }}>
-              ご相談から成約・統合まで、平均8〜14ヶ月。すべての段階で専任チームが伴走します。
+              期間や進め方は案件ごとに異なります。各段階で必要な確認事項を整理しながら進めます。
             </p>
           </div>
           <ProcessTimeline active={tlStep} onStep={setTlStep} />
@@ -226,10 +226,10 @@ function PageHome({ navigate }) {
           <div className="section-head" style={{ textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 64 }}>
             <div>
               <div className="eyebrow">Featured Mandates</div>
-              <h2 style={{ fontSize: 38, marginTop: 16 }}>本日の注目案件。</h2>
+              <h2 style={{ fontSize: 38, marginTop: 16 }}>掲載イメージ案件。</h2>
             </div>
             <button className="btn btn-ghost" onClick={() => navigate("cases")}>
-              すべての案件 <span className="arrow" />
+              案件イメージを見る <span className="arrow" />
             </button>
           </div>
           <div className="feature-grid">
@@ -279,7 +279,7 @@ function PageHome({ navigate }) {
                 経営の重要な決断は、<br />信頼できる相手と。
               </h2>
               <p style={{ color: "rgba(247,242,233,0.7)", marginTop: 22, fontSize: 14, maxWidth: 480 }}>
-                完全秘密厳守。情報は守秘義務契約のもとで取り扱います。初回のご相談は無料です。
+                ご相談内容は秘密保持に配慮して取り扱います。必要に応じて守秘義務契約を締結します。初回のご相談は無料です。
               </p>
             </div>
             <div className="cta-actions">

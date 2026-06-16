@@ -12,7 +12,7 @@ const ALL_CASES = [
   { id: "C-1228", industry: "農業・食品", region: "北海道", revenue: "7.3億円", profit: "0.8億円", emp: "24名", years: "創業27年", note: "有機野菜直販／首都圏レストラン直接取引", tags: ["6次産業化"] },
   { id: "C-1219", industry: "ITサービス", region: "東京", revenue: "11.2億円", profit: "1.6億円", emp: "63名", years: "創業16年", note: "受託開発・SES／自社プロダクトへのピボット途上", tags: ["成長企業", "技術力"] },
   { id: "C-1208", industry: "卸売・商社", region: "中部", revenue: "18.7億円", profit: "1.1億円", emp: "37名", years: "創業46年", note: "産業資材専門商社／中部圏シェア上位", tags: ["事業承継"] },
-  { id: "C-1195", industry: "医療・介護", region: "関西", revenue: "14.6億円", profit: "1.9億円", emp: "92名", years: "創業20年", note: "訪問介護＋デイサービス4拠点／黒字経営継続", tags: ["安定収益"], status: "新着" },
+  { id: "C-1195", industry: "医療・介護", region: "関西", revenue: "14.6億円", profit: "1.9億円", emp: "90名程度", years: "設立20年程度", note: "訪問介護＋デイサービス4拠点／黒字経営継続", tags: ["安定収益"], status: "新着" },
 ];
 
 const INDUSTRIES = ["すべて", "IT・SaaS", "製造業", "調剤薬局", "建設・設備", "食品製造", "物流・倉庫", "教育・スクール", "美容・サロン", "農業・食品", "ITサービス", "卸売・商社", "医療・介護"];
@@ -52,14 +52,14 @@ function PageCases({ navigate }) {
       <main>
         <PageHero
           eyebrow="Mandate Detail"
-          title={`${selectedCase.industry}案件の概要。`}
-          lead="掲載内容は概要情報です。詳細情報の開示には、秘密保持と個別確認が必要です。"
-          crumbs={["案件一覧", selectedCase.id]}
+          title={`${selectedCase.industry}案件の掲載イメージ。`}
+          lead="掲載内容はイメージです。実際の取り扱い案件は、ご相談後に個別にご案内します。"
+          crumbs={["案件イメージ", selectedCase.id]}
           navigate={navigate}
         />
         <section style={{ background: "var(--paper)" }}>
           <div className="container">
-            <button className="btn btn-ghost" onClick={() => setSelectedCase(null)}>← 案件一覧へ戻る</button>
+            <button className="btn btn-ghost" onClick={() => setSelectedCase(null)}>← 案件イメージへ戻る</button>
             <div className="case-detail-layout">
               <div className={`ph visual case-detail-image ${getVisualClass(selectedCase.industry)}`} />
               <div className="case-detail-panel">
@@ -71,8 +71,8 @@ function PageCases({ navigate }) {
                 </div>
                 <h2>{selectedCase.note}</h2>
                 <p>
-                  当該案件は、事業承継または成長戦略を背景に検討される想定案件です。
-                  実際の詳細資料は、買収方針・資金計画・秘密保持の確認後に個別案内します。
+                  当該情報は、業種・規模・論点を理解しやすくするための掲載イメージです。
+                  実際の案件情報は、秘密保持や開示範囲を確認したうえで個別にご案内します。
                 </p>
                 <div className="case-detail-metrics">
                   <div><span>売上高</span><strong>{selectedCase.revenue}</strong></div>
@@ -88,8 +88,8 @@ function PageCases({ navigate }) {
                 </ul>
                 <h3>次のステップ</h3>
                 <p>
-                  詳細確認を希望される場合は、問い合わせフォームから買い手登録を行ってください。
-                  条件に合う場合のみ、ノンネーム情報から段階的にご案内します。
+                  買い手としての希望条件がある場合は、問い合わせフォームからご相談ください。
+                  条件に合う可能性がある場合に、段階的に確認を進めます。
                 </p>
                 <button className="btn btn-primary" onClick={() => navigate("contact")}>詳細確認を相談する <span className="arrow" /></button>
               </div>
@@ -104,9 +104,9 @@ function PageCases({ navigate }) {
     <main>
       <PageHero
         eyebrow="Mandates"
-        title="M&A案件一覧。"
+        title="M&A案件イメージ。"
         lead="掲載案件はイメージ表示です。実際の取り扱い案件は、ご相談後に個別にご案内いたします。"
-        crumbs={["案件一覧"]}
+        crumbs={["案件イメージ"]}
         navigate={navigate}
       />
 
@@ -227,9 +227,9 @@ function PageCases({ navigate }) {
           <div className="cta-inner">
             <div>
               <div className="eyebrow" style={{ color: "var(--gold-400)" }}>Premium Mandates</div>
-              <h2 style={{ color: "var(--ivory)", fontSize: 34, marginTop: 18, lineHeight: 1.6 }}>非公開案件のご紹介。</h2>
+            <h2 style={{ color: "var(--ivory)", fontSize: 34, marginTop: 18, lineHeight: 1.6 }}>買い手候補としてのご相談。</h2>
               <p style={{ color: "rgba(247,242,233,0.7)", marginTop: 22, fontSize: 14, maxWidth: 520 }}>
-                掲載案件は当社が扱う案件の一部です。投資基準をご登録いただくと、要件に合致する非公開案件を個別にご案内します。
+                掲載案件はイメージです。投資基準をご登録いただき、条件に合う可能性がある場合に個別にご案内します。
               </p>
             </div>
             <div className="cta-actions">

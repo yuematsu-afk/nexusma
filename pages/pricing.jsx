@@ -1,58 +1,52 @@
 /* Pricing page */
 
 function PagePricing({ navigate }) {
-  const plans = [
+  const policies = [
     {
-      name: "セラー・スタンダード",
-      en: "Seller — Standard",
-      tag: "売り手の方向け",
-      price: "完全成功報酬",
-      priceSub: "成約時のみ／レーマン方式",
-      desc: "ご相談から成約まで一切の着手金・中間金は不要。成約に至らなかった場合の費用は発生しません。",
+      name: "初回相談",
+      en: "Initial Consultation",
+      tag: "まず状況整理から",
+      price: "無料",
+      priceSub: "会社名を出す前の相談も可能",
+      desc: "譲渡・買収を前提にせず、現状、目的、検討時期、守りたい条件を整理します。",
       features: [
-        { label: "初回相談", val: "無料" },
-        { label: "簡易企業評価", val: "無料" },
-        { label: "着手金", val: "無料" },
-        { label: "中間金", val: "無料" },
-        { label: "成功報酬", val: "レーマン方式" },
-        { label: "最低報酬", val: "800万円〜" },
+        { label: "相談方法", val: "メール / オンライン" },
+        { label: "電話番号", val: "任意" },
+        { label: "秘密保持", val: "個別に配慮" },
+        { label: "営業停止意思", val: "尊重" },
       ],
-      cta: "無料相談を予約する",
+      cta: "無料相談をする",
       featured: true,
     },
     {
-      name: "バイヤー・アドバイザリー",
-      en: "Buyer — Advisory",
-      tag: "買い手の方向け",
-      price: "月額固定 + 成功報酬",
-      priceSub: "FA契約／レーマン方式",
-      desc: "投資戦略に基づくターゲット選定からPMIまで、買い手側の専属アドバイザーとして伴走します。",
+      name: "仲介・FA契約",
+      en: "Advisory Contract",
+      tag: "契約前に明確説明",
+      price: "個別提示",
+      priceSub: "業務範囲・報酬体系を事前説明",
+      desc: "業務内容、手数料、支払時期、最低手数料の有無、専任条項、テール条項などを、契約前に書面又は電磁的方法で説明します。",
       features: [
-        { label: "戦略コンサルティング", val: "月額50万円〜" },
-        { label: "ロングリスト作成", val: "含む" },
-        { label: "アプローチ実行", val: "含む" },
-        { label: "成功報酬", val: "レーマン方式" },
-        { label: "PMI支援", val: "オプション" },
-        { label: "最低契約期間", val: "6ヶ月" },
+        { label: "業務範囲", val: "契約前に説明" },
+        { label: "手数料", val: "個別提示" },
+        { label: "直接交渉制限", val: "有無を説明" },
+        { label: "テール条項", val: "有無を説明" },
       ],
-      cta: "FA契約を相談する",
+      cta: "契約条件を相談する",
     },
     {
-      name: "プレミア・コンシェルジュ",
-      en: "Premier — Concierge",
-      tag: "大型・複雑案件",
-      price: "個別見積",
-      priceSub: "完全カスタム",
-      desc: "30億円超のクロスボーダー案件や、ファミリービジネスの複雑な再編など、特殊案件向けの最上位サービス。",
+      name: "専門家連携",
+      en: "Expert Support",
+      tag: "必要に応じて連携",
+      price: "個別確認",
+      priceSub: "士業等の費用は別途確認",
+      desc: "弁護士、公認会計士、税理士、司法書士等の専門家が必要となる場合、費用の種類や支払時期を事前に確認します。",
       features: [
-        { label: "専任シニアパートナー", val: "含む" },
-        { label: "クロスボーダー対応", val: "含む" },
-        { label: "税務・法務スキーム設計", val: "含む" },
-        { label: "ファミリーガバナンス", val: "オプション" },
-        { label: "資産承継統合相談", val: "含む" },
-        { label: "ご相談", val: "個別" },
+        { label: "法務", val: "必要に応じて" },
+        { label: "税務・会計", val: "必要に応じて" },
+        { label: "登記・労務", val: "必要に応じて" },
+        { label: "外部費用", val: "事前確認" },
       ],
-      cta: "個別相談する",
+      cta: "専門家連携を相談する",
     },
   ];
 
@@ -60,51 +54,43 @@ function PagePricing({ navigate }) {
     <main>
       <PageHero
         eyebrow="Fee Structure"
-        title="料金プラン。"
-        lead="完全成功報酬制を基本とし、着手金・中間金は一切いただきません。明朗で、お客様のリスクを最小化する料金体系をご用意しています。"
-        crumbs={["料金プラン"]}
+        title="料金・契約条件。"
+        lead="NexusM&Aでは、仲介契約・FA契約の締結前に、業務範囲、手数料、支払時期、最低手数料の有無、専任条項、直接交渉制限、テール条項などの重要事項を明確に説明します。"
+        crumbs={["料金・契約条件"]}
         navigate={navigate}
       />
 
-      {/* Lehman explanation */}
       <section style={{ background: "var(--ivory)" }}>
         <div className="container narrow">
           <SectionHead
-            eyebrow="Lehman Formula"
-            title="レーマン方式について。"
-            lead="日本のM&A仲介業界で標準的に採用されている、譲渡金額に応じた逓減型の報酬体系です。"
+            eyebrow="Policy"
+            title="契約前に、重要事項を説明します。"
+            lead="M&A支援機関として、中小M&Aガイドラインの趣旨に沿い、依頼者が十分に検討できるよう必要事項を整理して説明します。"
           />
           <div className="lehman-table-wrap">
             <table className="lehman-table">
-              <thead>
-                <tr>
-                  <th>譲渡金額（株式譲渡対価＋負債）</th>
-                  <th>料率</th>
-                </tr>
-              </thead>
               <tbody>
-                <tr><td>2億円以下の部分</td><td className="font-serif-en"><em>10</em>%</td></tr>
-                <tr><td>2億円超 〜 5億円以下の部分</td><td className="font-serif-en"><em>8</em>%</td></tr>
-                <tr><td>5億円超 〜 10億円以下の部分</td><td className="font-serif-en"><em>6</em>%</td></tr>
-                <tr><td>10億円以上の部分</td><td className="font-serif-en"><em>4</em>%</td></tr>
+                <tr><td>業務形態</td><td>仲介者とFAの違い、提供する業務の範囲を説明します。</td></tr>
+                <tr><td>手数料</td><td>算定基準、金額、最低手数料の有無、支払時期等を説明します。</td></tr>
+                <tr><td>外部費用</td><td>士業等の専門家費用、調査費用等が発生する場合は事前に確認します。</td></tr>
+                <tr><td>契約条項</td><td>専任条項、直接交渉制限、テール条項、中途解約等を説明します。</td></tr>
               </tbody>
             </table>
-            <p className="lehman-note">※ 最低報酬：800万円（消費税別）</p>
+            <p className="lehman-note">※ 具体的な報酬体系・金額は、案件内容・業務範囲・契約形態に応じて個別に提示します。</p>
           </div>
         </div>
       </section>
 
-      {/* Plans */}
       <section style={{ background: "var(--white)" }}>
         <div className="container">
           <SectionHead
             eyebrow="Plans"
-            title="3つのサービスプラン。"
+            title="相談・契約の進め方。"
           />
           <div className="plans-grid">
-            {plans.map((p) => (
+            {policies.map((p) => (
               <div key={p.name} className={`plan-card ${p.featured ? "featured" : ""}`}>
-                {p.featured && <div className="plan-ribbon">最もご利用が多いプラン</div>}
+                {p.featured && <div className="plan-ribbon">最初の入口</div>}
                 <div className="plan-header">
                   <div className="eyebrow" style={{ color: p.featured ? "var(--gold-400)" : "var(--gold-600)" }}>{p.en}</div>
                   <h3 className="font-serif-jp" style={{ fontSize: 26, marginTop: 14, color: p.featured ? "var(--ivory)" : "var(--navy-900)" }}>{p.name}</h3>
@@ -136,16 +122,15 @@ function PagePricing({ navigate }) {
         </div>
       </section>
 
-      {/* FAQ snippet */}
       <section style={{ background: "var(--paper)" }}>
         <div className="container narrow">
-          <SectionHead eyebrow="FAQ" title="料金に関する、よくあるご質問。" />
+          <SectionHead eyebrow="FAQ" title="料金・契約条件に関するご質問。" />
           <div className="faq-list">
             {[
-              { q: "本当に成約まで費用は発生しませんか？", a: "セラー向けプランでは、初回相談・簡易企業評価・着手金・中間金すべて無料です。最終契約締結時にのみ成功報酬が発生します。" },
-              { q: "成約に至らなかった場合の費用は？", a: "セラー向けプランでは費用は一切発生しません。バイヤー向けFA契約の場合は、月額アドバイザリーフィーのみ発生し、成功報酬は不要です。" },
-              { q: "最低報酬800万円とは？", a: "レーマン方式による計算結果が800万円を下回る場合でも、最低報酬として800万円をご請求させていただきます。小規模案件が該当する可能性があります。" },
-              { q: "他社との相見積もりは可能ですか？", a: "もちろん可能です。サービス内容と料金体系の透明性には自信がございます。ご検討の上、ご判断ください。" },
+              { q: "具体的な手数料はどこで確認できますか？", a: "契約締結前に、業務範囲、算定基準、金額、最低手数料の有無、支払時期などを書面又は電磁的方法で説明します。" },
+              { q: "初回相談だけでも可能ですか？", a: "可能です。譲渡・買収を前提にせず、現状整理や選択肢の確認からご相談いただけます。" },
+              { q: "外部専門家の費用はどうなりますか？", a: "弁護士、公認会計士、税理士等の外部専門家が必要となる場合、費用の種類や支払時期を事前に確認します。" },
+              { q: "他の支援機関に相談できますか？", a: "セカンド・オピニオンの可否や情報管理の条件は、契約前に説明します。必要に応じて公的機関や士業等への相談も選択肢として整理します。" },
             ].map((f, i) => (
               <details key={i} className="faq-item">
                 <summary>

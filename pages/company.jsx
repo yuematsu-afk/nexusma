@@ -5,16 +5,16 @@ function PageCompany({ navigate }) {
     { num: "01", title: "中立", jp: "Neutrality", desc: "売り手と買い手、どちらに偏ることもなく、双方が納得できる合意点を見つけ出します。" },
     { num: "02", title: "誠実", jp: "Integrity", desc: "短期的な成約数より、お客様の人生にとっての正しい意思決定を優先します。" },
     { num: "03", title: "専門", jp: "Expertise", desc: "公認会計士・税理士・弁護士と連携した、専門家チームによる助言体制。" },
-    { num: "04", title: "持続", jp: "Continuity", desc: "成約は終わりではなく、企業の次章の始まり。PMIまで責任を持って伴走します。" },
+    { num: "04", title: "持続", jp: "Continuity", desc: "成約後の移行も見据え、事業の継続性に配慮して論点を整理します。" },
   ];
 
   const members = [
-    { name: "植松 勇樹", en: "Yuuki Uematsu", role: "代表", bio: "2020年にNexusM&Aを設立。中小企業の事業承継・M&Aを専門に、経営者の重要な決断に寄り添うアドバイザリーサービスを提供。" },
+    { name: "植松 勇樹", en: "Yuuki Uematsu", role: "代表", bio: "中小企業の事業承継・M&Aに関する相談を受け、経営者の重要な意思決定に寄り添う支援を行います。" },
   ];
 
   const milestones = [
-    { year: "2020", title: "創業", desc: "京都府京都市にて植松勇樹が設立。中小企業M&Aアドバイザリー事業を開始。" },
-    { year: "2026", title: "サービス本格展開", desc: "全国の中小企業を対象に、事業承継・成長戦略M&Aの支援を強化。" },
+    { year: "01", title: "全国対応", desc: "全国の中小企業を対象に、事業承継・成長戦略M&Aに関する相談を受け付けています。" },
+    { year: "02", title: "全業種対応", desc: "業種を限定せず、初期相談の段階で状況や検討目的を整理します。" },
   ];
 
   return (
@@ -22,7 +22,7 @@ function PageCompany({ navigate }) {
       <PageHero
         eyebrow="Our Company"
         title="会社概要・代表メッセージ。"
-        lead="京都を拠点に、中小企業の事業承継・M&Aを専門とする独立系アドバイザリー。私たちNexusM&Aの考え方をご紹介します。"
+        lead="全国の中小企業を対象に、事業承継・M&Aに関する相談を受け付ける独立系アドバイザリー。私たちNexusM&Aの考え方をご紹介します。"
         crumbs={["会社概要"]}
         navigate={navigate}
       />
@@ -35,7 +35,7 @@ function PageCompany({ navigate }) {
               <div className="ph ph-dark visual visual-portrait ceo-portrait" data-label="Portrait" />
               <div className="ceo-portrait-cap">
                 <div className="font-serif-jp" style={{ fontSize: 18, color: "var(--ivory)", letterSpacing: "0.08em" }}>植松 勇樹</div>
-                <div className="font-serif-en" style={{ fontStyle: "italic", fontSize: 13, color: "var(--gold-400)", marginTop: 4 }}>Yuuki Uematsu — Founder & CEO</div>
+                <div className="font-serif-en" style={{ fontStyle: "italic", fontSize: 13, color: "var(--gold-400)", marginTop: 4 }}>Yuuki Uematsu — Representative</div>
               </div>
             </div>
             <div className="ceo-message">
@@ -50,14 +50,14 @@ function PageCompany({ navigate }) {
                 M&Aは、単なる取引ではありません。創業者にとっては数十年の人生を託す決断であり、従業員にとっては未来の生活を左右する出来事です。だからこそ、件数や報酬ではなく、一件一件の質と納得感を最優先に考えます。
               </p>
               <p>
-                派手な広告も、強引な営業もいたしません。京都を拠点に、全国の中小企業経営者の重要な決断に、最初のご相談から成約後まで、誠実に伴走することをお約束します。
+                派手な広告や強引な営業に頼らず、全国の中小企業経営者の重要な決断に、誠実に向き合います。
               </p>
               <p>
                 次の章へ向かう、あなたの大切な決断に、お手伝いさせていただけましたら幸いです。
               </p>
               <div className="ceo-sig">
                 <div className="font-serif-jp" style={{ fontSize: 22, color: "var(--navy-900)", letterSpacing: "0.08em" }}>植松 勇樹</div>
-                <div className="font-serif-en" style={{ fontStyle: "italic", color: "var(--ink-500)", fontSize: 13, marginTop: 4 }}>NexusM&amp;A — Founder & CEO</div>
+                <div className="font-serif-en" style={{ fontStyle: "italic", color: "var(--ink-500)", fontSize: 13, marginTop: 4 }}>NexusM&amp;A — Representative</div>
               </div>
             </div>
           </div>
@@ -84,7 +84,7 @@ function PageCompany({ navigate }) {
       {/* Milestones */}
       <section style={{ background: "var(--ivory)" }}>
         <div className="container">
-          <SectionHead eyebrow="Our History" title="歩み。" />
+          <SectionHead eyebrow="Service Area" title="対応範囲。" />
           <div className="milestone-wrap">
             {milestones.map((m, i) => (
               <div key={m.year} className="milestone">
@@ -128,9 +128,10 @@ function PageCompany({ navigate }) {
           <table className="profile-table">
             <tbody>
               <tr><th>屋号</th><td>NexusM&amp;A</td></tr>
-              <tr><th>創業</th><td>2020年</td></tr>
+              <tr><th>運営者</th><td>SASAERU合同会社</td></tr>
               <tr><th>代表者</th><td>植松 勇樹</td></tr>
-              <tr><th>所在地</th><td>京都府京都市</td></tr>
+              <tr><th>対象地域</th><td>全国</td></tr>
+              <tr><th>対象業種</th><td>全業種</td></tr>
               <tr><th>登録</th><td>M&amp;A支援機関登録制度 登録支援機関</td></tr>
               <tr><th>遵守方針</th><td><button className="text-link" onClick={() => navigate("guideline")}>中小M&amp;Aガイドライン遵守方針</button></td></tr>
             </tbody>

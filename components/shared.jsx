@@ -7,7 +7,7 @@ function Brand({ size = "default", onClick }) {
       <div className="brand-mark">N</div>
       <div className="brand-name">
         NexusM&amp;A
-        <span className="sub">PRIVATE ADVISORY · EST. 2020</span>
+        <span className="sub">PRIVATE ADVISORY</span>
       </div>
     </div>
   );
@@ -23,9 +23,9 @@ function Header({ route, navigate }) {
   const links = [
     { id: "service-seller", label: "売り手の方へ" },
     { id: "service-buyer", label: "買い手の方へ" },
-    { id: "cases", label: "案件一覧" },
-    { id: "results", label: "成約実績" },
-    { id: "pricing", label: "料金プラン" },
+    { id: "cases", label: "案件イメージ" },
+    { id: "results", label: "事例イメージ" },
+    { id: "pricing", label: "料金・契約条件" },
     { id: "company", label: "会社概要" },
     { id: "news", label: "ニュース" },
     { id: "diagnosis", label: "匿名診断" },
@@ -110,7 +110,7 @@ function Footer({ navigate }) {
           <div className="footer-brand">
             <Brand />
             <p>
-              京都を拠点に、中小企業の事業承継・M&amp;Aを専門とする独立系アドバイザリー・ファームです。経営者の重要な決断に、誠実に寄り添います。
+              全国の中小企業を対象に、事業承継・M&amp;Aに関する相談を受け付ける独立系アドバイザリーです。経営者の重要な決断に、誠実に寄り添います。
             </p>
           </div>
           <div>
@@ -118,15 +118,15 @@ function Footer({ navigate }) {
             <ul>
               <li><a onClick={() => navigate("service-seller")}>売り手の方へ</a></li>
               <li><a onClick={() => navigate("service-buyer")}>買い手の方へ</a></li>
-              <li><a onClick={() => navigate("cases")}>案件一覧</a></li>
+              <li><a onClick={() => navigate("cases")}>案件イメージ</a></li>
               <li><a onClick={() => navigate("diagnosis")}>社長不在90日診断</a></li>
-              <li><a onClick={() => navigate("pricing")}>料金プラン</a></li>
+              <li><a onClick={() => navigate("pricing")}>料金・契約条件</a></li>
             </ul>
           </div>
           <div>
             <h5>事例 & 知見</h5>
             <ul>
-              <li><a onClick={() => navigate("results")}>成約実績</a></li>
+              <li><a onClick={() => navigate("results")}>事例イメージ</a></li>
               <li><a onClick={() => navigate("news")}>コラム・ニュース</a></li>
               <li><a onClick={() => navigate("diagnosis")}>匿名セルフチェック</a></li>
               <li><a onClick={() => navigate("glossary")}>用語集</a></li>
@@ -159,12 +159,12 @@ function Footer({ navigate }) {
 /* Animated process timeline — full M&A flow */
 function ProcessTimeline({ active = 0, onStep }) {
   const steps = [
-    { num: "01", phase: "Inquiry", jp: "ご相談", desc: "守秘義務契約のもと、現状ヒアリングと初期方針の策定。", days: "1〜2週間" },
-    { num: "02", phase: "Valuation", jp: "企業評価", desc: "財務・事業・無形資産を多角的に分析し、適正価値を算定。", days: "2〜4週間" },
-    { num: "03", phase: "Matching", jp: "マッチング", desc: "ノンネームシートを広範なネットワークへ照会し、最適な候補先を探索。", days: "1〜3ヶ月" },
-    { num: "04", phase: "Negotiation", jp: "交渉・基本合意", desc: "意向表明、トップ面談、条件交渉、基本合意書（LOI）の締結。", days: "2〜3ヶ月" },
-    { num: "05", phase: "Due Diligence", jp: "デュー・ディリジェンス", desc: "財務・法務・税務・事業の精査を専門家と連携して支援。", days: "1〜2ヶ月" },
-    { num: "06", phase: "Closing", jp: "最終契約・成約", desc: "最終契約締結、決済、PMI（統合プロセス）まで伴走。", days: "1ヶ月〜" },
+    { num: "01", phase: "Inquiry", jp: "ご相談", desc: "秘密保持に配慮しながら、現状と検討目的を整理します。", days: "初期整理" },
+    { num: "02", phase: "Valuation", jp: "企業評価", desc: "評価手法や前提条件を説明したうえで、参考となる価格感を整理します。", days: "方針確認" },
+    { num: "03", phase: "Matching", jp: "マッチング", desc: "譲り渡し側の同意と秘密保持を前提に、候補先への段階的な情報開示を行います。", days: "個別進行" },
+    { num: "04", phase: "Negotiation", jp: "交渉・基本合意", desc: "条件、役割、スケジュールを確認しながら、基本合意に向けた調整を支援します。", days: "個別進行" },
+    { num: "05", phase: "Due Diligence", jp: "デュー・ディリジェンス", desc: "専門家の活用も含め、必要資料の準備と確認プロセスを支援します。", days: "個別進行" },
+    { num: "06", phase: "Closing", jp: "最終契約・成約", desc: "最終契約、決済、成約後の移行に向けた確認を支援します。", days: "最終確認" },
   ];
 
   const [tick, setTick] = useState(active);

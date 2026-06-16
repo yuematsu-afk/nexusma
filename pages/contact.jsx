@@ -46,7 +46,7 @@ function PageContact({ navigate }) {
     `お名前: ${data.name}`,
     `メール: ${data.email}`,
     `電話番号: ${data.phone || "未記入"}`,
-    `ご相談方法: ${({ email: "メールでまず相談", online: "オンライン面談", office: "弊社オフィスにて面談", visit: "貴社・ご指定場所まで訪問" })[data.method]}`,
+    `ご相談方法: ${({ email: "メールでまず相談", online: "オンライン面談", office: "対面でのご相談", visit: "訪問相談を希望" })[data.method]}`,
     "",
     "ご相談内容:",
     data.message || "未記入",
@@ -114,7 +114,7 @@ function PageContact({ navigate }) {
       <PageHero
         eyebrow="Confidential Consultation"
         title="無料相談フォーム。"
-        lead="お問い合わせ内容はすべて守秘義務契約のもとで取り扱います。お気軽にご相談ください。"
+        lead="お問い合わせ内容は秘密保持に配慮して取り扱います。必要に応じて守秘義務契約を締結します。お気軽にご相談ください。"
         crumbs={["無料相談"]}
         navigate={navigate}
       />
@@ -144,7 +144,7 @@ function PageContact({ navigate }) {
                 <div className="form-step">
                   <div className="form-step-eyebrow font-serif-en">Step 01 of {total - 1}</div>
                   <h3 className="font-serif-jp" style={{ fontSize: 28, marginTop: 14 }}>どのお立場でご相談ですか？</h3>
-                  <p className="form-step-lead">ご立場に応じて、最適な担当者をアサインいたします。</p>
+                  <p className="form-step-lead">ご立場に応じて、相談内容を確認する担当者が対応いたします。</p>
                   <div className="role-options">
                     {[
                       { v: "seller", title: "売り手・譲渡をご検討", desc: "事業承継／会社売却／一部事業譲渡 など" },
@@ -201,7 +201,7 @@ function PageContact({ navigate }) {
                   <div className="field">
                     <label>主なご関心事項（複数選択可）</label>
                     <div className="chips">
-                      {["事業承継", "後継者不在", "経営者保証の解除", "従業員の雇用継続", "創業者利潤", "成長戦略", "業界再編", "海外展開"].map((x) => (
+                      {["事業承継", "後継者不在", "経営者保証の扱い", "従業員の雇用継続", "創業者利潤", "成長戦略", "業界再編", "海外展開"].map((x) => (
                         <button key={x} className={`chip ${data.concerns.includes(x) ? "selected" : ""}`} onClick={() => toggle("concerns", x)}>{x}</button>
                       ))}
                     </div>
@@ -255,8 +255,8 @@ function PageContact({ navigate }) {
                     {[
                       { v: "email", title: "メールでまず相談", desc: "電話なしで、概要共有と次の進め方の確認から始めます。", icon: "email" },
                       { v: "online", title: "オンライン面談", desc: "Zoom / Microsoft Teams で実施。60〜90分。", icon: "online" },
-                      { v: "office", title: "弊社オフィスにて面談", desc: "丸の内本社・各支社で対応。秘匿性を最優先。", icon: "office" },
-                      { v: "visit", title: "貴社・ご指定場所まで訪問", desc: "首都圏／主要都市は当日中対応も可能。", icon: "visit" },
+                      { v: "office", title: "対面でのご相談", desc: "場所・日時は個別に調整します。秘匿性に配慮して進めます。", icon: "office" },
+                      { v: "visit", title: "訪問相談を希望", desc: "地域・内容に応じて、対応可否を個別に確認します。", icon: "visit" },
                     ].map((o) => (
                       <button key={o.v} className={`method-card ${data.method === o.v ? "selected" : ""}`} onClick={() => update("method", o.v)}>
                         <div className="method-check"><div className="method-check-inner" /></div>
@@ -286,7 +286,7 @@ function PageContact({ navigate }) {
                       <tr><th>お名前</th><td>{data.name}</td></tr>
                       <tr><th>メール</th><td>{data.email}</td></tr>
                       <tr><th>電話番号</th><td>{data.phone || "—"}</td></tr>
-                      <tr><th>ご相談方法</th><td>{({ email: "メールでまず相談", online: "オンライン面談", office: "弊社オフィスにて面談", visit: "貴社・ご指定場所まで訪問" })[data.method]}</td></tr>
+                      <tr><th>ご相談方法</th><td>{({ email: "メールでまず相談", online: "オンライン面談", office: "対面でのご相談", visit: "訪問相談を希望" })[data.method]}</td></tr>
                       <tr><th>ご相談内容</th><td>{data.message || "—"}</td></tr>
                     </tbody>
                   </table>
@@ -324,8 +324,8 @@ function PageContact({ navigate }) {
                   </svg>
                 </div>
                 <div>
-                  <div className="reassure-title">完全秘密厳守</div>
-                  <div className="reassure-desc">守秘義務契約のもと取り扱います</div>
+                  <div className="reassure-title">秘密保持に配慮</div>
+                  <div className="reassure-desc">必要に応じて守秘義務契約を締結します</div>
                 </div>
               </div>
               <div className="reassure-item">
