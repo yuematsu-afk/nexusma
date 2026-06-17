@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">M&amp;Aを検討し始めたら最初にやるべき5つのこと</title>
+  <desc id="desc">M&amp;A検討初期に、守りたいもの、資料、候補先像、費用、相談方法を整理する流れを示す要約図。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07172c"/>
+      <stop offset="62%" stop-color="#102846"/>
+      <stop offset="100%" stop-color="#6f5a2d"/>
+    </linearGradient>
+    <style>
+      .jp { font-family: "Noto Sans JP", "Yu Gothic", "Hiragino Sans", sans-serif; }
+      .serif { font-family: "Shippori Mincho", "Yu Mincho", serif; }
+      .eyebrow { font-size: 24px; fill: #d9c18a; letter-spacing: .08em; }
+      .title { font-size: 49px; font-weight: 700; fill: #fffaf0; }
+      .lead { font-size: 27px; fill: #f3ead6; }
+      .step { font-size: 21px; fill: #fffaf0; font-weight: 700; }
+      .text { font-size: 20px; fill: #d7dfeb; }
+      .num { font-size: 22px; fill: #0f2746; font-weight: 700; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <circle cx="1040" cy="118" r="185" fill="#fff" opacity=".055"/>
+  <text x="76" y="88" class="jp eyebrow">NexusM&amp;A First Steps</text>
+  <text x="76" y="158" class="jp serif title">M&amp;A検討初期は、</text>
+  <text x="76" y="220" class="jp serif title">価格より先に「条件」を整理する。</text>
+  <text x="78" y="274" class="jp lead">売却可否を急がず、判断材料をそろえる5ステップ。</text>
+  <g transform="translate(82 348)">
+    <g>
+      <circle cx="36" cy="36" r="30" fill="#d9c18a"/>
+      <text x="24" y="45" class="jp num">1</text>
+      <text x="86" y="31" class="jp step">守りたいものを決める</text>
+      <text x="86" y="65" class="jp text">従業員、取引先、社名、保証、引退時期</text>
+    </g>
+    <g transform="translate(0 78)">
+      <circle cx="36" cy="36" r="30" fill="#d9c18a"/>
+      <text x="24" y="45" class="jp num">2</text>
+      <text x="86" y="31" class="jp step">資料の所在を確認する</text>
+      <text x="86" y="65" class="jp text">決算書、契約書、組織図、主要取引先</text>
+    </g>
+    <g transform="translate(0 156)">
+      <circle cx="36" cy="36" r="30" fill="#d9c18a"/>
+      <text x="24" y="45" class="jp num">3</text>
+      <text x="86" y="31" class="jp step">候補先像を仮置きする</text>
+      <text x="86" y="65" class="jp text">同業、周辺業種、地域企業、投資会社</text>
+    </g>
+    <g transform="translate(0 234)">
+      <circle cx="36" cy="36" r="30" fill="#d9c18a"/>
+      <text x="24" y="45" class="jp num">4</text>
+      <text x="86" y="31" class="jp step">費用と契約条件を確認する</text>
+      <text x="86" y="65" class="jp text">着手金、成功報酬、最低報酬、テール条項</text>
+    </g>
+    <g transform="translate(0 312)">
+      <circle cx="36" cy="36" r="30" fill="#d9c18a"/>
+      <text x="24" y="45" class="jp num">5</text>
+      <text x="86" y="31" class="jp step">匿名・初期相談で整理する</text>
+      <text x="86" y="65" class="jp text">会社名を出す前に論点を整える</text>
+    </g>
+  </g>
+  <rect x="760" y="354" width="320" height="260" rx="24" fill="#fffaf0" opacity=".96"/>
+  <text x="804" y="420" class="jp" font-size="28" font-weight="700" fill="#0f2746">最初の目的</text>
+  <text x="804" y="474" class="jp" font-size="24" fill="#4d5a6b">買い手探しではなく、</text>
+  <text x="804" y="515" class="jp" font-size="24" fill="#4d5a6b">判断できる状態を</text>
+  <text x="804" y="556" class="jp" font-size="24" fill="#4d5a6b">つくること。</text>
+</svg>

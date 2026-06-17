@@ -38,11 +38,90 @@ const NEWS = [
   },
   { id: 1, tag: "お知らせ", date: "2026.05.01", title: "NexusM&A、相談受付開始のお知らせ", excerpt: "全国の中小企業を対象に、事業承継・M&Aに関する相談受付を開始しました。", featured: true, body: ["NexusM&Aは、中小企業の事業承継と成長戦略M&Aに関する相談受付を開始しました。", "売り手・買い手のいずれか一方に偏らず、経営者の納得と取引後の継続性を重視します。", "初回相談では、譲渡を前提にせず、社内改善・提携・第三者承継など複数の選択肢を整理します。"] },
   { id: 2, tag: "コラム", date: "2026.04.20", title: "事業承継税制の改正ポイント — 経営者が今押さえるべき3つの論点", excerpt: "事業承継税制の特例措置について、経営者目線で押さえるべき要点を解説。", body: ["事業承継税制は、株式承継時の税負担を抑えるための制度ですが、要件や手続きは複雑です。", "重要なのは、税制の適用可否だけでなく、後継者の意思、経営体制、資金繰りを同時に確認することです。", "制度利用を検討する前に、親族内承継、社内承継、第三者承継のどれが現実的かを整理しましょう。"] },
-  { id: 3, tag: "コラム", date: "2026.04.05", title: "M&Aを検討し始めたら、最初にやるべき5つのこと", excerpt: "M&Aを意識し始めた段階で経営者が取るべきステップを順を追って解説します。", body: ["最初に必要なのは、売却価格を調べることではなく、何を守りたいかを明確にすることです。", "従業員、取引先、社名、経営者保証、引退時期の優先順位を整理すると、候補先の選び方が変わります。", "そのうえで、財務資料、主要契約、組織図、事業の強みを準備していきます。"] },
+  {
+    id: 3,
+    tag: "コラム",
+    date: "2026.04.05",
+    title: "M&Aを検討し始めたら、最初にやるべき5つのこと",
+    excerpt: "M&Aを意識し始めた段階で、売却価格を調べる前に経営者が整理すべき5つの論点を解説します。",
+    summaryImage: "assets/generated/ma-first-steps-summary.svg",
+    summaryAlt: "M&A検討初期に整理すべき5つのステップを示す要約図",
+    body: [
+      { type: "lead", text: "M&Aを考え始めたとき、多くの経営者が最初に気になるのは「いくらで売れるのか」です。しかし初期段階で本当に重要なのは、価格そのものよりも、何を守り、どの条件なら検討できるのかを整理することです。" },
+      { type: "quote", text: "最初にやるべきことは、買い手探しではなく、経営者自身が判断できる状態をつくることです。" },
+      { type: "heading", level: 2, text: "1. 守りたいものを決める" },
+      { type: "paragraph", text: "M&Aは会社を手放すだけの手続きではありません。従業員の雇用、取引先との関係、社名、店舗や工場、経営者保証、引退時期など、守りたいものを先に整理しておくことで、候補先の選び方や交渉条件が変わります。" },
+      { type: "point", title: "最初に書き出す項目", items: ["従業員の雇用と待遇", "主要取引先との関係", "社名・屋号・店舗・工場", "経営者保証や借入の扱い", "引退時期と譲渡後の関与"] },
+      { type: "heading", level: 2, text: "2. 資料の所在を確認する" },
+      { type: "paragraph", text: "この段階で完璧な資料をそろえる必要はありません。ただし、どこに何があるか分からない状態では、相談も検討も進みにくくなります。まずは資料の所在を確認しましょう。" },
+      { type: "checklist", items: ["直近3期分の決算書・税務申告書", "月次試算表", "主要取引先・仕入先の一覧", "賃貸借契約・重要契約", "従業員数、役職、年齢構成", "借入金、担保、経営者保証の状況"] },
+      { type: "image" },
+      { type: "heading", level: 2, text: "3. 候補先像を仮置きする" },
+      { type: "paragraph", text: "具体的な会社名を出す前に、どのような相手なら事業を引き継げそうかを考えます。同業、周辺業種、取引先、地域企業、投資会社など、候補先の種類によって重視されるポイントは異なります。" },
+      { type: "numbered", items: [{ title: "同業会社", text: "技術や顧客を理解しやすい一方、情報管理には慎重さが必要です。" }, { title: "周辺業種", text: "販路拡大や内製化の目的で関心を持つ可能性があります。" }, { title: "地域企業", text: "雇用や地域での役割を重視する場合に相性があります。" }, { title: "投資会社", text: "成長余地や管理体制を評価し、経営者の残り方も論点になります。" }] },
+      { type: "heading", level: 2, text: "4. 費用と契約条件を確認する" },
+      { type: "paragraph", text: "M&A支援の費用は、成功報酬だけでなく、着手金、中間金、月額報酬、最低報酬、テール条項などを含めて確認する必要があります。費用の安さだけでなく、どの段階で何が発生するのかを理解することが大切です。" },
+      { type: "heading", level: 2, text: "5. 匿名・初期相談で論点を整理する" },
+      { type: "paragraph", text: "検討初期では、会社名を出して買い手に打診する前に、第三者に論点を整理してもらうだけでも意味があります。現時点でM&Aが適しているのか、社内承継や採用を先に考えるべきか、比較の軸が見えてきます。" },
+      { type: "closing", text: "M&Aを検討し始めた段階で大切なのは、急いで結論を出すことではありません。判断材料を整え、守りたいものを明確にし、選択肢を比較できる状態をつくることが第一歩です。" }
+    ],
+  },
   { id: 4, tag: "セミナー", date: "2026.03.15", title: "中小M&Aの『成約後』を考える経営者向けセミナー情報", excerpt: "PMIの実務と、経営者として準備すべき事項を解説します。", body: ["M&Aは成約がゴールではありません。従業員、顧客、管理体制が自然に移行するまでが重要です。", "セミナーでは、成約後100日で確認すべき論点と、売り手経営者が残る場合の役割設計を扱います。", "参加希望の方は、お問い合わせページからご連絡ください。"] },
-  { id: 5, tag: "コラム", date: "2026.03.05", title: "後継者不在の中小企業がM&Aを選ぶ理由", excerpt: "M&Aが事業承継の有力な選択肢になった背景を解説します。", body: ["後継者不在は、廃業か売却かの二択ではありません。段階的な承継や資本提携も選択肢になります。", "重要なのは、会社を誰に渡すかより先に、何を残したいかを決めることです。", "早い段階で選択肢を比較すれば、社内育成や外部採用と並行して検討できます。"] },
+  {
+    id: 5,
+    tag: "コラム",
+    date: "2026.03.05",
+    title: "後継者不在の中小企業がM&Aを選ぶ理由",
+    excerpt: "後継者不在の中小企業が、廃業ではなく第三者承継・M&Aを選ぶ理由を、雇用・取引先・技術・保証・成長投資の観点から整理します。",
+    summaryImage: "assets/generated/succession-ma-reasons-summary.svg",
+    summaryAlt: "後継者不在企業がM&Aを選ぶ主な理由を示す要約図",
+    body: [
+      { type: "lead", text: "後継者不在の会社にとって、M&Aは単なる売却手段ではありません。従業員、取引先、技術、地域での役割を残すための第三者承継という選択肢です。" },
+      { type: "quote", text: "重要なのは「誰に渡すか」の前に、「何を残したいか」を決めることです。" },
+      { type: "heading", level: 2, text: "1. 従業員の雇用を残しやすい" },
+      { type: "paragraph", text: "廃業を選ぶと、従業員の雇用は原則として終了に向かいます。一方、M&Aでは買い手が事業を引き継ぐため、従業員の雇用継続を条件として交渉できる可能性があります。" },
+      { type: "heading", level: 2, text: "2. 取引先への影響を抑えられる" },
+      { type: "paragraph", text: "中小企業の事業は、長年の取引関係によって成り立っています。突然の廃業は、顧客や仕入先にも影響します。M&Aでは、事業を止めずに引き継ぐことで、取引先への影響を抑えやすくなります。" },
+      { type: "point", title: "M&Aで残しやすいもの", items: ["従業員の雇用", "取引先との関係", "技術・ノウハウ・許認可", "店舗・工場・地域での役割", "商品・サービスの提供体制"] },
+      { type: "image" },
+      { type: "heading", level: 2, text: "3. 技術やノウハウを次世代へ渡せる" },
+      { type: "paragraph", text: "製造、建設、医療・介護、食品、ITなどでは、会社の価値が帳簿上の数字だけに表れないことがあります。技術、職人の経験、顧客対応、許認可、現場の運用方法は、第三者が引き継ぐことで価値を残せる場合があります。" },
+      { type: "heading", level: 2, text: "4. 経営者保証や借入の出口を検討できる" },
+      { type: "paragraph", text: "後継者不在の会社では、経営者保証や借入の引き継ぎが大きな不安になります。M&Aを検討する際には、金融機関との関係、保証解除の可能性、譲渡代金の使い道などを整理する必要があります。" },
+      { type: "heading", level: 2, text: "5. 買い手の経営資源で成長できる" },
+      { type: "paragraph", text: "買い手企業が持つ人材、販路、資金、管理体制によって、単独では難しかった成長投資が可能になることがあります。M&Aは会社を終わらせる話ではなく、次の成長に引き継ぐ話でもあります。" },
+      { type: "checklist", items: ["後継者候補がいない", "従業員の雇用を守りたい", "廃業すると取引先に影響が大きい", "技術や許認可を残したい", "保証や借入の出口を整理したい"] },
+      { type: "closing", text: "後継者不在だからといって、すぐに廃業か売却かを決める必要はありません。まずは、会社に残したい価値を整理し、親族内承継・社内承継・第三者承継を比較することが現実的です。" }
+    ],
+  },
   { id: 6, tag: "コラム", date: "2026.02.20", title: "PEファンドへの売却 — メリットと注意点", excerpt: "PEファンドへの売却を経営の継続性・社員雇用・企業価値向上の観点から解説します。", body: ["PEファンドは、事業の成長余地を評価して投資する買い手候補の一つです。", "一方で、投資期間や成長計画への期待があるため、経営者の残り方や社員への説明が重要になります。", "事業会社への譲渡と比較し、自社に合う買い手像を整理することが必要です。"] },
-  { id: 7, tag: "コラム", date: "2026.02.08", title: "M&Aにかかる費用を確認するポイント", excerpt: "報酬体系、支払時期、最低手数料の有無など、契約前に確認したい事項を解説します。", body: ["M&A仲介・FAの報酬は、着手金、中間金、月額報酬、成功報酬などに分かれることがあります。", "報酬体系や算定基準は支援機関によって異なるため、契約前に書面等で確認することが重要です。", "契約前には、最低手数料、対象金額、支払時期、直接交渉制限、テール条項などを確認しましょう。"] },
+  {
+    id: 7,
+    tag: "コラム",
+    date: "2026.02.08",
+    title: "M&Aにかかる費用を確認するポイント",
+    excerpt: "M&A支援機関との契約前に、着手金・中間金・成功報酬・最低報酬・テール条項などを確認するポイントを整理します。",
+    summaryImage: "assets/generated/ma-fee-check-summary.svg",
+    summaryAlt: "M&A支援契約前に確認したい費用項目を示す要約図",
+    body: [
+      { type: "lead", text: "M&Aの費用は、成功報酬率だけを見ても判断できません。いつ、何に対して、いくら発生するのかを契約前に確認することが重要です。" },
+      { type: "quote", text: "比較すべきは単純な安さではなく、納得して進められる報酬体系と契約条件です。" },
+      { type: "heading", level: 2, text: "1. 成約しなくても発生する費用" },
+      { type: "paragraph", text: "着手金、月額報酬、企業概要書作成費用などは、成約しなくても発生する場合があります。何の業務に対する費用なのか、返金の有無はあるのかを確認しましょう。" },
+      { type: "heading", level: 2, text: "2. 中間金が発生するタイミング" },
+      { type: "paragraph", text: "基本合意の締結時など、最終契約前に中間金が発生する報酬体系もあります。中間金が成功報酬に充当されるのか、別途発生するのかを確認することが大切です。" },
+      { type: "image" },
+      { type: "heading", level: 2, text: "3. 成功報酬の計算方法" },
+      { type: "paragraph", text: "成功報酬は、譲渡価格だけでなく、役員退職慰労金、借入金、運転資金などを含む基準で計算される場合があります。対象金額、料率、最低報酬、消費税の扱いを確認しましょう。" },
+      { type: "point", title: "契約前に確認する費用項目", items: ["着手金・月額報酬の有無", "中間金の発生時期と充当の有無", "成功報酬の対象金額と料率", "最低報酬の金額", "実費、出張費、資料作成費の扱い"] },
+      { type: "heading", level: 2, text: "4. テール条項と直接交渉制限" },
+      { type: "paragraph", text: "契約終了後、一定期間内に紹介先と成約した場合に報酬が発生する条項をテール条項といいます。また、支援機関を通さずに候補先と直接交渉することを制限する条項がある場合もあります。" },
+      { type: "checklist", items: ["テール期間は何か月か", "対象となる候補先の範囲は明確か", "直接交渉制限の内容は合理的か", "契約終了後の報酬発生条件は明確か", "書面で説明を受けているか"] },
+      { type: "heading", level: 2, text: "5. 書面で確認する" },
+      { type: "paragraph", text: "費用や契約条件は、口頭説明だけでなく書面で確認しましょう。特に最低報酬、対象金額、支払時期、テール条項は、後から誤解が生じやすい部分です。" },
+      { type: "closing", text: "M&Aの費用確認は、相見積もりを取るためだけの作業ではありません。納得して相談を進めるために、報酬体系と契約条件を早い段階で理解しておくことが大切です。" }
+    ],
+  },
   { id: 8, tag: "セミナー", date: "2026.01.25", title: "IT・SaaS企業のためのM&A戦略セミナー情報", excerpt: "SaaSベンチャーの資本政策・事業売却・アライアンスの選択肢を整理します。", body: ["SaaS企業のM&Aでは、売上規模だけでなくARR、解約率、顧客獲得効率が重視されます。", "資本業務提携や一部株式譲渡など、創業者が残る形も検討できます。", "成長資金と経営自由度のバランスを見ながら選択肢を比較します。"] },
   { id: 9, tag: "コラム", date: "2026.01.12", title: "従業員の雇用継続を考えるM&A — 売り手が交渉で押さえるべきポイント", excerpt: "従業員の雇用継続を希望する場合に、事前に整理したいポイントを解説。", body: ["従業員の雇用継続は、多くの売り手経営者が重視する条件です。", "候補先選定の段階から、待遇、勤務地、役職、説明時期を確認する必要があります。", "希望事項を早期に明文化し、基本合意前から交渉事項として整理しておくことが重要です。"] },
 ];
@@ -102,13 +181,33 @@ function ArticleBlock({ block, article, index }) {
 }
 
 function PageNews({ navigate }) {
+  const getArticleFromHash = () => {
+    const query = window.location.hash.split("?")[1] || "";
+    const id = Number(new URLSearchParams(query).get("article"));
+    return NEWS.find((n) => n.id === id) || null;
+  };
+
   const [filter, setFilter] = useState("すべて");
-  const [selectedNews, setSelectedNews] = useState(null);
+  const [selectedNews, setSelectedNews] = useState(() => getArticleFromHash());
   const tags = ["すべて", "プレスリリース", "コラム", "セミナー", "メディア"];
   const list = filter === "すべて" ? NEWS : NEWS.filter((n) => n.tag === filter);
 
   const featured = NEWS.find((n) => n.featured) || NEWS[0];
   const rest = list.filter((n) => n.id !== featured.id);
+  const openArticle = (article) => {
+    setSelectedNews(article);
+    window.location.hash = `/news?article=${article.id}`;
+  };
+  const closeArticle = () => {
+    setSelectedNews(null);
+    window.location.hash = "/news";
+  };
+
+  useEffect(() => {
+    const syncArticle = () => setSelectedNews(getArticleFromHash());
+    window.addEventListener("hashchange", syncArticle);
+    return () => window.removeEventListener("hashchange", syncArticle);
+  }, []);
 
   if (selectedNews) {
     return (
@@ -122,7 +221,7 @@ function PageNews({ navigate }) {
         />
         <section style={{ background: "var(--paper)" }}>
           <div className="container narrow">
-            <button className="btn btn-ghost" onClick={() => setSelectedNews(null)}>← 一覧へ戻る</button>
+            <button className="btn btn-ghost" onClick={closeArticle}>← 一覧へ戻る</button>
             <article className="article-detail">
               <div className={`ph visual article-detail-img ${getNewsVisual(selectedNews.tag)}`} />
               <div className="news-meta">
@@ -166,7 +265,7 @@ function PageNews({ navigate }) {
               <h3 className="font-serif-jp" style={{ fontSize: 34, lineHeight: 1.55, margin: "24px 0 24px" }}>{featured.title}</h3>
               <p style={{ color: "var(--ink-500)", lineHeight: 2, fontSize: 14.5 }}>{featured.excerpt}</p>
               <div style={{ marginTop: 32 }}>
-                <button className="btn btn-ghost" onClick={() => setSelectedNews(featured)}>続きを読む <span className="arrow" /></button>
+                <button className="btn btn-ghost" onClick={() => openArticle(featured)}>続きを読む <span className="arrow" /></button>
               </div>
             </div>
           </article>
@@ -189,7 +288,7 @@ function PageNews({ navigate }) {
         <div className="container">
           <div className="news-grid">
             {rest.map((n) => (
-              <article key={n.id} className="news-card card" onClick={() => setSelectedNews(n)}>
+              <article key={n.id} className="news-card card" onClick={() => openArticle(n)}>
                 <div className={`ph visual news-card-img ${getNewsVisual(n.tag)}`} data-label="thumbnail" />
                 <div className="news-card-body">
                   <div className="news-meta">

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">M&amp;Aにかかる費用を確認するポイント</title>
+  <desc id="desc">M&amp;A支援契約前に確認したい費用項目として、着手金、中間金、成功報酬、最低報酬、テール条項を示す要約図。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07172c"/>
+      <stop offset="60%" stop-color="#102846"/>
+      <stop offset="100%" stop-color="#876a35"/>
+    </linearGradient>
+    <style>
+      .jp { font-family: "Noto Sans JP", "Yu Gothic", "Hiragino Sans", sans-serif; }
+      .serif { font-family: "Shippori Mincho", "Yu Mincho", serif; }
+      .eyebrow { font-size: 24px; fill: #d9c18a; letter-spacing: .08em; }
+      .title { font-size: 48px; font-weight: 700; fill: #fffaf0; }
+      .lead { font-size: 26px; fill: #f3ead6; }
+      .head { font-size: 23px; fill: #102846; font-weight: 700; }
+      .body { font-size: 19px; fill: #4d5a6b; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <text x="76" y="88" class="jp eyebrow">M&amp;A Fee Checklist</text>
+  <text x="76" y="158" class="jp serif title">費用は「成功報酬率」だけで判断しない。</text>
+  <text x="78" y="214" class="jp lead">契約前に、発生時期・最低額・制限条項を確認する。</text>
+  <g transform="translate(92 306)">
+    <rect x="0" y="0" width="1016" height="74" rx="16" fill="#d9c18a"/>
+    <text x="32" y="48" class="jp head">確認項目</text>
+    <text x="320" y="48" class="jp head">見るポイント</text>
+    <g transform="translate(0 94)">
+      <rect width="1016" height="64" rx="14" fill="#fffaf0"/>
+      <text x="32" y="41" class="jp head">着手金・月額報酬</text>
+      <text x="320" y="41" class="jp body">成約しなくても発生する費用か</text>
+    </g>
+    <g transform="translate(0 172)">
+      <rect width="1016" height="64" rx="14" fill="#fffaf0"/>
+      <text x="32" y="41" class="jp head">中間金</text>
+      <text x="320" y="41" class="jp body">基本合意時など、いつ支払うか</text>
+    </g>
+    <g transform="translate(0 250)">
+      <rect width="1016" height="64" rx="14" fill="#fffaf0"/>
+      <text x="32" y="41" class="jp head">成功報酬</text>
+      <text x="320" y="41" class="jp body">料率、対象金額、消費税、計算方法</text>
+    </g>
+    <g transform="translate(0 328)">
+      <rect width="1016" height="64" rx="14" fill="#fffaf0"/>
+      <text x="32" y="41" class="jp head">最低報酬・テール条項</text>
+      <text x="320" y="41" class="jp body">最低額、契約終了後の支払条件、直接交渉制限</text>
+    </g>
+  </g>
+  <text x="92" y="724" class="jp" font-size="22" fill="#e8dac0">比較すべきは「安さ」ではなく、納得して進められる契約条件です。</text>
+</svg>

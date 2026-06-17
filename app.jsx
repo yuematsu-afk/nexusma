@@ -7,6 +7,11 @@ const DEFAULT_META = {
   description: "NexusM&Aは中小企業の事業承継・成長戦略M&Aを支援する独立系アドバイザリーです。会社名・電話番号不要の社長不在90日診断も利用できます。",
 };
 
+function getRouteFromHash() {
+  const hash = window.location.hash.replace(/^#\/?/, "");
+  return (hash.split("?")[0] || "home");
+}
+
 const ROUTE_META = {
   home: DEFAULT_META,
   "service-seller": {
@@ -96,15 +101,11 @@ function setCanonical(href) {
 }
 
 function App() {
-  const [route, setRoute] = useState(() => {
-    const hash = window.location.hash.replace(/^#\/?/, "");
-    return hash || "home";
-  });
+  const [route, setRoute] = useState(() => getRouteFromHash());
 
   useEffect(() => {
     const onHash = () => {
-      const h = window.location.hash.replace(/^#\/?/, "") || "home";
-      setRoute(h);
+      setRoute(getRouteFromHash());
       window.scrollTo({ top: 0, behavior: "auto" });
     };
     window.addEventListener("hashchange", onHash);

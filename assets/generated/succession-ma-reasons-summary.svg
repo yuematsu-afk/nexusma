@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">後継者不在の中小企業がM&amp;Aを選ぶ理由</title>
+  <desc id="desc">後継者不在企業がM&amp;Aを選ぶ主な理由として、雇用、取引先、技術、経営者保証、成長投資を整理した図。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#08182d"/>
+      <stop offset="55%" stop-color="#173150"/>
+      <stop offset="100%" stop-color="#8a6b32"/>
+    </linearGradient>
+    <style>
+      .jp { font-family: "Noto Sans JP", "Yu Gothic", "Hiragino Sans", sans-serif; }
+      .serif { font-family: "Shippori Mincho", "Yu Mincho", serif; }
+      .eyebrow { font-size: 24px; fill: #d9c18a; letter-spacing: .08em; }
+      .title { font-size: 48px; font-weight: 700; fill: #fffaf0; }
+      .lead { font-size: 26px; fill: #f3ead6; }
+      .cardTitle { font-size: 25px; fill: #102846; font-weight: 700; }
+      .cardText { font-size: 20px; fill: #4d5a6b; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <text x="76" y="88" class="jp eyebrow">Succession M&amp;A Reasons</text>
+  <text x="76" y="158" class="jp serif title">M&amp;Aは「廃業回避」だけではない。</text>
+  <text x="78" y="214" class="jp lead">会社に残したい価値を、次の担い手へ渡す選択肢。</text>
+  <g transform="translate(84 300)">
+    <rect x="0" y="0" width="320" height="145" rx="22" fill="#fffaf0"/>
+    <text x="34" y="54" class="jp cardTitle">雇用を残す</text>
+    <text x="34" y="96" class="jp cardText">従業員の仕事と待遇を</text>
+    <text x="34" y="126" class="jp cardText">継続しやすくする</text>
+    <rect x="360" y="0" width="320" height="145" rx="22" fill="#fffaf0"/>
+    <text x="394" y="54" class="jp cardTitle">取引先を守る</text>
+    <text x="394" y="96" class="jp cardText">供給責任や顧客対応を</text>
+    <text x="394" y="126" class="jp cardText">止めない</text>
+    <rect x="720" y="0" width="320" height="145" rx="22" fill="#fffaf0"/>
+    <text x="754" y="54" class="jp cardTitle">技術をつなぐ</text>
+    <text x="754" y="96" class="jp cardText">ノウハウ・許認可・設備を</text>
+    <text x="754" y="126" class="jp cardText">次世代へ渡す</text>
+    <rect x="180" y="190" width="320" height="145" rx="22" fill="#fffaf0"/>
+    <text x="214" y="244" class="jp cardTitle">保証を整理する</text>
+    <text x="214" y="286" class="jp cardText">経営者保証・借入の</text>
+    <text x="214" y="316" class="jp cardText">出口を検討する</text>
+    <rect x="540" y="190" width="320" height="145" rx="22" fill="#fffaf0"/>
+    <text x="574" y="244" class="jp cardTitle">成長投資を得る</text>
+    <text x="574" y="286" class="jp cardText">人材・販路・資金で</text>
+    <text x="574" y="316" class="jp cardText">事業を伸ばす</text>
+  </g>
+  <text x="82" y="704" class="jp" font-size="22" fill="#e8dac0">重要なのは「誰に渡すか」の前に、「何を残したいか」を決めること。</text>
+</svg>
