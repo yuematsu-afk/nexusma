@@ -82,6 +82,16 @@ function PageDiagnosis({ navigate }) {
   const result = done ? getDiagnosisAssessment(answers) : null;
   const progress = done ? 100 : started ? ((index + 1) / diagnosisQuestions.length) * 100 : 0;
 
+  const startDiagnosis = () => {
+    setStarted(true);
+    window.setTimeout(() => {
+      const workspace = document.getElementById("diagnosis-workspace");
+      if (!workspace) return;
+      const top = workspace.getBoundingClientRect().top + window.scrollY - 100;
+      window.scrollTo({ top, behavior: "smooth" });
+    }, 0);
+  };
+
   const choose = (score) => {
     const next = answers.slice(0, index);
     next[index] = score;
@@ -172,7 +182,7 @@ function PageDiagnosis({ navigate }) {
               今から準備できる選択肢を10問で整理します。
             </p>
             <div className="diagnosis-hero-actions">
-              <button className="btn btn-primary" onClick={() => setStarted(true)}>
+              <button className="btn btn-primary" onClick={startDiagnosis}>
                 3分で匿名診断する <span className="arrow" />
               </button>
               <button className="btn btn-ghost-light" onClick={() => navigate("contact")}>
@@ -194,7 +204,7 @@ function PageDiagnosis({ navigate }) {
         </div>
       </section>
 
-      <section className="diagnosis-workspace">
+      <section className="diagnosis-workspace" id="diagnosis-workspace">
         <div className="container">
           <div className="diagnosis-panel">
             {!started && !done && (
@@ -205,7 +215,7 @@ function PageDiagnosis({ navigate }) {
                   「自分しか分からない仕事が多い」「休みたくても休めない」。
                   それは経営者の能力不足ではなく、会社の成長過程で起きやすい構造上の問題です。
                 </p>
-                <button className="btn btn-primary" onClick={() => setStarted(true)}>
+                <button className="btn btn-primary" onClick={startDiagnosis}>
                   診断を始める <span className="arrow" />
                 </button>
               </div>
