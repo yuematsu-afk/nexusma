@@ -2,6 +2,55 @@
 
 const WEB3FORMS_ACCESS_KEY = "03198800-4bf9-4b0d-a22e-111d80c2e2a3";
 
+const ROLE_LABELS = {
+  seller: "売り手・譲渡をご検討",
+  buyer: "買い手・M&Aで成長を志向",
+  other: "その他のご相談",
+};
+
+const METHOD_LABELS = {
+  email: "メールでまず相談",
+  online: "オンライン面談",
+  office: "対面でのご相談",
+  visit: "訪問相談を希望",
+};
+
+const CONTACT_PROFILES = {
+  seller: {
+    title: "譲渡・事業承継についてお聞かせください。",
+    lead: "秘密保持に配慮して取り扱います。差し支えない範囲でお答えください。",
+    fields: [
+      { key: "industry", label: "業種", required: true, options: ["製造業", "IT・SaaS", "卸売・商社", "建設・設備", "サービス業", "医療・介護", "小売", "飲食", "物流", "その他"] },
+      { key: "revenue", label: "年商規模", required: true, options: ["〜1億円", "1〜3億円", "3〜10億円", "10〜30億円", "30〜100億円", "100億円〜"] },
+      { key: "timing", label: "ご検討時期", required: true, options: ["3ヶ月以内", "6ヶ月以内", "1年以内", "2〜3年以内", "未定／情報収集"] },
+    ],
+    concernLabel: "主なご関心事項（複数選択可）",
+    concerns: ["事業承継", "後継者不在", "経営者保証の扱い", "従業員の雇用継続", "創業者利潤", "譲渡価格の目安", "候補先探し", "情報収集"],
+  },
+  buyer: {
+    title: "買収・成長戦略についてお聞かせください。",
+    lead: "買収ニーズや検討段階を確認し、条件に合う可能性がある場合に個別にご案内します。",
+    fields: [
+      { key: "industry", label: "関心のある業種", required: true, options: ["製造業", "IT・SaaS", "卸売・商社", "建設・設備", "サービス業", "医療・介護", "小売", "飲食", "物流", "その他"] },
+      { key: "revenue", label: "希望する案件規模", required: true, options: ["〜1億円", "1〜3億円", "3〜10億円", "10〜30億円", "30〜100億円", "未定"] },
+      { key: "timing", label: "検討状況", required: true, options: ["すぐに案件を見たい", "条件が合えば検討", "情報収集中", "将来に向けて準備中"] },
+    ],
+    concernLabel: "主な買収目的（複数選択可）",
+    concerns: ["事業領域の拡張", "人材・技術の獲得", "エリア拡大", "後継者不在企業の承継", "ロールアップ", "新規事業", "海外展開", "情報収集"],
+  },
+  other: {
+    title: "お問い合わせ内容をお聞かせください。",
+    lead: "M&Aの売買相談以外のお問い合わせはこちらからお送りください。必要な範囲で担当者が確認します。",
+    fields: [
+      { key: "industry", label: "お問い合わせ種別", required: true, options: ["通常の問い合わせ", "サービス内容の確認", "取材・メディア", "業務提携", "セミナー・登壇", "採用・協業", "その他"] },
+      { key: "revenue", label: "会社・所属区分", required: false, options: ["事業会社", "士業・専門家", "金融機関", "メディア", "個人", "その他"] },
+      { key: "timing", label: "返信希望", required: true, options: ["メールで返信希望", "オンラインで相談したい", "急ぎではない", "内容確認後に相談したい"] },
+    ],
+    concernLabel: "関連するテーマ（複数選択可）",
+    concerns: ["サービス内容", "料金・契約条件", "中小M&Aガイドライン", "提携相談", "取材・掲載", "セミナー", "採用・協業", "その他"],
+  },
+};
+
 function PageContact({ navigate }) {
   const [step, setStep] = useState(0);
   const [submitState, setSubmitState] = useState({ submitting: false, error: "" });
@@ -21,6 +70,14 @@ function PageContact({ navigate }) {
   });
 
   const update = (k, v) => setData((d) => ({ ...d, [k]: v }));
+  const chooseRole = (role) => setData((d) => ({
+    ...d,
+    role,
+    industry: "",
+    revenue: "",
+    timing: "",
+    concerns: [],
+  }));
   const toggle = (k, v) => setData((d) => ({
     ...d,
     [k]: d[k].includes(v) ? d[k].filter((x) => x !== v) : [...d[k], v],
@@ -28,11 +85,13 @@ function PageContact({ navigate }) {
 
   const stepLabels = ["ご立場", "ご状況", "ご連絡先", "ご相談方法", "確認"];
   const total = stepLabels.length;
+  const profile = CONTACT_PROFILES[data.role] || CONTACT_PROFILES.seller;
+  const isOtherInquiry = data.role === "other";
 
   const canNext = () => {
     if (step === 0) return data.role !== "";
-    if (step === 1) return data.industry !== "" && data.revenue !== "" && data.timing !== "";
-    if (step === 2) return data.company && data.name && data.email;
+    if (step === 1) return profile.fields.every((field) => !field.required || data[field.key] !== "");
+    if (step === 2) return (isOtherInquiry || data.company) && data.name && data.email;
     if (step === 3) return data.method !== "";
     return true;
   };
@@ -40,16 +99,14 @@ function PageContact({ navigate }) {
   const buildMailBody = () => [
     "NexusM&A 無料相談フォーム",
     "",
-    `ご立場: ${data.role === "seller" ? "売り手・譲渡をご検討" : data.role === "buyer" ? "買い手・M&Aで成長を志向" : "その他のご相談"}`,
-    `業種: ${data.industry}`,
-    `年商規模: ${data.revenue}`,
-    `ご検討時期: ${data.timing}`,
-    `ご関心事項: ${data.concerns.length ? data.concerns.join(" / ") : "なし"}`,
+    `ご立場: ${ROLE_LABELS[data.role] || "未選択"}`,
+    ...profile.fields.map((field) => `${field.label}: ${data[field.key] || "未選択"}`),
+    `${profile.concernLabel}: ${data.concerns.length ? data.concerns.join(" / ") : "なし"}`,
     `会社名: ${data.company}`,
     `お名前: ${data.name}`,
     `メール: ${data.email}`,
     `電話番号: ${data.phone || "未記入"}`,
-    `ご相談方法: ${({ email: "メールでまず相談", online: "オンライン面談", office: "対面でのご相談", visit: "訪問相談を希望" })[data.method]}`,
+    `ご相談方法: ${METHOD_LABELS[data.method]}`,
     "",
     "ご相談内容:",
     data.message || "未記入",
@@ -59,7 +116,8 @@ function PageContact({ navigate }) {
     if (!data.agree || submitState.submitting) return;
     setSubmitState({ submitting: true, error: "" });
 
-    const subject = `【NexusM&A 無料相談】${data.company} ${data.name}様`;
+    const senderLabel = data.company ? `${data.company} ${data.name}` : data.name;
+    const subject = `【NexusM&A 無料相談】${senderLabel}様`;
     const payload = {
       access_key: WEB3FORMS_ACCESS_KEY,
       subject,
@@ -68,8 +126,9 @@ function PageContact({ navigate }) {
       company: data.company,
       phone: data.phone,
       role: data.role,
-      industry: data.industry,
-      revenue: data.revenue,
+      role_label: ROLE_LABELS[data.role],
+      inquiry_type: data.industry,
+      company_size_or_type: data.revenue,
       timing: data.timing,
       concerns: data.concerns.join(" / "),
       consultation_method: data.method,
@@ -190,7 +249,7 @@ function PageContact({ navigate }) {
                       { v: "buyer", title: "買い手・M&Aで成長を志向", desc: "事業領域拡張／ロールアップ／海外進出 など" },
                       { v: "other", title: "その他のご相談", desc: "情報収集／メディア取材／パートナーシップ など" },
                     ].map((o) => (
-                      <button key={o.v} className={`role-card ${data.role === o.v ? "selected" : ""}`} onClick={() => update("role", o.v)}>
+                      <button key={o.v} className={`role-card ${data.role === o.v ? "selected" : ""}`} onClick={() => chooseRole(o.v)}>
                         <div className="role-check">
                           <div className="role-check-inner" />
                         </div>
@@ -207,40 +266,24 @@ function PageContact({ navigate }) {
               {step === 1 && (
                 <div className="form-step">
                   <div className="form-step-eyebrow font-serif-en">Step 02 of {total - 1}</div>
-                  <h3 className="font-serif-jp" style={{ fontSize: 28, marginTop: 14 }}>ご状況をお聞かせください。</h3>
-                  <p className="form-step-lead">守秘義務のもと取り扱います。差し支えない範囲でお答えください。</p>
+                  <h3 className="font-serif-jp" style={{ fontSize: 28, marginTop: 14 }}>{profile.title}</h3>
+                  <p className="form-step-lead">{profile.lead}</p>
 
-                  <div className="field">
-                    <label>業種 <span className="req">必須</span></label>
-                    <div className="chips">
-                      {["製造業", "IT・SaaS", "卸売・商社", "建設・設備", "サービス業", "医療・介護", "小売", "飲食", "物流", "その他"].map((x) => (
-                        <button key={x} className={`chip ${data.industry === x ? "selected" : ""}`} onClick={() => update("industry", x)}>{x}</button>
-                      ))}
+                  {profile.fields.map((field) => (
+                    <div className="field" key={field.key}>
+                      <label>{field.label} {field.required && <span className="req">必須</span>}</label>
+                      <div className="chips">
+                        {field.options.map((x) => (
+                          <button key={x} className={`chip ${data[field.key] === x ? "selected" : ""}`} onClick={() => update(field.key, x)}>{x}</button>
+                        ))}
+                      </div>
                     </div>
-                  </div>
+                  ))}
 
                   <div className="field">
-                    <label>年商規模 <span className="req">必須</span></label>
+                    <label>{profile.concernLabel}</label>
                     <div className="chips">
-                      {["〜1億円", "1〜3億円", "3〜10億円", "10〜30億円", "30〜100億円", "100億円〜"].map((x) => (
-                        <button key={x} className={`chip ${data.revenue === x ? "selected" : ""}`} onClick={() => update("revenue", x)}>{x}</button>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="field">
-                    <label>ご検討時期 <span className="req">必須</span></label>
-                    <div className="chips">
-                      {["3ヶ月以内", "6ヶ月以内", "1年以内", "2〜3年以内", "未定／情報収集"].map((x) => (
-                        <button key={x} className={`chip ${data.timing === x ? "selected" : ""}`} onClick={() => update("timing", x)}>{x}</button>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="field">
-                    <label>主なご関心事項（複数選択可）</label>
-                    <div className="chips">
-                      {["事業承継", "後継者不在", "経営者保証の扱い", "従業員の雇用継続", "創業者利潤", "成長戦略", "業界再編", "海外展開"].map((x) => (
+                      {profile.concerns.map((x) => (
                         <button key={x} className={`chip ${data.concerns.includes(x) ? "selected" : ""}`} onClick={() => toggle("concerns", x)}>{x}</button>
                       ))}
                     </div>
@@ -255,8 +298,8 @@ function PageContact({ navigate }) {
                   <p className="form-step-lead">電話番号は任意です。まずはメールのみでのご相談も可能です。</p>
 
                   <div className="field">
-                    <label>会社名 <span className="req">必須</span></label>
-                    <input type="text" value={data.company} onChange={(e) => update("company", e.target.value)} placeholder="株式会社○○○○" />
+                    <label>{isOtherInquiry ? "会社名・ご所属" : "会社名"} {!isOtherInquiry && <span className="req">必須</span>}</label>
+                    <input type="text" value={data.company} onChange={(e) => update("company", e.target.value)} placeholder={isOtherInquiry ? "会社名・媒体名・ご所属など" : "株式会社○○○○"} />
                   </div>
                   <div className="field-row">
                     <div className="field">
@@ -316,16 +359,16 @@ function PageContact({ navigate }) {
                   <p className="form-step-lead">下記内容で送信いたします。修正がある場合は戻るボタンで前のステップへお戻りください。</p>
                   <table className="confirm-table">
                     <tbody>
-                      <tr><th>ご立場</th><td>{data.role === "seller" ? "売り手・譲渡をご検討" : data.role === "buyer" ? "買い手・M&Aで成長を志向" : "その他のご相談"}</td></tr>
-                      <tr><th>業種</th><td>{data.industry}</td></tr>
-                      <tr><th>年商規模</th><td>{data.revenue}</td></tr>
-                      <tr><th>ご検討時期</th><td>{data.timing}</td></tr>
-                      <tr><th>ご関心事項</th><td>{data.concerns.length ? data.concerns.join(" / ") : "—"}</td></tr>
+                      <tr><th>ご立場</th><td>{ROLE_LABELS[data.role]}</td></tr>
+                      {profile.fields.map((field) => (
+                        <tr key={field.key}><th>{field.label}</th><td>{data[field.key] || "—"}</td></tr>
+                      ))}
+                      <tr><th>{profile.concernLabel}</th><td>{data.concerns.length ? data.concerns.join(" / ") : "—"}</td></tr>
                       <tr><th>会社名</th><td>{data.company}</td></tr>
                       <tr><th>お名前</th><td>{data.name}</td></tr>
                       <tr><th>メール</th><td>{data.email}</td></tr>
                       <tr><th>電話番号</th><td>{data.phone || "—"}</td></tr>
-                      <tr><th>ご相談方法</th><td>{({ email: "メールでまず相談", online: "オンライン面談", office: "対面でのご相談", visit: "訪問相談を希望" })[data.method]}</td></tr>
+                      <tr><th>ご相談方法</th><td>{METHOD_LABELS[data.method]}</td></tr>
                       <tr><th>ご相談内容</th><td>{data.message || "—"}</td></tr>
                     </tbody>
                   </table>
