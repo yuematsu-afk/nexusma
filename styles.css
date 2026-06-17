@@ -491,7 +491,7 @@ nav.primary { display: flex; align-items: center; gap: 36px; }
 .visual-office { background-image: url("assets/generated/news-insight.webp"); }
 .visual-portrait {
   background-image: url("assets/generated/company-profile.webp");
-  background-position: 78% center;
+  background-position: 86% center;
 }
 
 /* ===== Animations ===== */
