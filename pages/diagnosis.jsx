@@ -113,7 +113,43 @@ function PageDiagnosis({ navigate }) {
     setMemo(body);
   };
 
-  const mailto = `mailto:y.uematsu@sasa-eru.com?subject=${encodeURIComponent("社長不在90日診断の相談")}`;
+  const openContactWithPrefill = (message) => {
+    try {
+      sessionStorage.setItem("nexusma_diagnosis_prefill", JSON.stringify({
+        step: 2,
+        data: {
+          role: "other",
+          industry: "通常の問い合わせ",
+          revenue: "事業会社",
+          timing: "メールで返信希望",
+          concerns: ["サービス内容"],
+          message,
+        },
+      }));
+    } catch (error) {
+      // Prefill is a convenience only; navigation should still work if storage is unavailable.
+    }
+    navigate("contact");
+  };
+
+  const goToContactWithDiagnosis = () => {
+    if (!result) return;
+    const message = [
+      "社長不在90日診断の結果をもとに相談したいです。",
+      "",
+      `社長依存度：${result.level}（${result.total}/20）`,
+      `最初に確認したい領域：${result.priority.title}`,
+      "",
+      result.summary,
+      "",
+      "まずは、現状整理と取り得る選択肢について確認したいです。",
+    ].join("\n");
+    openContactWithPrefill(message);
+  };
+
+  const goToContactWithMemo = () => {
+    openContactWithPrefill(memo || "社長不在90日診断の結果をもとに相談したいです。");
+  };
 
   return (
     <main className="diagnosis-page">
@@ -230,6 +266,9 @@ function PageDiagnosis({ navigate }) {
                   ))}
                 </div>
                 <div className="result-actions">
+                  <button className="btn btn-primary" onClick={goToContactWithDiagnosis}>
+                    診断結果をもとに無料相談する <span className="arrow" />
+                  </button>
                   <button className="btn btn-primary" onClick={() => setMemoOpen(true)}>
                     会社名なしで相談メモを作る <span className="arrow" />
                   </button>
@@ -296,7 +335,7 @@ function PageDiagnosis({ navigate }) {
                 <textarea readOnly value={memo} />
                 <div className="memo-actions">
                   <button className="btn btn-ghost" onClick={() => navigator.clipboard && navigator.clipboard.writeText(memo)}>コピーする</button>
-                  <a className="btn btn-primary" href={mailto}>メールを開く <span className="arrow" /></a>
+                  <button className="btn btn-primary" onClick={goToContactWithMemo}>フォームに進む <span className="arrow" /></button>
                 </div>
               </div>
             )}

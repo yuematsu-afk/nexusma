@@ -52,7 +52,17 @@ const CONTACT_PROFILES = {
 };
 
 function PageContact({ navigate }) {
-  const [step, setStep] = useState(0);
+  const diagnosisPrefill = (() => {
+    try {
+      const raw = sessionStorage.getItem("nexusma_diagnosis_prefill");
+      if (!raw) return null;
+      sessionStorage.removeItem("nexusma_diagnosis_prefill");
+      return JSON.parse(raw);
+    } catch (error) {
+      return null;
+    }
+  })();
+  const [step, setStep] = useState(diagnosisPrefill?.step || 0);
   const [submitState, setSubmitState] = useState({ submitting: false, error: "" });
   const [data, setData] = useState({
     role: "",
@@ -67,6 +77,7 @@ function PageContact({ navigate }) {
     message: "",
     method: "email",
     agree: false,
+    ...(diagnosisPrefill?.data || {}),
   });
 
   const update = (k, v) => setData((d) => ({ ...d, [k]: v }));
@@ -295,7 +306,11 @@ function PageContact({ navigate }) {
                 <div className="form-step">
                   <div className="form-step-eyebrow font-serif-en">Step 03 of {total - 1}</div>
                   <h3 className="font-serif-jp" style={{ fontSize: 28, marginTop: 14 }}>ご連絡先を教えてください。</h3>
-                  <p className="form-step-lead">電話番号は任意です。まずはメールのみでのご相談も可能です。</p>
+                  <p className="form-step-lead">
+                    {data.message && data.message.includes("社長不在90日診断")
+                      ? "診断結果を引き継ぎました。返信先として、お名前とメールアドレスをご入力ください。"
+                      : "電話番号は任意です。まずはメールのみでのご相談も可能です。"}
+                  </p>
 
                   <div className="field">
                     <label>{isOtherInquiry ? "会社名・ご所属" : "会社名"} {!isOtherInquiry && <span className="req">必須</span>}</label>
