@@ -489,7 +489,10 @@ nav.primary { display: flex; align-items: center; gap: 36px; }
 .visual-logistics { background-image: url("assets/generated/industry-logistics.webp"); }
 .visual-food { background-image: url("assets/generated/industry-food.webp"); }
 .visual-office { background-image: url("assets/generated/news-insight.webp"); }
-.visual-portrait { background-image: url("assets/generated/company-profile.webp"); }
+.visual-portrait {
+  background-image: url("assets/generated/company-profile.webp");
+  background-position: 78% center;
+}
 
 /* ===== Animations ===== */
 @keyframes fadeUp {
