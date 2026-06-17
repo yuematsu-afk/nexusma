@@ -1,7 +1,10 @@
 /* Multi-step consultation form */
 
+const WEB3FORMS_ACCESS_KEY = "03198800-4bf9-4b0d-a22e-111d80c2e2a3";
+
 function PageContact({ navigate }) {
   const [step, setStep] = useState(0);
+  const [submitState, setSubmitState] = useState({ submitting: false, error: "" });
   const [data, setData] = useState({
     role: "",
     industry: "",
@@ -52,12 +55,49 @@ function PageContact({ navigate }) {
     data.message || "未記入",
   ].join("\n");
 
-  const submitByMail = () => {
+  const submitContactForm = async () => {
+    if (!data.agree || submitState.submitting) return;
+    setSubmitState({ submitting: true, error: "" });
+
     const subject = `【NexusM&A 無料相談】${data.company} ${data.name}様`;
-    const mailto = `mailto:y.uematsu@sasa-eru.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(buildMailBody())}`;
-    window.location.href = mailto;
-    setStep(total);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    const payload = {
+      access_key: WEB3FORMS_ACCESS_KEY,
+      subject,
+      from_name: data.name,
+      email: data.email,
+      company: data.company,
+      phone: data.phone,
+      role: data.role,
+      industry: data.industry,
+      revenue: data.revenue,
+      timing: data.timing,
+      concerns: data.concerns.join(" / "),
+      consultation_method: data.method,
+      message: buildMailBody(),
+      botcheck: "",
+    };
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+      const result = await response.json();
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "送信に失敗しました。");
+      }
+      setStep(total);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch (error) {
+      setSubmitState({
+        submitting: false,
+        error: "送信できませんでした。時間をおいて再度お試しいただくか、y.uematsu@sasa-eru.com へ直接ご連絡ください。",
+      });
+    }
   };
 
   const next = () => {
@@ -86,9 +126,8 @@ function PageContact({ navigate }) {
               お問い合わせを<br />承りました。
             </h2>
             <p style={{ color: "rgba(247,242,233,0.7)", marginTop: 28, fontSize: 15, lineHeight: 2, maxWidth: 560, margin: "28px auto 0" }}>
-              担当者より、原則1〜2営業日以内にご連絡を差し上げます。<br />
-              メール作成画面が開きますので、内容をご確認のうえ送信してください。<br />
-              送信後、原則1〜2営業日以内に y.uematsu@sasa-eru.com より返信いたします。
+              入力いただいた内容を送信しました。確認後、原則1〜2営業日以内に y.uematsu@sasa-eru.com より返信いたします。<br />
+              返信が届かない場合は、迷惑メールフォルダもご確認ください。
             </p>
             <div className="complete-meta">
               <div>
@@ -292,8 +331,13 @@ function PageContact({ navigate }) {
                   </table>
                   <label className="agree-line">
                     <input type="checkbox" checked={data.agree} onChange={(e) => update("agree", e.target.checked)} />
-                    <span><a onClick={(e) => { e.preventDefault(); navigate("privacy"); }} style={{ color: "var(--gold-700)", textDecoration: "underline" }}>個人情報保護方針</a>に同意の上、メールを作成します。</span>
+                    <span><a onClick={(e) => { e.preventDefault(); navigate("privacy"); }} style={{ color: "var(--gold-700)", textDecoration: "underline" }}>個人情報保護方針</a>に同意の上、送信します。</span>
                   </label>
+                  {submitState.error && (
+                    <div style={{ marginTop: 18, padding: "14px 16px", border: "1px solid rgba(160, 42, 42, 0.35)", background: "rgba(160, 42, 42, 0.06)", color: "#8a1f1f", fontSize: 13, lineHeight: 1.8 }}>
+                      {submitState.error}
+                    </div>
+                  )}
                 </div>
               )}
 
@@ -307,8 +351,8 @@ function PageContact({ navigate }) {
                   </button>
                 )}
                 {step === total - 1 && (
-                  <button className="btn btn-primary" disabled={!data.agree} onClick={submitByMail} style={{ opacity: data.agree ? 1 : 0.4, cursor: data.agree ? "pointer" : "not-allowed" }}>
-                    メールを作成する <span className="arrow" />
+                  <button className="btn btn-primary" disabled={!data.agree || submitState.submitting} onClick={submitContactForm} style={{ opacity: data.agree && !submitState.submitting ? 1 : 0.4, cursor: data.agree && !submitState.submitting ? "pointer" : "not-allowed" }}>
+                    {submitState.submitting ? "送信中..." : "この内容で送信する"} <span className="arrow" />
                   </button>
                 )}
               </div>
