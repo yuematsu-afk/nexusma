@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">後継者不在の会社がM&amp;Aを考え始めるタイミング</title>
+  <desc id="desc">後継者不在の会社が、選択肢を失う前に現状確認、選択肢比較、守りたいものの整理、90日診断へ進む流れを示す要約図。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07172c"/>
+      <stop offset="58%" stop-color="#102846"/>
+      <stop offset="100%" stop-color="#876a35"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#021020" flood-opacity="0.22"/>
+    </filter>
+    <style>
+      .jp { font-family: "Noto Sans JP", "Yu Gothic", "Hiragino Sans", sans-serif; }
+      .serif { font-family: "Shippori Mincho", "Yu Mincho", serif; }
+      .small { font-size: 25px; fill: #d9c18a; letter-spacing: .08em; }
+      .title { font-size: 48px; font-weight: 700; fill: #fffaf0; }
+      .lead { font-size: 27px; fill: #f3ead6; }
+      .card-title { font-size: 25px; font-weight: 700; fill: #13213a; }
+      .card-text { font-size: 22px; fill: #4d5a6b; }
+      .num { font-size: 20px; fill: #fffaf0; font-weight: 700; }
+      .quote { font-size: 29px; font-weight: 700; fill: #fffaf0; }
+      .caption { font-size: 20px; fill: #e8dac0; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" rx="0" fill="url(#bg)"/>
+  <circle cx="1010" cy="140" r="175" fill="#fff" opacity=".06"/>
+  <circle cx="118" cy="650" r="210" fill="#fff" opacity=".045"/>
+
+  <text x="80" y="90" class="jp small">NexusM&amp;A Succession Insight</text>
+  <text x="80" y="160" class="jp serif title">後継者不在は、</text>
+  <text x="80" y="222" class="jp serif title">「売る時」ではなく「選べる時」に考える。</text>
+  <text x="82" y="275" class="jp lead">結論を急がず、会社の未来を比較できる状態をつくる。</text>
+
+  <g filter="url(#shadow)">
+    <rect x="80" y="340" width="235" height="205" rx="22" fill="#fffaf0"/>
+    <circle cx="116" cy="384" r="20" fill="#0f2746"/>
+    <text x="109" y="392" class="jp num">1</text>
+    <text x="145" y="393" class="jp card-title">兆候を確認</text>
+    <text x="106" y="442" class="jp card-text">後継者未定</text>
+    <text x="106" y="480" class="jp card-text">社長依存</text>
+    <text x="106" y="518" class="jp card-text">保証・借入の不安</text>
+  </g>
+
+  <path d="M335 442 H385" stroke="#d9c18a" stroke-width="5" stroke-linecap="round"/>
+  <path d="M385 442 l-16 -13 v26 z" fill="#d9c18a"/>
+
+  <g filter="url(#shadow)">
+    <rect x="405" y="340" width="235" height="205" rx="22" fill="#fffaf0"/>
+    <circle cx="441" cy="384" r="20" fill="#0f2746"/>
+    <text x="434" y="392" class="jp num">2</text>
+    <text x="470" y="393" class="jp card-title">選択肢を比較</text>
+    <text x="431" y="442" class="jp card-text">親族内承継</text>
+    <text x="431" y="480" class="jp card-text">社内承継</text>
+    <text x="431" y="518" class="jp card-text">第三者承継・M&amp;A</text>
+  </g>
+
+  <path d="M660 442 H710" stroke="#d9c18a" stroke-width="5" stroke-linecap="round"/>
+  <path d="M710 442 l-16 -13 v26 z" fill="#d9c18a"/>
+
+  <g filter="url(#shadow)">
+    <rect x="730" y="340" width="235" height="205" rx="22" fill="#fffaf0"/>
+    <circle cx="766" cy="384" r="20" fill="#0f2746"/>
+    <text x="759" y="392" class="jp num">3</text>
+    <text x="795" y="393" class="jp card-title">守るものを決める</text>
+    <text x="756" y="442" class="jp card-text">従業員・取引先</text>
+    <text x="756" y="480" class="jp card-text">社名・地域での役割</text>
+    <text x="756" y="518" class="jp card-text">経営者保証</text>
+  </g>
+
+  <path d="M985 442 H1035" stroke="#d9c18a" stroke-width="5" stroke-linecap="round"/>
+  <path d="M1035 442 l-16 -13 v26 z" fill="#d9c18a"/>
+
+  <g filter="url(#shadow)">
+    <rect x="1055" y="340" width="65" height="205" rx="22" fill="#fffaf0"/>
+    <text x="1088" y="409" class="jp card-title" writing-mode="tb">90日診断へ</text>
+  </g>
+
+  <rect x="80" y="600" width="1040" height="82" rx="18" fill="#07172c" opacity=".58" stroke="#d9c18a" stroke-opacity=".55"/>
+  <text x="115" y="652" class="jp quote">最初にやることは「買い手探し」ではなく、自社の現在地確認。</text>
+  <text x="84" y="724" class="jp caption">早く決めるためではなく、急がず選べる状態を残すための準備です。</text>
+</svg>
