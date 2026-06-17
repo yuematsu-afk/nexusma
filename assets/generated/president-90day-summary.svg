@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">社長が90日不在でも会社は回るか</title>
+  <desc id="desc">社長が90日不在でも会社が回るかを、意思決定、顧客対応、資金繰り、現場運営、資料管理の5領域で確認する要約図。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07172c"/>
+      <stop offset="58%" stop-color="#102846"/>
+      <stop offset="100%" stop-color="#876a35"/>
+    </linearGradient>
+    <style>
+      .jp{font-family:"Noto Sans JP","Yu Gothic","Hiragino Sans",sans-serif}.serif{font-family:"Shippori Mincho","Yu Mincho",serif}
+      .eyebrow{font-size:24px;fill:#d9c18a;letter-spacing:.08em}.title{font-size:48px;font-weight:700;fill:#fffaf0}.lead{font-size:26px;fill:#f3ead6}
+      .cardTitle{font-size:24px;fill:#102846;font-weight:700}.cardText{font-size:19px;fill:#4d5a6b}.num{font-size:22px;fill:#fffaf0;font-weight:700}
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <circle cx="1020" cy="126" r="180" fill="#fff" opacity=".055"/>
+  <text x="76" y="88" class="jp eyebrow">90 Days Continuity Check</text>
+  <text x="76" y="158" class="jp serif title">社長が90日不在でも、</text>
+  <text x="76" y="220" class="jp serif title">会社は回りますか。</text>
+  <text x="78" y="274" class="jp lead">M&amp;Aの前に、会社の社長依存度を見える化する。</text>
+  <g transform="translate(82 340)">
+    <rect x="0" y="0" width="330" height="138" rx="22" fill="#fffaf0"/>
+    <circle cx="42" cy="48" r="26" fill="#102846"/><text x="30" y="57" class="jp num">1</text>
+    <text x="86" y="48" class="jp cardTitle">意思決定</text><text x="86" y="88" class="jp cardText">誰が判断できるか</text>
+    <rect x="354" y="0" width="330" height="138" rx="22" fill="#fffaf0"/>
+    <circle cx="396" cy="48" r="26" fill="#102846"/><text x="384" y="57" class="jp num">2</text>
+    <text x="440" y="48" class="jp cardTitle">顧客対応</text><text x="440" y="88" class="jp cardText">主要取引先に対応できるか</text>
+    <rect x="708" y="0" width="330" height="138" rx="22" fill="#fffaf0"/>
+    <circle cx="750" cy="48" r="26" fill="#102846"/><text x="738" y="57" class="jp num">3</text>
+    <text x="794" y="48" class="jp cardTitle">資金繰り</text><text x="794" y="88" class="jp cardText">支払・借入を把握しているか</text>
+    <rect x="177" y="176" width="330" height="138" rx="22" fill="#fffaf0"/>
+    <circle cx="219" cy="224" r="26" fill="#102846"/><text x="207" y="233" class="jp num">4</text>
+    <text x="263" y="224" class="jp cardTitle">現場運営</text><text x="263" y="264" class="jp cardText">日々の業務が止まらないか</text>
+    <rect x="531" y="176" width="330" height="138" rx="22" fill="#fffaf0"/>
+    <circle cx="573" cy="224" r="26" fill="#102846"/><text x="561" y="233" class="jp num">5</text>
+    <text x="617" y="224" class="jp cardTitle">資料管理</text><text x="617" y="264" class="jp cardText">契約・ID・数字が共有されているか</text>
+  </g>
+  <rect x="90" y="690" width="1020" height="1" fill="#d9c18a" opacity=".55"/>
+  <text x="90" y="728" class="jp" font-size="22" fill="#e8dac0">社長依存を減らすことは、事業承継・M&amp;A・社内改善のすべてに効きます。</text>
+</svg>
