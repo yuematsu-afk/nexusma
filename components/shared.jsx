@@ -15,11 +15,17 @@ function Brand({ size = "default", onClick }) {
 
 function Header({ route, navigate }) {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+  useEffect(() => { setMobileOpen(false); }, [route]);
+  const go = (id) => {
+    setMobileOpen(false);
+    navigate(id);
+  };
   const links = [
     { id: "service-seller", label: "売り手の方へ" },
     { id: "service-buyer", label: "買い手の方へ" },
@@ -33,18 +39,28 @@ function Header({ route, navigate }) {
   return (
     <header className={`site-header ${scrolled ? "scrolled" : ""}`}>
       <div className="header-inner">
-        <Brand onClick={() => navigate("home")} />
-        <nav className="primary">
+        <Brand onClick={() => go("home")} />
+        <button
+          className={`menu-toggle ${mobileOpen ? "open" : ""}`}
+          aria-label={mobileOpen ? "メニューを閉じる" : "メニューを開く"}
+          aria-expanded={mobileOpen}
+          onClick={() => setMobileOpen((open) => !open)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+        <nav className={`primary ${mobileOpen ? "mobile-open" : ""}`}>
           {links.map((l) => (
             <span
               key={l.id}
               className={`nav-link ${route === l.id ? "active" : ""}`}
-              onClick={() => navigate(l.id)}
+              onClick={() => go(l.id)}
             >
               {l.label}
             </span>
           ))}
-          <button className="nav-cta" onClick={() => navigate("contact")}>
+          <button className="nav-cta" onClick={() => go("contact")}>
             無料相談
           </button>
         </nav>

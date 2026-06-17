@@ -371,3 +371,67 @@
   .diagnosis-result,
   .memo-card { padding: 30px 22px; }
 }
+
+@media (max-width: 600px) {
+  .home-diagnosis-band,
+  .diagnosis-promise {
+    padding: 64px 0;
+  }
+  .home-diagnosis-grid h2,
+  .diagnosis-intro h2,
+  .diagnosis-question h2,
+  .diagnosis-result h2 {
+    font-size: 28px;
+    line-height: 1.55;
+  }
+  .home-diagnosis-card {
+    padding: 30px 22px;
+  }
+  .diagnosis-hero {
+    padding: 96px 0 64px;
+  }
+  .diagnosis-hero h1 {
+    font-size: 34px;
+    line-height: 1.45;
+  }
+  .diagnosis-hero-actions,
+  .result-actions,
+  .memo-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .diagnosis-hero-card {
+    padding: 34px 24px;
+  }
+  .diagnosis-hero-card strong {
+    font-size: 88px;
+  }
+  .diagnosis-workspace {
+    padding: 56px 0;
+  }
+  .diagnosis-panel {
+    margin: 0 -2px;
+  }
+  .diagnosis-choice-grid button,
+  .action-plan-grid article,
+  .option-list article,
+  .promise-grid article {
+    padding: 22px 18px;
+  }
+  .result-score {
+    text-align: left;
+  }
+  .result-score strong {
+    font-size: 64px;
+  }
+  .memo-modal {
+    padding: 12px;
+    align-items: stretch;
+  }
+  .memo-card {
+    max-height: calc(100vh - 24px);
+  }
+  .memo-checks {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1054,6 +1054,80 @@
   .team-grid, .values-grid, .usecase-grid, .concerns-grid {
     grid-template-columns: 1fr;
   }
+  .filter-row,
+  .buyer-flow,
+  .results-stats,
+  .case-figs,
+  .case-detail-metrics,
+  .study-stats,
+  .profile-table,
+  .complete-meta {
+    grid-template-columns: 1fr;
+  }
+  .concern-item {
+    padding: 24px 22px;
+    gap: 16px;
+  }
+  .filter-row { gap: 24px; }
+  .result-bar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .case-detail-panel,
+  .form-card,
+  .full-text-document {
+    padding: 28px 20px;
+  }
+  .case-detail-image { min-height: 280px; }
+  .field-row { grid-template-columns: 1fr; }
+  .role-card, .method-card {
+    padding: 22px 18px;
+    gap: 14px;
+  }
+  .form-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .form-footer > div { display: none; }
+  .form-reassure {
+    position: static;
+    grid-column: auto;
+    grid-row: auto;
+  }
+  .step-progress {
+    justify-content: flex-start;
+    gap: 10px;
+    padding-bottom: 8px;
+  }
+  .step-item {
+    min-width: 72px;
+  }
+  .step-label {
+    font-size: 10px;
+    white-space: nowrap;
+  }
+  .confirm-table,
+  .confirm-table tbody,
+  .confirm-table tr,
+  .confirm-table th,
+  .confirm-table td {
+    display: block;
+    width: 100%;
+  }
+  .confirm-table th {
+    border-bottom: none;
+    padding-bottom: 6px;
+  }
+  .confirm-table td {
+    padding-top: 6px;
+  }
+  .complete-meta {
+    display: grid;
+    gap: 20px;
+    padding: 24px 22px;
+    width: 100%;
+  }
   .sitemap-grid { grid-template-columns: 1fr; }
   .info-card { grid-template-columns: 1fr; padding: 26px 22px; }
   .full-text-document { padding: 30px 22px; font-size: 13.5px; }
