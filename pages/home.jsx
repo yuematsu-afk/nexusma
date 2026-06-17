@@ -269,30 +269,11 @@ function PageHome({ navigate }) {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="cta-band">
-        <div className="container">
-          <div className="cta-inner">
-            <div>
-              <div className="eyebrow" style={{ color: "var(--gold-400)" }}>Confidential Consultation</div>
-              <h2 style={{ color: "var(--ivory)", fontSize: 36, marginTop: 18, lineHeight: 1.6 }}>
-                経営の重要な決断は、<br />信頼できる相手と。
-              </h2>
-              <p style={{ color: "rgba(247,242,233,0.7)", marginTop: 22, fontSize: 14, maxWidth: 480 }}>
-                ご相談内容は秘密保持に配慮して取り扱います。必要に応じて守秘義務契約を締結します。初回のご相談は無料です。
-              </p>
-            </div>
-            <div className="cta-actions">
-              <button className="btn btn-ghost-light" onClick={() => navigate("diagnosis")}>
-                まず匿名診断する
-              </button>
-              <button className="btn btn-primary" onClick={() => navigate("contact")}>
-                無料相談を予約する <span className="arrow" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ConversionCTA
+        navigate={navigate}
+        title={<React.Fragment>経営の重要な決断は、<br />信頼できる相手と。</React.Fragment>}
+        lead="ご相談内容は秘密保持に配慮して取り扱います。必要に応じて守秘義務契約を締結します。初回のご相談は無料です。"
+      />
 
       {/* NEWS */}
       <section style={{ background: "var(--paper)" }}>

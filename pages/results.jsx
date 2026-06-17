@@ -152,21 +152,12 @@ function PageResults({ navigate }) {
         </div>
       </section>
 
-      <section className="cta-band">
-        <div className="container">
-          <div className="cta-inner">
-            <div>
-              <div className="eyebrow" style={{ color: "var(--gold-400)" }}>Next Chapter</div>
-              <h2 style={{ color: "var(--ivory)", fontSize: 34, marginTop: 18, lineHeight: 1.6 }}>あなたの会社の物語を、<br />次の章へ。</h2>
-            </div>
-            <div className="cta-actions">
-              <button className="btn btn-primary" onClick={() => navigate("contact")}>
-                無料相談を予約する <span className="arrow" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ConversionCTA
+        navigate={navigate}
+        eyebrow="Next Chapter"
+        title={<React.Fragment>あなたの会社の物語を、<br />次の章へ。</React.Fragment>}
+        lead="売却・承継・成長戦略のどれが合うか、最初の段階から整理できます。まだ決めていない状態でも大丈夫です。"
+      />
     </main>
   );
 }

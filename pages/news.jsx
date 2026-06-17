@@ -119,6 +119,13 @@ function PageNews({ navigate }) {
           <p className="news-list-note">現在公開中の記事は以上です。新しい記事は随時追加します。</p>
         </div>
       </section>
+
+      <ConversionCTA
+        navigate={navigate}
+        eyebrow="From Insight to Action"
+        title="記事の内容を、自社の状況に当てはめて整理できます。"
+        lead="事業承継、M&A、社長不在リスクについて、まだ具体化していない段階でもご相談いただけます。"
+      />
     </main>
   );
 }

@@ -101,27 +101,13 @@ function PageSeller({ navigate }) {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="cta-band">
-        <div className="container">
-          <div className="cta-inner">
-            <div>
-              <div className="eyebrow" style={{ color: "var(--gold-400)" }}>Confidential</div>
-              <h2 style={{ color: "var(--ivory)", fontSize: 34, marginTop: 18, lineHeight: 1.6 }}>
-                まずは、現状をお聞かせください。
-              </h2>
-              <p style={{ color: "rgba(247,242,233,0.7)", marginTop: 22, fontSize: 14, maxWidth: 520 }}>
-                ご相談内容は秘密保持に配慮して取り扱います。情報を出していただく前に、まずはお話を伺います。
-              </p>
-            </div>
-            <div className="cta-actions">
-              <button className="btn btn-primary" onClick={() => navigate("contact")}>
-                無料相談を予約する <span className="arrow" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ConversionCTA
+        navigate={navigate}
+        eyebrow="For Owners"
+        title="売却を決める前に、選択肢を整理しませんか。"
+        lead="会社名や電話番号を出さずに社長依存度を確認し、具体的に話したい場合だけ無料相談へ進めます。"
+        primaryLabel="売り手として相談する"
+      />
     </main>
   );
 }
@@ -211,26 +197,15 @@ function PageBuyer({ navigate }) {
         </div>
       </section>
 
-      <section className="cta-band">
-        <div className="container">
-          <div className="cta-inner">
-            <div>
-              <div className="eyebrow" style={{ color: "var(--gold-400)" }}>Buyer Registration</div>
-              <h2 style={{ color: "var(--ivory)", fontSize: 34, marginTop: 18, lineHeight: 1.6 }}>
-                投資基準をご登録ください。
-              </h2>
-              <p style={{ color: "rgba(247,242,233,0.7)", marginTop: 22, fontSize: 14, maxWidth: 520 }}>
-                希望する業種・規模・地域などをご登録いただき、条件に合う可能性がある場合に個別にご案内します。
-              </p>
-            </div>
-            <div className="cta-actions">
-              <button className="btn btn-primary" onClick={() => navigate("contact")}>
-                買い手登録を行う <span className="arrow" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ConversionCTA
+        navigate={navigate}
+        eyebrow="Buyer Registration"
+        title="投資基準をご登録ください。"
+        lead="希望する業種・規模・地域を送っていただくと、条件に合う可能性がある場合に個別にご案内します。"
+        primaryLabel="買い手として相談する"
+        secondaryLabel="診断ページを見る"
+        note="具体的な案件情報は、秘密保持と開示範囲を確認したうえで段階的にご案内します。"
+      />
     </main>
   );
 }

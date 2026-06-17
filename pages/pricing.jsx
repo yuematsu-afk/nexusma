@@ -145,21 +145,13 @@ function PagePricing({ navigate }) {
         </div>
       </section>
 
-      <section className="cta-band">
-        <div className="container">
-          <div className="cta-inner">
-            <div>
-              <div className="eyebrow" style={{ color: "var(--gold-400)" }}>Get Started</div>
-              <h2 style={{ color: "var(--ivory)", fontSize: 34, marginTop: 18, lineHeight: 1.6 }}>まずは、無料相談から。</h2>
-            </div>
-            <div className="cta-actions">
-              <button className="btn btn-primary" onClick={() => navigate("contact")}>
-                無料相談を予約する <span className="arrow" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ConversionCTA
+        navigate={navigate}
+        eyebrow="Get Started"
+        title="料金を確認したうえで、無料相談から始められます。"
+        lead="契約形態、報酬体系、外部専門家費用、テール条項などは契約前に説明します。まずは状況整理だけでも可能です。"
+        primaryLabel="料金を踏まえて相談する"
+      />
     </main>
   );
 }

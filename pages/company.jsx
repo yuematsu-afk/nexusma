@@ -138,6 +138,13 @@ function PageCompany({ navigate }) {
           </table>
         </div>
       </section>
+
+      <ConversionCTA
+        navigate={navigate}
+        eyebrow="Trust & Contact"
+        title="運営者情報を確認したうえで、ご相談いただけます。"
+        lead="中小M&Aガイドライン遵守方針、登録情報、秘密保持への配慮を確認したうえで、必要な範囲からご相談ください。"
+      />
     </main>
   );
 }

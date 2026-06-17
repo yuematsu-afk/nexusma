@@ -102,6 +102,43 @@ function SectionHead({ eyebrow, title, lead, align = "center" }) {
   );
 }
 
+function ConversionCTA({
+  navigate,
+  eyebrow = "Confidential Consultation",
+  title = "まずは、現状を整理するところから。",
+  lead = "会社名・電話番号を出さずに始められる匿名診断と、具体的なご相談を送れる無料相談フォームを用意しています。",
+  primaryLabel = "無料相談を予約する",
+  secondaryLabel = "まず匿名診断する",
+  note = "診断だけでは連絡先を取得しません。営業電話を前提にしない導線です。",
+}) {
+  return (
+    <section className="cta-band">
+      <div className="container">
+        <div className="cta-inner">
+          <div>
+            <div className="eyebrow" style={{ color: "var(--gold-400)" }}>{eyebrow}</div>
+            <h2 style={{ color: "var(--ivory)", fontSize: 34, marginTop: 18, lineHeight: 1.6 }}>{title}</h2>
+            {lead && (
+              <p style={{ color: "rgba(247,242,233,0.7)", marginTop: 22, fontSize: 14, maxWidth: 560 }}>
+                {lead}
+              </p>
+            )}
+          </div>
+          <div className="cta-actions">
+            <button className="btn btn-ghost-light" onClick={() => navigate("diagnosis")}>
+              {secondaryLabel}
+            </button>
+            <button className="btn btn-primary" onClick={() => navigate("contact")}>
+              {primaryLabel} <span className="arrow" />
+            </button>
+            {note && <div className="cta-note">{note}</div>}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function getVisualClass(industry = "") {
   if (industry.includes("IT") || industry.includes("SaaS")) return "visual-saas";
   if (industry.includes("製造") || industry.includes("建設") || industry.includes("卸売")) return "visual-manufacturing";
@@ -215,4 +252,4 @@ function ProcessTimeline({ active = 0, onStep }) {
   );
 }
 
-Object.assign(window, { Brand, Header, PageHero, SectionHead, Footer, ProcessTimeline, getVisualClass, getNewsVisual });
+Object.assign(window, { Brand, Header, PageHero, SectionHead, ConversionCTA, Footer, ProcessTimeline, getVisualClass, getNewsVisual });

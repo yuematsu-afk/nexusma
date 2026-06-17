@@ -222,24 +222,15 @@ function PageCases({ navigate }) {
         </div>
       </section>
 
-      <section className="cta-band">
-        <div className="container">
-          <div className="cta-inner">
-            <div>
-              <div className="eyebrow" style={{ color: "var(--gold-400)" }}>Premium Mandates</div>
-            <h2 style={{ color: "var(--ivory)", fontSize: 34, marginTop: 18, lineHeight: 1.6 }}>買い手候補としてのご相談。</h2>
-              <p style={{ color: "rgba(247,242,233,0.7)", marginTop: 22, fontSize: 14, maxWidth: 520 }}>
-                掲載案件はイメージです。投資基準をご登録いただき、条件に合う可能性がある場合に個別にご案内します。
-              </p>
-            </div>
-            <div className="cta-actions">
-              <button className="btn btn-primary" onClick={() => navigate("contact")}>
-                買い手登録を行う <span className="arrow" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ConversionCTA
+        navigate={navigate}
+        eyebrow="Premium Mandates"
+        title="買い手候補としてのご相談。"
+        lead="掲載案件はイメージです。投資基準をご登録いただき、条件に合う可能性がある場合に個別にご案内します。"
+        primaryLabel="買い手登録を行う"
+        secondaryLabel="まず匿名診断を見る"
+        note="実在案件の詳細は、秘密保持と開示範囲を確認したうえで個別に取り扱います。"
+      />
     </main>
   );
 }
