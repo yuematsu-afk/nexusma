@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">従業員の雇用継続を考えるM&amp;A</title>
+  <desc id="desc">M&amp;Aで従業員の雇用継続を希望する場合に、待遇、勤務地、役職、説明時期、買い手の方針を確認する図。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07172c"/><stop offset="62%" stop-color="#102846"/><stop offset="100%" stop-color="#876a35"/>
+    </linearGradient>
+    <style>
+      .jp{font-family:"Noto Sans JP","Yu Gothic","Hiragino Sans",sans-serif}.serif{font-family:"Shippori Mincho","Yu Mincho",serif}
+      .eyebrow{font-size:24px;fill:#d9c18a;letter-spacing:.08em}.title{font-size:48px;font-weight:700;fill:#fffaf0}.lead{font-size:26px;fill:#f3ead6}
+      .head{font-size:24px;fill:#102846;font-weight:700}.body{font-size:19px;fill:#4d5a6b}
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <text x="76" y="88" class="jp eyebrow">Employee Retention in M&amp;A</text>
+  <text x="76" y="158" class="jp serif title">雇用継続は、願望ではなく交渉条件にする。</text>
+  <text x="78" y="214" class="jp lead">候補先選定の前から、守りたい条件を明文化する。</text>
+  <g transform="translate(90 316)">
+    <rect width="1020" height="78" rx="16" fill="#d9c18a"/><text x="36" y="50" class="jp head">確認する条件</text><text x="420" y="50" class="jp head">具体的な論点</text>
+    <g transform="translate(0 100)">
+      <rect width="1020" height="62" rx="14" fill="#fffaf0"/><text x="36" y="40" class="jp head">待遇</text><text x="420" y="40" class="jp body">給与、賞与、退職金、福利厚生</text>
+    </g>
+    <g transform="translate(0 176)">
+      <rect width="1020" height="62" rx="14" fill="#fffaf0"/><text x="36" y="40" class="jp head">勤務地</text><text x="420" y="40" class="jp body">転勤、店舗・工場の継続、通勤負担</text>
+    </g>
+    <g transform="translate(0 252)">
+      <rect width="1020" height="62" rx="14" fill="#fffaf0"/><text x="36" y="40" class="jp head">役職</text><text x="420" y="40" class="jp body">幹部・管理職・キーパーソンの処遇</text>
+    </g>
+    <g transform="translate(0 328)">
+      <rect width="1020" height="62" rx="14" fill="#fffaf0"/><text x="36" y="40" class="jp head">説明時期</text><text x="420" y="40" class="jp body">誰に、いつ、どの順番で伝えるか</text>
+    </g>
+  </g>
+  <text x="90" y="724" class="jp" font-size="22" fill="#e8dac0">従業員を守りたいなら、候補先選定の段階から条件に入れることが重要です。</text>
+</svg>

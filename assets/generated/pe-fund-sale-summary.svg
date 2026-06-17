@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">PEファンドへの売却で確認すること</title>
+  <desc id="desc">PEファンドへの売却で、成長投資、経営者の残り方、従業員説明、投資期間、相性を確認する図。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07172c"/><stop offset="58%" stop-color="#102846"/><stop offset="100%" stop-color="#876a35"/>
+    </linearGradient>
+    <style>
+      .jp{font-family:"Noto Sans JP","Yu Gothic","Hiragino Sans",sans-serif}.serif{font-family:"Shippori Mincho","Yu Mincho",serif}
+      .eyebrow{font-size:24px;fill:#d9c18a;letter-spacing:.08em}.title{font-size:48px;font-weight:700;fill:#fffaf0}.lead{font-size:26px;fill:#f3ead6}
+      .cardTitle{font-size:24px;fill:#102846;font-weight:700}.cardText{font-size:20px;fill:#4d5a6b}
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <text x="76" y="88" class="jp eyebrow">Private Equity Sale</text>
+  <text x="76" y="158" class="jp serif title">PEファンドは、成長を買う相手。</text>
+  <text x="78" y="214" class="jp lead">価格だけでなく、投資後の経営計画と相性を確認する。</text>
+  <g transform="translate(90 310)">
+    <rect x="0" y="0" width="310" height="150" rx="22" fill="#fffaf0"/><text x="32" y="58" class="jp cardTitle">成長投資</text><text x="32" y="102" class="jp cardText">人材・営業・管理体制</text>
+    <rect x="354" y="0" width="310" height="150" rx="22" fill="#fffaf0"/><text x="386" y="58" class="jp cardTitle">経営者の残り方</text><text x="386" y="102" class="jp cardText">続投・退任・移行期間</text>
+    <rect x="708" y="0" width="310" height="150" rx="22" fill="#fffaf0"/><text x="740" y="58" class="jp cardTitle">従業員説明</text><text x="740" y="102" class="jp cardText">不安を減らす伝え方</text>
+    <rect x="177" y="196" width="310" height="150" rx="22" fill="#fffaf0"/><text x="209" y="254" class="jp cardTitle">投資期間</text><text x="209" y="298" class="jp cardText">次の出口と時間軸</text>
+    <rect x="531" y="196" width="310" height="150" rx="22" fill="#fffaf0"/><text x="563" y="254" class="jp cardTitle">相性確認</text><text x="563" y="298" class="jp cardText">数字以外の価値観</text>
+  </g>
+  <text x="90" y="710" class="jp" font-size="22" fill="#e8dac0">PEファンドは「会社を終わらせる相手」ではなく、成長計画を共有できるかで判断します。</text>
+</svg>
