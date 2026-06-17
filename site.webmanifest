@@ -2,7 +2,7 @@
   "name": "NexusM&A",
   "short_name": "NexusM&A",
   "description": "中小企業の事業承継・成長戦略M&Aを支援する独立系アドバイザリー",
-  "start_url": "/nexusma/",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#f7f2e9",
   "theme_color": "#0a1a30",

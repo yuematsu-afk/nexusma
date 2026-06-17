@@ -1,7 +1,7 @@
 /* Main app — router & shell */
 const { useState, useEffect } = React;
 
-const SITE_BASE_URL = "https://yuematsu-afk.github.io/nexusma/";
+const SITE_BASE_URL = "https://sasa-eru.com/";
 const DEFAULT_META = {
   title: "NexusM&A — 中小企業のための、独立系M&Aアドバイザリー",
   description: "NexusM&Aは中小企業の事業承継・成長戦略M&Aを支援する独立系アドバイザリーです。会社名・電話番号不要の社長不在90日診断も利用できます。",

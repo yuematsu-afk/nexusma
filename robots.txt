@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://yuematsu-afk.github.io/nexusma/sitemap.xml
+Sitemap: https://sasa-eru.com/sitemap.xml
