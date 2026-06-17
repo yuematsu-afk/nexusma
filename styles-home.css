@@ -486,6 +486,21 @@
     grid-template-columns: 1fr;
     gap: 12px;
   }
+  .feature-body {
+    padding: 24px 20px;
+  }
+  .feature-foot {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .news-list {
+    border-top: 1px solid var(--ink-100);
+  }
+  .news-date,
+  .news-title {
+    line-height: 1.7;
+  }
   .section-head[style] {
     display: block !important;
   }

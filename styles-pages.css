@@ -1060,7 +1060,6 @@
   .case-figs,
   .case-detail-metrics,
   .study-stats,
-  .profile-table,
   .complete-meta {
     grid-template-columns: 1fr;
   }
@@ -1076,8 +1075,30 @@
   }
   .case-detail-panel,
   .form-card,
-  .full-text-document {
+  .full-text-document,
+  .article-detail {
     padding: 28px 20px;
+  }
+  .ceo-portrait-wrap {
+    position: static;
+  }
+  .ceo-portrait {
+    aspect-ratio: 16 / 11;
+  }
+  .ceo-portrait-cap {
+    padding: 18px 20px;
+  }
+  .ceo-message p {
+    font-size: 14px;
+    line-height: 2;
+  }
+  .milestone {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 24px 0 24px 28px;
+  }
+  .milestone-year {
+    font-size: 26px;
   }
   .case-detail-image { min-height: 280px; }
   .field-row { grid-template-columns: 1fr; }
@@ -1128,12 +1149,100 @@
     padding: 24px 22px;
     width: 100%;
   }
+  .profile-table,
+  .profile-table tbody,
+  .profile-table tr,
+  .profile-table th,
+  .profile-table td {
+    display: block;
+    width: 100%;
+  }
+  .profile-table {
+    border: 1px solid var(--ink-100);
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+  .profile-table tr {
+    border-bottom: 1px solid var(--ink-100);
+    background: var(--white);
+  }
+  .profile-table tr:last-child { border-bottom: none; }
+  .profile-table th {
+    width: 100%;
+    padding: 16px 18px 6px;
+    border-bottom: none;
+    background: var(--white);
+    color: var(--gold-700);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+  }
+  .profile-table td {
+    padding: 0 18px 18px;
+    border-bottom: none;
+    font-size: 14px;
+    line-height: 1.9;
+    word-break: break-word;
+  }
+  .profile-table .text-link {
+    text-align: left;
+    line-height: 1.8;
+  }
+  .lehman-table,
+  .lehman-table tbody,
+  .lehman-table tr,
+  .lehman-table td {
+    display: block;
+    width: 100%;
+  }
+  .lehman-table tr {
+    border-bottom: 1px solid var(--ink-100);
+  }
+  .lehman-table tbody tr:last-child { border-bottom: none; }
+  .lehman-table td {
+    border-bottom: none;
+    padding: 14px 18px;
+    text-align: left;
+  }
+  .lehman-table td:first-child {
+    padding-bottom: 4px;
+    color: var(--gold-700);
+    font-family: var(--serif-jp);
+  }
+  .lehman-table td:last-child {
+    padding-top: 4px;
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.9;
+  }
+  .faq-item summary {
+    gap: 14px;
+    padding: 20px 18px;
+  }
+  .faq-q-num {
+    min-width: 36px;
+    font-size: 15px;
+  }
+  .faq-q-text {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .faq-a {
+    padding: 0 18px 22px 18px;
+    font-size: 13.5px;
+  }
+  .news-meta {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .article-detail-img {
+    aspect-ratio: 16 / 11;
+  }
   .sitemap-grid { grid-template-columns: 1fr; }
   .info-card { grid-template-columns: 1fr; padding: 26px 22px; }
   .full-text-document { padding: 30px 22px; font-size: 13.5px; }
   .full-text-document .doc-body-line { padding-left: 3.2em; }
   .full-text-document .doc-note-line { margin-left: 0; }
   .plan-card.featured { transform: none; }
-  .lehman-table th:last-child, .lehman-table td:last-child { text-align: right; }
+  .lehman-table th:last-child { text-align: right; }
   .featured-news-body { padding: 32px 24px; }
 }

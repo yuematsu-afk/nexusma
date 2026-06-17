@@ -589,6 +589,19 @@ nav.primary { display: flex; align-items: center; gap: 36px; }
     font-size: 14px;
     line-height: 1.9;
   }
+  .breadcrumb {
+    flex-wrap: wrap;
+    gap: 6px;
+    line-height: 1.8;
+  }
+  .section-head h2 {
+    font-size: 30px !important;
+    line-height: 1.55;
+  }
+  .section-head .lead {
+    font-size: 14px;
+    line-height: 1.9;
+  }
   .btn {
     width: 100%;
     justify-content: center;
