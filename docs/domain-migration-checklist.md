@@ -10,6 +10,9 @@
 GitHub Pages の custom domain に `sasa-eru.com` を設定し、DNS側で GitHub Pages へ向ける。
 `www.sasa-eru.com` も同時に設定し、片方へ自動リダイレクトされる構成にする。
 
+2026-06-17時点の確認では、`sasa-eru.com` は `35.194.122.208` に向いている。
+DNSをGitHub Pagesへ変更すると、既存の `sasa-eru.com` の表示先が変わるため、既存サイトを置き換えてよいかを確認してから実施する。
+
 ## まだ実行しないこと
 
 次の作業は、DNS管理画面へログインできる状態で実施する。
@@ -29,6 +32,7 @@ GitHub Pages の custom domain に `sasa-eru.com` を設定し、DNS側で GitHu
 
 - [ ] `sasa-eru.com` のDNS管理画面にログインできる
 - [ ] 現在の `sasa-eru.com` の利用状況を確認した
+- [ ] 現在のAレコード `35.194.122.208` を置き換えてよいことを確認した
 - [ ] メール運用に使っているDNSレコードを確認した
 - [ ] MX / SPF / DKIM / DMARC レコードを消さない方針を確認した
 - [ ] 既存サイトを置き換えるか、NexusM&Aをトップにするか決めた
