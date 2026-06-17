@@ -113,12 +113,111 @@ const SEO_COLUMN_SEEDS = [
   ["2021.03.25", "事業承継を先延ばしにすると何が起きるか", "承継の先延ばし", "人材、顧客、金融機関、家族への影響を見る"],
 ];
 
+const PRIORITY_COLUMN_DETAILS = [
+  {
+    searchIntent: "「後継者がいない」「地方で後継者が見つからない」と感じている経営者は、すぐに売却を決めたいわけではなく、会社・従業員・取引先をどう残せるかを知りたい段階にいることが多いです。",
+    risk: "候補者探しを先延ばしにすると、社長の年齢、従業員の高齢化、主要取引先の変化が同時に進み、親族内承継・社内承継・第三者承継のすべてが選びにくくなります。",
+    action: "まずは「誰に渡すか」ではなく、「残したい事業・残したい雇用・引き継げる取引先」を分けて書き出します。",
+    ctaTitle: "後継者不在の選択肢を整理しませんか",
+    ctaText: "親族内承継、社内承継、第三者承継、M&Aを横並びで確認し、まだ売却を決めていない段階から会社の残し方を整理できます。",
+    primaryLabel: "後継者不在について相談する",
+    secondaryLabel: "90日診断で社長依存を見る",
+  },
+  {
+    searchIntent: "人口減少地域の経営者は、今すぐ業績が悪くなくても、将来の採用・需要・取引先の減少に不安を持っています。",
+    risk: "地域需要が縮む局面では、黒字のうちに動くか、業績が落ちてから動くかで、承継・譲渡・提携の選択肢が大きく変わります。",
+    action: "売上推移、粗利、主要顧客の年齢層、従業員の年齢構成を並べ、3年後・5年後の事業継続条件を確認します。",
+    ctaTitle: "人口減少地域で会社を残す方法を考える",
+    ctaText: "地域需要や採用環境の変化を前提に、単独継続・提携・第三者承継・M&Aを比較します。",
+    primaryLabel: "地域承継について相談する",
+    secondaryLabel: "会社の現在地を診断する",
+  },
+  {
+    searchIntent: "採用できない会社の悩みは、求人方法だけでは解決しないことがあります。若者減少が続く地域では、採用難そのものが承継リスクになります。",
+    risk: "若手社員が入らないまま現場が高齢化すると、技能・顧客対応・管理業務の引き継ぎが難しくなり、買い手候補から見ても引き継ぎ負担が大きく見えます。",
+    action: "採用活動の結果だけでなく、業務標準化、教育体制、幹部候補、外部連携の可能性を整理します。",
+    ctaTitle: "採用難を承継リスクとして整理する",
+    ctaText: "求人だけで解決しにくい場合、社内承継・提携・M&Aを含めて人材と事業の残し方を確認できます。",
+    primaryLabel: "採用難と承継を相談する",
+    secondaryLabel: "社長依存を診断する",
+  },
+  {
+    searchIntent: "従業員の高齢化に悩む会社では、後継者だけでなく、現場を支える人材・技能・顧客対応が引き継げるかが問題になります。",
+    risk: "熟練者が退職した後に準備を始めると、技術や判断基準が言語化されておらず、承継先や買い手に事業の価値を伝えにくくなります。",
+    action: "年齢構成、退職見込み、代替可能な業務、属人化した技能を棚卸しし、引き継ぎ資料に落とし込みます。",
+    ctaTitle: "従業員高齢化と技能承継を整理する",
+    ctaText: "人材の年齢構成と現場ノウハウを見える化し、承継・M&Aで守るべき条件を整理します。",
+    primaryLabel: "従業員高齢化を相談する",
+    secondaryLabel: "90日診断を試す",
+  },
+  {
+    searchIntent: "取引先が減っている会社は、売上減少だけでなく、主要顧客依存や商圏縮小が承継の障害になっていないかを確認する必要があります。",
+    risk: "取引先の減少を放置すると、買い手候補から見た将来収益の説明が難しくなり、第三者承継の検討時期を逃すおそれがあります。",
+    action: "主要取引先別の売上、粗利、継続年数、担当者、契約条件を一覧にして、残せる売上と縮小する売上を分けます。",
+    ctaTitle: "取引先減少を承継の観点で確認する",
+    ctaText: "売上構成や主要顧客依存を整理し、早めに承継・提携・M&Aの選択肢を比較します。",
+    primaryLabel: "取引先減少について相談する",
+    secondaryLabel: "会社の依存度を診断する",
+  },
+  {
+    searchIntent: "社長しか営業できない会社は、業績がよく見えても、社長が動けなくなった瞬間に売上が止まるリスクがあります。",
+    risk: "顧客との関係、価格交渉、クレーム対応、紹介ルートが社長個人に集中していると、親族内承継・社内承継・M&Aのどれでも引き継ぎ負担が大きくなります。",
+    action: "顧客情報、商談履歴、見積基準、紹介元、過去のトラブル対応を社内で共有できる形にします。",
+    ctaTitle: "社長依存の営業を見える化する",
+    ctaText: "営業・顧客対応・価格判断が社長に集中している場合、承継前にどこから分散できるかを整理します。",
+    primaryLabel: "社長依存を相談する",
+    secondaryLabel: "90日診断で確認する",
+  },
+  {
+    searchIntent: "地方工場の後継者問題では、土地・建物・設備だけでなく、技術、人材、品質管理、取引先対応をセットで引き継げるかが問われます。",
+    risk: "設備があっても、操作できる人、品質を判断できる人、取引先の要求を理解している人が減ると、承継可能性は下がります。",
+    action: "設備一覧、保守履歴、主要製品、技能者、品質基準、取引先別の要求事項をまとめます。",
+    ctaTitle: "工場の技術・設備・人材を承継に備える",
+    ctaText: "製造現場の価値を買い手や後継者に説明できるよう、設備・技術・人材を整理します。",
+    primaryLabel: "工場承継を相談する",
+    secondaryLabel: "現場依存を診断する",
+  },
+  {
+    searchIntent: "高齢経営者が引退時期を決められない背景には、生活資金、従業員への責任、取引先、家族、会社への思いが絡みます。",
+    risk: "引退時期を決めないまま時間が過ぎると、社長本人の判断力や体力に依存した状態が続き、緊急時に家族や従業員が困る可能性があります。",
+    action: "退任時期、譲渡後の関与、生活資金、経営者保証、家族の意向を分けて整理します。",
+    ctaTitle: "引退時期と会社の残し方を整理する",
+    ctaText: "すぐに引退を決める必要はありません。残り方、任せ方、譲り方を分けて考えることから始められます。",
+    primaryLabel: "引退時期を相談する",
+    secondaryLabel: "90日診断で備える",
+  },
+  {
+    searchIntent: "出生率低下は遠い社会問題に見えますが、親族内承継の候補者減少、若手採用難、地域需要の縮小として中小企業に現れます。",
+    risk: "親族内承継だけに期待していると、候補者がいない、候補者が都市部で働いている、本人が継ぐ意思を持たないといった理由で準備が止まります。",
+    action: "親族内承継に限定せず、社内承継、外部人材、第三者承継、M&Aを同時に比較します。",
+    ctaTitle: "親族内承継だけに頼らない選択肢を確認する",
+    ctaText: "出生率低下や若者減少を前提に、社内承継・第三者承継・M&Aを早めに比較します。",
+    primaryLabel: "承継方法を相談する",
+    secondaryLabel: "会社の承継準備を診断する",
+  },
+  {
+    searchIntent: "人手不足が続く会社では、何を守るためにM&Aを検討するのかを明確にする必要があります。雇用、取引先、地域サービスを守る目的なら、買い手候補の選び方も変わります。",
+    risk: "人手不足が進むほど、現場の負担が増え、サービス品質や納期対応に影響します。限界が来てからでは、従業員の雇用継続条件も交渉しにくくなります。",
+    action: "雇用継続、勤務地、待遇、取引先対応、地域サービスの継続条件を整理します。",
+    ctaTitle: "人手不足でも守れるものを整理する",
+    ctaText: "雇用・取引先・地域サービスを守るために、単独継続以外の選択肢も含めて確認します。",
+    primaryLabel: "人手不足とM&Aを相談する",
+    secondaryLabel: "90日診断で確認する",
+  },
+];
+
 function getImportantSeoBlocks(index, issue, action) {
-  if (index > 7) return [];
+  const detail = PRIORITY_COLUMN_DETAILS[index];
+  if (!detail) return [];
   return [
-    { type: "heading", level: 2, text: "4. 相談前に整理しておくとよいこと" },
+    { type: "heading", level: 2, text: "4. この検索で知りたいこと" },
+    { type: "paragraph", text: detail.searchIntent },
+    { type: "heading", level: 2, text: "5. 放置した場合に起きやすいこと" },
+    { type: "paragraph", text: detail.risk },
+    { type: "heading", level: 2, text: "6. 相談前に整理しておくとよいこと" },
     { type: "paragraph", text: `${issue}が気になり始めた段階では、まだM&Aや第三者承継を決める必要はありません。まずは、今の会社がどの程度社長や特定の従業員に依存しているのか、地域や取引先にとって何を残すべきなのかを整理することが先です。` },
     { type: "point", title: "無料相談や90日診断の前に見るポイント", items: ["社長が1か月不在でも回る業務と止まる業務", "主要取引先、許認可、金融機関対応の属人化", "後継者候補の有無と本人の意思", "従業員の年齢構成と採用見通し", action] },
+    { type: "paragraph", text: detail.action },
     { type: "paragraph", text: "これらを整理しておくと、親族内承継、社内承継、第三者承継、M&Aのどれを優先して検討すべきかが見えやすくなります。NexusM&Aでは、いきなり売却を前提にせず、事業を残すための選択肢を比較するところから相談できます。" },
   ];
 }
@@ -456,6 +555,37 @@ function getColumnUrl(article) {
   return article.slug ? `/columns/${article.slug}/` : `/#/news?article=${article.id}`;
 }
 
+function getArticleCta(article) {
+  if (article.slug) {
+    const index = SEO_COLUMN_SLUGS.indexOf(article.slug);
+    const detail = PRIORITY_COLUMN_DETAILS[index];
+    if (detail) {
+      return {
+        title: detail.ctaTitle,
+        text: detail.ctaText,
+        primaryLabel: detail.primaryLabel,
+        secondaryLabel: detail.secondaryLabel,
+      };
+    }
+  }
+
+  if (article.id === 12) {
+    return {
+      title: "社長不在でも回る会社に近づける",
+      text: "社長に依存している業務を整理すると、事業承継・M&Aだけでなく日々の経営改善にもつながります。",
+      primaryLabel: "無料相談で整理する",
+      secondaryLabel: "90日診断を試す",
+    };
+  }
+
+  return {
+    title: "まずは自社の現在地を確認する",
+    text: "この記事の内容について、自社に当てはめて整理したい場合は、匿名診断または無料相談をご利用ください。",
+    primaryLabel: "無料相談へ進む",
+    secondaryLabel: "社長不在90日診断へ",
+  };
+}
+
 function getArticleFromLocation() {
   const pathMatch = window.location.pathname.match(/^\/columns\/([^/]+)\/?$/);
   if (pathMatch) {
@@ -516,6 +646,7 @@ function PageNews({ navigate }) {
   }, [selectedNews]);
 
   if (selectedNews) {
+    const cta = getArticleCta(selectedNews);
     return (
       <main>
         <PageHero
@@ -536,10 +667,10 @@ function PageNews({ navigate }) {
               </div>
               {selectedNews.body.map((block, i) => <ArticleBlock key={i} block={block} article={selectedNews} index={i} />)}
               <div className="article-cta">
-                <h3>まずは自社の現在地を確認する</h3>
-                <p>この記事の内容について、自社に当てはめて整理したい場合は、匿名診断または無料相談をご利用ください。</p>
-                <button className="btn btn-ghost" onClick={() => navigate("diagnosis")}>社長不在90日診断へ <span className="arrow" /></button>
-                <button className="btn btn-primary" onClick={() => navigate("contact")}>無料相談へ進む <span className="arrow" /></button>
+                <h3>{cta.title}</h3>
+                <p>{cta.text}</p>
+                <button className="btn btn-ghost" onClick={() => navigate("diagnosis")}>{cta.secondaryLabel} <span className="arrow" /></button>
+                <button className="btn btn-primary" onClick={() => navigate("contact")}>{cta.primaryLabel} <span className="arrow" /></button>
               </div>
             </article>
           </div>
