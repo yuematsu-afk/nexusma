@@ -206,6 +206,29 @@ const PRIORITY_COLUMN_DETAILS = [
   },
 ];
 
+const PRIORITY_RELATED_LINKS = [
+  [1, 3, 5],
+  [0, 2, 9],
+  [1, 3, 9],
+  [2, 5, 6],
+  [1, 5, 9],
+  [0, 3, 7],
+  [3, 5, 9],
+  [0, 5, 8],
+  [0, 1, 2],
+  [2, 4, 6],
+];
+
+function getRelatedColumnLinks(index) {
+  const relatedIndexes = PRIORITY_RELATED_LINKS[index];
+  if (!relatedIndexes) return [];
+  return relatedIndexes.map((relatedIndex) => ({
+    title: SEO_COLUMN_SEEDS[relatedIndex][1],
+    issue: SEO_COLUMN_SEEDS[relatedIndex][2],
+    url: `/columns/${SEO_COLUMN_SLUGS[relatedIndex]}/`,
+  }));
+}
+
 function getImportantSeoBlocks(index, issue, action) {
   const detail = PRIORITY_COLUMN_DETAILS[index];
   if (!detail) return [];
@@ -219,6 +242,7 @@ function getImportantSeoBlocks(index, issue, action) {
     { type: "point", title: "無料相談や90日診断の前に見るポイント", items: ["社長が1か月不在でも回る業務と止まる業務", "主要取引先、許認可、金融機関対応の属人化", "後継者候補の有無と本人の意思", "従業員の年齢構成と採用見通し", action] },
     { type: "paragraph", text: detail.action },
     { type: "paragraph", text: "これらを整理しておくと、親族内承継、社内承継、第三者承継、M&Aのどれを優先して検討すべきかが見えやすくなります。NexusM&Aでは、いきなり売却を前提にせず、事業を残すための選択肢を比較するところから相談できます。" },
+    { type: "related", items: getRelatedColumnLinks(index) },
   ];
 }
 
@@ -544,6 +568,23 @@ function ArticleBlock({ block, article, index }) {
               <li key={item.url}><a className="text-link" href={item.url} target="_blank" rel="noopener noreferrer">{item.label}</a></li>
             ))}
           </ul>
+        </aside>
+      );
+    case "related":
+      return (
+        <aside className="article-related-box">
+          <div className="article-related-head">
+            <span className="section-kicker">Related Columns</span>
+            <h3>関連して読む</h3>
+          </div>
+          <div className="article-related-grid">
+            {block.items.map((item) => (
+              <a className="article-related-card" href={item.url} key={item.url}>
+                <span>{item.issue}</span>
+                <strong>{item.title}</strong>
+              </a>
+            ))}
+          </div>
         </aside>
       );
     default:
