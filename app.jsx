@@ -8,6 +8,9 @@ const DEFAULT_META = {
 };
 
 function getRouteFromHash() {
+  if (window.location.pathname.match(/^\/columns\/[^/]+\/?$/)) {
+    return "news";
+  }
   const hash = window.location.hash.replace(/^#\/?/, "");
   return (hash.split("?")[0] || "home");
 }
@@ -100,6 +103,9 @@ function setCanonical(href) {
   el.setAttribute("href", href);
 }
 
+window.setNexusMeta = setMeta;
+window.setNexusCanonical = setCanonical;
+
 function App() {
   const [route, setRoute] = useState(() => getRouteFromHash());
 
@@ -113,6 +119,9 @@ function App() {
   }, []);
 
   useEffect(() => {
+    if (window.location.pathname.match(/^\/columns\/[^/]+\/?$/)) {
+      return;
+    }
     const meta = ROUTE_META[route] || DEFAULT_META;
     const canonical = route === "home" ? SITE_BASE_URL : `${SITE_BASE_URL}#/${route}`;
     document.title = meta.title;

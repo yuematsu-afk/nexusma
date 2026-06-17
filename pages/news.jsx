@@ -7,6 +7,59 @@ const GOV_SOURCES = [
   { label: "総務省統計局「人口推計」", url: "https://www.stat.go.jp/data/jinsui/" },
 ];
 
+const SEO_COLUMN_SLUGS = [
+  "succession-local-successor-shortage",
+  "population-decline-business-succession",
+  "youth-decline-hiring-succession-risk",
+  "aging-employees-succession-timing",
+  "local-sales-decline-checkpoints",
+  "owner-dependent-company-risk",
+  "local-factory-successor-ma",
+  "senior-owner-retirement-planning",
+  "low-birthrate-sme-succession",
+  "regional-labor-shortage-ma-options",
+  "shrinking-local-market-exit-strategy",
+  "owner-guarantee-succession-first-step",
+  "family-succession-decision-points",
+  "internal-succession-difficulty-options",
+  "local-service-business-successor-shortage",
+  "aging-customers-succession-risk",
+  "avoid-local-business-closure",
+  "business-inventory-population-decline",
+  "hiring-difficulty-buyer-perspective",
+  "third-party-succession-concerns",
+  "owner-health-succession-preparation",
+  "successor-candidate-but-stalled",
+  "local-construction-succession",
+  "local-retail-population-decline",
+  "healthcare-care-business-succession",
+  "food-business-successor-shortage",
+  "solo-owner-ma-possibility",
+  "protect-local-employment-ma",
+  "remote-area-company-value",
+  "profitable-company-early-succession",
+  "loss-making-company-succession",
+  "financial-institution-succession-consultation",
+  "tax-accountant-succession-documents",
+  "employee-explanation-local-ma",
+  "confidential-ma-before-disclosure",
+  "diagnose-before-selling-company",
+  "family-outside-succession",
+  "artisan-aging-technology-transfer",
+  "local-brand-succession",
+  "pre-closure-third-party-succession",
+  "young-employees-five-year-risk",
+  "sme-bcp-business-succession",
+  "family-meeting-business-succession",
+  "owner-personal-assets-company-succession",
+  "old-equipment-investment-decision",
+  "keep-company-name-after-ma",
+  "continue-or-transfer-population-decline",
+  "founder-letting-go-preparation",
+  "early-information-gathering-local-sme",
+  "delaying-succession-consequences",
+];
+
 const SEO_COLUMN_SEEDS = [
   ["2026.06.10", "地方で後継者が見つからない会社が、最初に整理すべきこと", "後継者候補の不在", "会社を誰に渡すかより先に、何を残したいかを整理する"],
   ["2026.05.28", "人口減少地域の会社は、なぜ早めの事業承継準備が必要なのか", "人口減少と市場縮小", "地域需要・採用・取引先の変化を早めに見える化する"],
@@ -60,13 +113,26 @@ const SEO_COLUMN_SEEDS = [
   ["2021.03.25", "事業承継を先延ばしにすると何が起きるか", "承継の先延ばし", "人材、顧客、金融機関、家族への影響を見る"],
 ];
 
+function getImportantSeoBlocks(index, issue, action) {
+  if (index > 7) return [];
+  return [
+    { type: "heading", level: 2, text: "4. 相談前に整理しておくとよいこと" },
+    { type: "paragraph", text: `${issue}が気になり始めた段階では、まだM&Aや第三者承継を決める必要はありません。まずは、今の会社がどの程度社長や特定の従業員に依存しているのか、地域や取引先にとって何を残すべきなのかを整理することが先です。` },
+    { type: "point", title: "無料相談や90日診断の前に見るポイント", items: ["社長が1か月不在でも回る業務と止まる業務", "主要取引先、許認可、金融機関対応の属人化", "後継者候補の有無と本人の意思", "従業員の年齢構成と採用見通し", action] },
+    { type: "paragraph", text: "これらを整理しておくと、親族内承継、社内承継、第三者承継、M&Aのどれを優先して検討すべきかが見えやすくなります。NexusM&Aでは、いきなり売却を前提にせず、事業を残すための選択肢を比較するところから相談できます。" },
+  ];
+}
+
 function buildSeoColumn(seed, index) {
   const [date, title, issue, action] = seed;
   return {
     id: 100 + index,
+    slug: SEO_COLUMN_SLUGS[index],
     tag: "コラム",
     date,
     title,
+    metaTitle: `${title} | 事業承継・M&Aコラム | NexusM&A`,
+    metaDescription: `${issue}を背景に、中小企業経営者が事業承継・第三者承継・M&Aの前に整理すべき論点を解説します。`,
     excerpt: `${issue}を背景に、中小企業経営者が事業承継・M&Aの前に整理すべき論点を解説します。`,
     summaryImage: "assets/generated/president-90day-summary.svg",
     summaryAlt: `${title}の要点を整理した図`,
@@ -81,6 +147,7 @@ function buildSeoColumn(seed, index) {
       { type: "checklist", items: ["後継者候補の有無を確認した", "従業員の年齢構成を把握している", "社長不在時の意思決定者がいる", "主要契約・許認可・金融機関資料を整理している", "第三者承継やM&Aを選択肢として比較した"] },
       { type: "heading", level: 2, text: "3. まず行うべきこと" },
       { type: "paragraph", text: `まずは、${action}ことから始めます。そのうえで、会社を残すために必要な条件を整理し、親族内承継・社内承継・第三者承継のどれが現実的かを確認します。` },
+      ...getImportantSeoBlocks(index, issue, action),
       { type: "source", items: GOV_SOURCES },
       { type: "closing", text: "M&Aは最後の手段ではなく、事業を残すための選択肢の一つです。まだ具体的に譲渡を考えていない段階でも、自社の現在地を診断し、早めに選択肢を見える化しておくことが重要です。" }
     ],
@@ -385,15 +452,25 @@ function ArticleBlock({ block, article, index }) {
   }
 }
 
-function PageNews({ navigate }) {
-  const getArticleFromHash = () => {
-    const query = window.location.hash.split("?")[1] || "";
-    const id = Number(new URLSearchParams(query).get("article"));
-    return NEWS.find((n) => n.id === id) || null;
-  };
+function getColumnUrl(article) {
+  return article.slug ? `/columns/${article.slug}/` : `/#/news?article=${article.id}`;
+}
 
+function getArticleFromLocation() {
+  const pathMatch = window.location.pathname.match(/^\/columns\/([^/]+)\/?$/);
+  if (pathMatch) {
+    const slug = decodeURIComponent(pathMatch[1]);
+    return NEWS.find((n) => n.slug === slug) || null;
+  }
+
+  const query = window.location.hash.split("?")[1] || "";
+  const id = Number(new URLSearchParams(query).get("article"));
+  return NEWS.find((n) => n.id === id) || null;
+}
+
+function PageNews({ navigate }) {
   const [filter, setFilter] = useState("すべて");
-  const [selectedNews, setSelectedNews] = useState(() => getArticleFromHash());
+  const [selectedNews, setSelectedNews] = useState(() => getArticleFromLocation());
   const tags = ["すべて", "お知らせ", "コラム"];
   const list = filter === "すべて" ? NEWS : NEWS.filter((n) => n.tag === filter);
 
@@ -401,18 +478,42 @@ function PageNews({ navigate }) {
   const rest = list.filter((n) => n.id !== featured.id);
   const openArticle = (article) => {
     setSelectedNews(article);
-    window.location.hash = `/news?article=${article.id}`;
+    window.history.pushState(null, "", getColumnUrl(article));
+    window.scrollTo({ top: 0, behavior: "auto" });
   };
   const closeArticle = () => {
     setSelectedNews(null);
-    window.location.hash = "/news";
+    window.history.pushState(null, "", "/#/news");
+    window.scrollTo({ top: 0, behavior: "auto" });
   };
 
   useEffect(() => {
-    const syncArticle = () => setSelectedNews(getArticleFromHash());
+    const syncArticle = () => setSelectedNews(getArticleFromLocation());
     window.addEventListener("hashchange", syncArticle);
-    return () => window.removeEventListener("hashchange", syncArticle);
+    window.addEventListener("popstate", syncArticle);
+    return () => {
+      window.removeEventListener("hashchange", syncArticle);
+      window.removeEventListener("popstate", syncArticle);
+    };
   }, []);
+
+  useEffect(() => {
+    if (!selectedNews) return;
+    const canonical = `https://sasa-eru.com${getColumnUrl(selectedNews)}`;
+    const title = selectedNews.metaTitle || `${selectedNews.title} | NexusM&A`;
+    const description = selectedNews.metaDescription || selectedNews.excerpt;
+    document.title = title;
+    if (typeof window.setNexusMeta === "function") {
+      window.setNexusMeta("description", description);
+      window.setNexusMeta("og:title", title, "property");
+      window.setNexusMeta("og:description", description, "property");
+      window.setNexusMeta("og:url", canonical, "property");
+      window.setNexusMeta("og:type", "article", "property");
+    }
+    if (typeof window.setNexusCanonical === "function") {
+      window.setNexusCanonical(canonical);
+    }
+  }, [selectedNews]);
 
   if (selectedNews) {
     return (
