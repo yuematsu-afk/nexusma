@@ -72,6 +72,7 @@ function PageContact({ navigate }) {
     concerns: [],
     company: "",
     name: "",
+    position: "",
     email: "",
     phone: "",
     message: "",
@@ -80,7 +81,10 @@ function PageContact({ navigate }) {
     ...(diagnosisPrefill?.data || {}),
   });
 
-  const update = (k, v) => setData((d) => ({ ...d, [k]: v }));
+  const update = (k, v) => {
+    if (submitState.error) setSubmitState((state) => ({ ...state, error: "" }));
+    setData((d) => ({ ...d, [k]: v }));
+  };
   const chooseRole = (role) => setData((d) => ({
     ...d,
     role,
@@ -98,11 +102,12 @@ function PageContact({ navigate }) {
   const total = stepLabels.length;
   const profile = CONTACT_PROFILES[data.role] || CONTACT_PROFILES.seller;
   const isOtherInquiry = data.role === "other";
+  const isEmailValid = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
 
   const canNext = () => {
     if (step === 0) return data.role !== "";
     if (step === 1) return profile.fields.every((field) => !field.required || data[field.key] !== "");
-    if (step === 2) return (isOtherInquiry || data.company) && data.name && data.email;
+    if (step === 2) return (isOtherInquiry || data.company) && data.name && isEmailValid(data.email);
     if (step === 3) return data.method !== "";
     return true;
   };
@@ -115,6 +120,7 @@ function PageContact({ navigate }) {
     `${profile.concernLabel}: ${data.concerns.length ? data.concerns.join(" / ") : "なし"}`,
     `会社名: ${data.company}`,
     `お名前: ${data.name}`,
+    `役職: ${data.position || "未記入"}`,
     `メール: ${data.email}`,
     `電話番号: ${data.phone || "未記入"}`,
     `ご相談方法: ${METHOD_LABELS[data.method]}`,
@@ -135,6 +141,7 @@ function PageContact({ navigate }) {
       from_name: data.name,
       email: data.email,
       company: data.company,
+      position: data.position,
       phone: data.phone,
       role: data.role,
       role_label: ROLE_LABELS[data.role],
@@ -168,6 +175,20 @@ function PageContact({ navigate }) {
         error: "送信できませんでした。時間をおいて再度お試しいただくか、y.uematsu@sasa-eru.com へ直接ご連絡ください。",
       });
     }
+  };
+
+  const getStepHint = () => {
+    if (step === 0 && !data.role) return "まずは該当する相談区分を選択してください。";
+    if (step === 1 && !canNext()) return "必須項目を選択すると次へ進めます。";
+    if (step === 2) {
+      if (!isOtherInquiry && !data.company) return "会社名をご入力ください。";
+      if (!data.name) return "お名前をご入力ください。";
+      if (!data.email) return "返信先メールアドレスをご入力ください。";
+      if (!isEmailValid(data.email)) return "メールアドレスの形式をご確認ください。";
+    }
+    if (step === 3 && !data.method) return "希望する相談方法を選択してください。";
+    if (step === 4 && !data.agree) return "個人情報保護方針への同意後に送信できます。";
+    return "";
   };
 
   const next = () => {
@@ -260,7 +281,7 @@ function PageContact({ navigate }) {
                       { v: "buyer", title: "買い手・M&Aで成長を志向", desc: "事業領域拡張／ロールアップ／海外進出 など" },
                       { v: "other", title: "その他のご相談", desc: "情報収集／メディア取材／パートナーシップ など" },
                     ].map((o) => (
-                      <button key={o.v} className={`role-card ${data.role === o.v ? "selected" : ""}`} onClick={() => chooseRole(o.v)}>
+                      <button key={o.v} className={`role-card ${data.role === o.v ? "selected" : ""}`} aria-pressed={data.role === o.v} onClick={() => chooseRole(o.v)}>
                         <div className="role-check">
                           <div className="role-check-inner" />
                         </div>
@@ -285,7 +306,7 @@ function PageContact({ navigate }) {
                       <label>{field.label} {field.required && <span className="req">必須</span>}</label>
                       <div className="chips">
                         {field.options.map((x) => (
-                          <button key={x} className={`chip ${data[field.key] === x ? "selected" : ""}`} onClick={() => update(field.key, x)}>{x}</button>
+                          <button key={x} className={`chip ${data[field.key] === x ? "selected" : ""}`} aria-pressed={data[field.key] === x} onClick={() => update(field.key, x)}>{x}</button>
                         ))}
                       </div>
                     </div>
@@ -295,7 +316,7 @@ function PageContact({ navigate }) {
                     <label>{profile.concernLabel}</label>
                     <div className="chips">
                       {profile.concerns.map((x) => (
-                        <button key={x} className={`chip ${data.concerns.includes(x) ? "selected" : ""}`} onClick={() => toggle("concerns", x)}>{x}</button>
+                        <button key={x} className={`chip ${data.concerns.includes(x) ? "selected" : ""}`} aria-pressed={data.concerns.includes(x)} onClick={() => toggle("concerns", x)}>{x}</button>
                       ))}
                     </div>
                   </div>
@@ -323,13 +344,14 @@ function PageContact({ navigate }) {
                     </div>
                     <div className="field">
                       <label>役職</label>
-                      <input type="text" placeholder="代表取締役 / 取締役 など" />
+                      <input type="text" value={data.position} onChange={(e) => update("position", e.target.value)} placeholder="代表取締役 / 取締役 など" />
                     </div>
                   </div>
                   <div className="field-row">
                     <div className="field">
                       <label>メールアドレス <span className="req">必須</span></label>
-                      <input type="email" value={data.email} onChange={(e) => update("email", e.target.value)} placeholder="example@company.co.jp" />
+                      <input type="email" value={data.email} onChange={(e) => update("email", e.target.value)} placeholder="example@company.co.jp" aria-invalid={data.email ? !isEmailValid(data.email) : false} />
+                      {data.email && !isEmailValid(data.email) && <div className="field-hint error">メールアドレスの形式をご確認ください。</div>}
                     </div>
                     <div className="field">
                       <label>電話番号 <span className="optional">任意</span></label>
@@ -355,7 +377,7 @@ function PageContact({ navigate }) {
                       { v: "office", title: "対面でのご相談", desc: "場所・日時は個別に調整します。秘匿性に配慮して進めます。", icon: "office" },
                       { v: "visit", title: "訪問相談を希望", desc: "地域・内容に応じて、対応可否を個別に確認します。", icon: "visit" },
                     ].map((o) => (
-                      <button key={o.v} className={`method-card ${data.method === o.v ? "selected" : ""}`} onClick={() => update("method", o.v)}>
+                      <button key={o.v} className={`method-card ${data.method === o.v ? "selected" : ""}`} aria-pressed={data.method === o.v} onClick={() => update("method", o.v)}>
                         <div className="method-check"><div className="method-check-inner" /></div>
                         <div>
                           <div className="method-title font-serif-jp">{o.title}</div>
@@ -381,6 +403,7 @@ function PageContact({ navigate }) {
                       <tr><th>{profile.concernLabel}</th><td>{data.concerns.length ? data.concerns.join(" / ") : "—"}</td></tr>
                       <tr><th>会社名</th><td>{data.company}</td></tr>
                       <tr><th>お名前</th><td>{data.name}</td></tr>
+                      <tr><th>役職</th><td>{data.position || "—"}</td></tr>
                       <tr><th>メール</th><td>{data.email}</td></tr>
                       <tr><th>電話番号</th><td>{data.phone || "—"}</td></tr>
                       <tr><th>ご相談方法</th><td>{METHOD_LABELS[data.method]}</td></tr>
@@ -392,7 +415,7 @@ function PageContact({ navigate }) {
                     <span><a onClick={(e) => { e.preventDefault(); navigate("privacy"); }} style={{ color: "var(--gold-700)", textDecoration: "underline" }}>個人情報保護方針</a>に同意の上、送信します。</span>
                   </label>
                   {submitState.error && (
-                    <div style={{ marginTop: 18, padding: "14px 16px", border: "1px solid rgba(160, 42, 42, 0.35)", background: "rgba(160, 42, 42, 0.06)", color: "#8a1f1f", fontSize: 13, lineHeight: 1.8 }}>
+                    <div className="form-alert error">
                       {submitState.error}
                     </div>
                   )}
@@ -414,6 +437,7 @@ function PageContact({ navigate }) {
                   </button>
                 )}
               </div>
+              {getStepHint() && <div className="form-footer-hint">{getStepHint()}</div>}
             </div>
 
             {/* Side reassurance */}

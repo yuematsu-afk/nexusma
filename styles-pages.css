@@ -783,6 +783,16 @@
   width: 100%;
 }
 .role-card:hover, .method-card:hover { border-color: var(--navy-500); }
+.role-card:focus-visible,
+.method-card:focus-visible,
+.chip:focus-visible,
+.tab:focus-visible,
+.sitemap-link:focus-visible,
+.case-detail-btn:focus-visible,
+.text-link:focus-visible {
+  outline: 2px solid var(--gold-500);
+  outline-offset: 3px;
+}
 .role-card.selected, .method-card.selected {
   border-color: var(--gold-500);
   background: var(--gold-100);
@@ -830,6 +840,33 @@
 
 .agree-line { display: flex; align-items: center; gap: 12px; font-size: 13.5px; color: var(--ink-700); margin-top: 28px; cursor: pointer; }
 .agree-line input { width: 18px; height: 18px; accent-color: var(--gold-500); }
+.field-hint {
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--ink-500);
+}
+.field-hint.error {
+  color: #8a1f1f;
+}
+.form-alert {
+  margin-top: 18px;
+  padding: 14px 16px;
+  font-size: 13px;
+  line-height: 1.8;
+}
+.form-alert.error {
+  border: 1px solid rgba(160, 42, 42, 0.35);
+  background: rgba(160, 42, 42, 0.06);
+  color: #8a1f1f;
+}
+.form-footer-hint {
+  margin-top: 14px;
+  text-align: right;
+  color: var(--ink-500);
+  font-size: 12.5px;
+  line-height: 1.7;
+}
 .optional {
   display: inline-block;
   margin-left: 6px;
@@ -1109,6 +1146,9 @@
   .form-footer {
     flex-direction: column;
     align-items: stretch;
+  }
+  .form-footer-hint {
+    text-align: left;
   }
   .form-footer > div { display: none; }
   .form-reassure {
