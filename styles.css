@@ -100,17 +100,12 @@ section { padding: 120px 0; }
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: saturate(140%) blur(12px);
-  border-bottom: 1px solid var(--ink-100);
+  background: rgba(7, 19, 31, 0.88);
+  backdrop-filter: blur(14px) saturate(120%);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  border-bottom: 1px solid rgba(255,255,255,.07);
 }
-.site-header.scrolled { background: rgba(10, 26, 48, 0.98); border-bottom-color: rgba(201, 169, 97, 0.15); }
-.site-header.scrolled .nav-link,
-.site-header.scrolled .brand-name,
-.site-header.scrolled .brand-mark { color: var(--ivory); }
-.site-header.scrolled .brand-mark { border-color: var(--gold-500); color: var(--gold-500); }
-.site-header.scrolled .nav-link:hover { color: var(--gold-400); }
-.site-header.scrolled .nav-cta { background: var(--gold-500); color: var(--navy-900); }
+.site-header.scrolled { background: rgba(7, 19, 31, 0.98); }
 
 .header-inner {
   display: flex;
@@ -129,8 +124,8 @@ section { padding: 120px 0; }
 .brand-mark {
   width: 40px;
   height: 40px;
-  border: 1px solid var(--gold-600);
-  color: var(--gold-700);
+  border: 1px solid var(--gold-500);
+  color: var(--gold-500);
   font-family: var(--serif-en);
   font-style: italic;
   font-size: 22px;
@@ -144,31 +139,31 @@ section { padding: 120px 0; }
   font-size: 19px;
   font-weight: 500;
   letter-spacing: 0.1em;
-  color: var(--navy-900);
+  color: var(--ivory);
 }
 .brand-name .sub {
   display: block;
   font-family: var(--serif-en);
   font-style: italic;
   font-size: 10px;
-  color: var(--gold-600);
+  color: var(--gold-400);
   letter-spacing: 0.18em;
   margin-top: -2px;
   font-weight: 400;
 }
-.site-header.scrolled .brand-name .sub { color: var(--gold-400); }
 
 nav.primary { display: flex; align-items: center; gap: 36px; }
 .menu-toggle {
   display: none;
   width: 44px;
   height: 44px;
-  border: 1px solid var(--ink-200);
+  border: 1px solid rgba(198,166,100,0.36);
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 5px;
-  background: rgba(255,255,255,0.72);
+  background: rgba(247,242,233,0.06);
+  color: var(--ivory);
   position: relative;
   z-index: 130;
 }
@@ -181,22 +176,17 @@ nav.primary { display: flex; align-items: center; gap: 36px; }
 .menu-toggle.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
 .menu-toggle.open span:nth-child(2) { opacity: 0; }
 .menu-toggle.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
-.site-header.scrolled .menu-toggle {
-  color: var(--ivory);
-  border-color: rgba(201,169,97,0.36);
-  background: rgba(247,242,233,0.06);
-}
 .nav-link {
   font-size: 13.5px;
   font-weight: 500;
   letter-spacing: 0.06em;
-  color: var(--ink-700);
+  color: var(--ivory);
   position: relative;
   padding: 8px 0;
   transition: color 0.2s;
   cursor: pointer;
 }
-.nav-link:hover { color: var(--navy-800); }
+.nav-link:hover { color: var(--gold-400); }
 .nav-link.active::after {
   content: "";
   position: absolute;
@@ -205,16 +195,16 @@ nav.primary { display: flex; align-items: center; gap: 36px; }
   background: var(--gold-500);
 }
 .nav-cta {
-  background: var(--navy-800);
-  color: var(--ivory);
+  background: var(--gold-500);
+  color: var(--navy-900);
   padding: 13px 26px;
   font-size: 13px;
   letter-spacing: 0.08em;
-  font-weight: 500;
+  font-weight: 700;
   transition: all 0.2s;
-  border: 1px solid var(--navy-800);
+  border: 1px solid var(--gold-500);
 }
-.nav-cta:hover { background: var(--gold-500); border-color: var(--gold-500); color: var(--navy-900); }
+.nav-cta:hover { background: var(--gold-400); border-color: var(--gold-400); }
 
 /* ===== Buttons ===== */
 .btn {
@@ -646,3 +636,68 @@ nav.primary { display: flex; align-items: center; gap: 36px; }
 .btn-ghost:hover { background: rgba(255,255,255,.1) !important; }
 .opt:hover { border-color: rgba(198,166,100,.5) !important; }
 .news-row:hover span:last-child { color: #C6A664; }
+
+/* ===== フッター レスポンシブ ===== */
+@media (max-width: 760px) {
+  .footer-grid-v2 { grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 480px) {
+  .footer-grid-v2 { grid-template-columns: 1fr !important; }
+}
+
+/* ===== ホームページ v2 モバイル対応 ===== */
+@media (max-width: 900px) {
+  /* ヒーロー：2カラム→1カラム、画像非表示 */
+  .hv2-hero-grid { grid-template-columns: 1fr !important; }
+  .hv2-hero-grid > div:last-child { display: none; }
+  .hv2-hero-h1 { font-size: 40px !important; }
+  .hv2-hero-float { display: none; }
+
+  /* トラスト：5列→3列 */
+  .hv2-trust-grid { grid-template-columns: repeat(3, 1fr) !important; margin-top: 40px !important; }
+
+  /* セラーバンド */
+  .hv2-seller-grid { grid-template-columns: 1fr !important; }
+
+  /* Pricing：3列→1列 */
+  .hv2-pillars-grid { grid-template-columns: 1fr !important; }
+  .hv2-pillars-grid > div { transform: none !important; }
+
+  /* Anxiety：2列→1列 */
+  .hv2-anxiety-grid { grid-template-columns: 1fr !important; }
+
+  /* Flow：3列→2列 */
+  .hv2-flow-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Numbers：4列→2列 */
+  .hv2-numbers-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Cases：3列→1列 */
+  .hv2-cases-grid { grid-template-columns: 1fr !important; }
+  .hv2-section-head { flex-direction: column !important; align-items: flex-start !important; }
+
+  /* FinalCTA：2列→1列 */
+  .hv2-cta-grid { grid-template-columns: 1fr !important; }
+  .hv2-cta-h2 { font-size: 34px !important; }
+}
+
+@media (max-width: 600px) {
+  /* セクションの横padding縮小 */
+  .home-v2 section { padding-left: 20px !important; padding-right: 20px !important; }
+
+  /* ヒーローのボタン縦並び */
+  .hv2-hero-ctas { flex-direction: column !important; }
+  .hv2-hero-ctas button { width: 100%; justify-content: center; }
+
+  /* トラスト：3列→2列 */
+  .hv2-trust-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Pricing 比較グリッド */
+  .hv2-compare-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Flow：2列→1列 */
+  .hv2-flow-grid { grid-template-columns: 1fr !important; }
+
+  /* Numbers：2列→2列（そのまま） */
+  .hv2-numbers-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}

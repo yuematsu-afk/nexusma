@@ -166,52 +166,55 @@ function getNewsVisual(tag = "") {
 }
 
 function Footer({ navigate }) {
+  const lk = (label, route) => (
+    <a key={route + label} onClick={() => navigate(route)} style={{ color: "#9AA7B5", textDecoration: "none", fontSize: "13.5px", cursor: "pointer", display: "block" }}>{label}</a>
+  );
   return (
-    <footer className="site-footer">
-      <div className="container">
-        <div className="footer-grid">
-          <div className="footer-brand">
-            <Brand />
-            <p>
-              全国の中小企業を対象に、事業承継・M&amp;Aに関する相談を受け付ける独立系アドバイザリーです。経営者の重要な決断に、誠実に寄り添います。
-            </p>
+    <footer style={{ background: "#07131F", color: "#fff", padding: "70px 32px 40px", borderTop: "1px solid rgba(255,255,255,.07)" }}>
+      <div style={{ maxWidth: "1240px", margin: "0 auto" }}>
+        <div className="footer-grid-v2" style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr 1fr 1fr", gap: "40px", paddingBottom: "48px", borderBottom: "1px solid rgba(255,255,255,.08)" }}>
+          <div>
+            <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "18px" }}>
+              <span style={{ width: "32px", height: "32px", border: "1.5px solid #C6A664", display: "flex", alignItems: "center", justifyContent: "center", color: "#C6A664", fontFamily: "var(--serif-en)", fontWeight: 700, fontSize: "16px" }}>N</span>
+              <span style={{ color: "#fff", fontWeight: 700, fontSize: "17px", letterSpacing: ".05em" }}>NexusM&A</span>
+            </div>
+            <p style={{ fontSize: "13px", lineHeight: 1.9, color: "#7C879A", margin: 0, maxWidth: "320px" }}>中小企業の事業承継・譲渡を、着手金・中間金0円の完全成功報酬で支援する独立系M&A仲介。納得できる承継を、成約まで伴走します。</p>
           </div>
           <div>
-            <h5>サービス</h5>
-            <ul>
-              <li><a onClick={() => navigate("service-seller")}>売り手の方へ</a></li>
-              <li><a onClick={() => navigate("service-buyer")}>買い手の方へ</a></li>
-              <li><a onClick={() => navigate("cases")}>案件イメージ</a></li>
-              <li><a onClick={() => navigate("diagnosis")}>社長不在90日診断</a></li>
-              <li><a onClick={() => navigate("pricing")}>料金・契約条件</a></li>
-            </ul>
+            <div style={{ fontSize: "12px", fontWeight: 700, color: "#C6A664", letterSpacing: ".1em", marginBottom: "18px" }}>サービス</div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+              {lk("売り手の方へ", "service-seller")}
+              {lk("買い手の方へ", "service-buyer")}
+              {lk("案件イメージ", "cases")}
+              {lk("社長不在90日診断", "diagnosis")}
+              {lk("料金・契約条件", "pricing")}
+            </div>
           </div>
           <div>
-            <h5>事例 & 知見</h5>
-            <ul>
-              <li><a onClick={() => navigate("results")}>事例イメージ</a></li>
-              <li><a onClick={() => navigate("news")}>コラム・ニュース</a></li>
-              <li><a onClick={() => navigate("diagnosis")}>匿名セルフチェック</a></li>
-              <li><a onClick={() => navigate("glossary")}>用語集</a></li>
-            </ul>
+            <div style={{ fontSize: "12px", fontWeight: 700, color: "#C6A664", letterSpacing: ".1em", marginBottom: "18px" }}>事例 &amp; 知見</div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+              {lk("事例イメージ", "results")}
+              {lk("コラム・ニュース", "news")}
+              {lk("匿名セルフチェック", "diagnosis")}
+              {lk("用語集", "glossary")}
+            </div>
           </div>
           <div>
-            <h5>会社情報</h5>
-            <ul>
-              <li><a onClick={() => navigate("company")}>会社概要</a></li>
-              <li><a onClick={() => navigate("company")}>代表メッセージ</a></li>
-              <li><a onClick={() => navigate("contact")}>お問い合わせ</a></li>
-              <li><a onClick={() => navigate("careers")}>採用情報</a></li>
-            </ul>
+            <div style={{ fontSize: "12px", fontWeight: 700, color: "#C6A664", letterSpacing: ".1em", marginBottom: "18px" }}>会社情報</div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+              {lk("会社概要", "company")}
+              {lk("代表メッセージ", "company")}
+              {lk("お問い合わせ", "contact")}
+              {lk("採用情報", "careers")}
+            </div>
           </div>
         </div>
-        <div className="footer-bottom">
-          <div>© 2026 NexusM&amp;A All rights reserved.</div>
-          <div className="legal">
-            <a onClick={() => navigate("privacy")}>個人情報保護方針</a>
-            <a onClick={() => navigate("guideline")}>中小M&amp;Aガイドライン遵守</a>
-            <a onClick={() => navigate("antisocial")}>反社会的勢力排除</a>
-            <a onClick={() => navigate("sitemap")}>サイトマップ</a>
+        <div style={{ marginTop: "24px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "12px" }}>
+          <div style={{ fontSize: "11.5px", color: "#5C6775" }}>© 2026 NexusM&amp;A All rights reserved.</div>
+          <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
+            {[["個人情報保護方針","privacy"],["中小M&Aガイドライン遵守","guideline"],["反社会的勢力排除","antisocial"],["サイトマップ","sitemap"]].map(([t,r]) => (
+              <a key={r} onClick={() => navigate(r)} style={{ color: "#5C6775", textDecoration: "none", fontSize: "11.5px", cursor: "pointer" }}>{t}</a>
+            ))}
           </div>
         </div>
       </div>

@@ -69,17 +69,17 @@ function HomeHero({ navigate }) {
   return (
     <section id="top" style={css("position:relative;padding:150px 40px 70px;background:radial-gradient(120% 90% at 78% 8%,#13314F 0%,#0B1B30 42%,#07131F 100%);overflow:hidden")}>
       <div style={css("position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:62px 62px;mask-image:radial-gradient(80% 70% at 60% 30%,#000 40%,transparent 100%);-webkit-mask-image:radial-gradient(80% 70% at 60% 30%,#000 40%,transparent 100%);pointer-events:none")}></div>
-      <div style={css("position:relative;width:100%;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.05fr 0.95fr;gap:60px;align-items:center")}>
+      <div className="hv2-hero-grid" style={css("position:relative;width:100%;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.05fr 0.95fr;gap:60px;align-items:center")}>
         <div>
           <div style={css("display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(198,166,100,.4);border-radius:100px;padding:7px 16px;margin-bottom:30px")}>
             <span style={css("width:6px;height:6px;border-radius:50%;background:#C6A664")}></span>
             <span style={css("font-family:'Cormorant Garamond';font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#D8BC7E")}>Fully Success-Based · 独立系M&A仲介</span>
           </div>
-          <h1 style={css("font-family:'Shippori Mincho',sans-serif;font-weight:700;font-size:64px;line-height:1.4;letter-spacing:.02em;color:#fff;margin:0 0 26px")}>
+          <h1 className="hv2-hero-h1" style={css("font-family:'Shippori Mincho',sans-serif;font-weight:700;font-size:64px;line-height:1.4;letter-spacing:.02em;color:#fff;margin:0 0 26px")}>
             譲渡という、<br/>前向きな<span style={css("position:relative;color:#E7CE92")}>選択。<span style={css("position:absolute;left:0;right:0;bottom:6px;height:10px;background:rgba(198,166,100,.22);z-index:-1")}></span></span>
           </h1>
           <p style={css("font-size:17px;line-height:2;color:#B9C2CF;margin:0 0 34px;max-width:480px")}>事業承継に悩む中小企業オーナーへ。<br/>着手金・中間金<strong style={css("color:#fff")}>0円</strong>の完全成功報酬で、<br/>納得できる承継を、成約まで伴走します。</p>
-          <div style={css("display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px")}>
+          <div className="hv2-hero-ctas" style={css("display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px")}>
             <button className="btn-gold-up" onClick={() => navigate("diagnosis")} style={css("display:inline-flex;align-items:center;gap:10px;background:#C6A664;color:#07131F;border:none;cursor:pointer;font-family:'Noto Sans JP';font-size:15px;font-weight:700;padding:16px 26px;border-radius:7px;box-shadow:0 10px 30px -8px rgba(198,166,100,.5)")}>社長不在90日診断を受ける<span style={css("font-family:'Cormorant Garamond'")}>→</span></button>
             <button className="btn-ghost" onClick={() => navigate("contact")} style={css("display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.16);cursor:pointer;font-family:'Noto Sans JP';font-size:15px;font-weight:600;padding:16px 26px;border-radius:7px")}>無料で相談する</button>
           </div>
@@ -95,12 +95,12 @@ function HomeHero({ navigate }) {
             <img src="assets/generated/hero-advisory.webp" alt="経営者・面談シーンの写真" style={css("display:block;width:100%;height:480px;object-fit:cover")} />
             <div style={css("position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,19,31,0) 40%,rgba(7,19,31,.55) 100%);pointer-events:none")}></div>
           </div>
-          <div style={css("position:absolute;left:-26px;top:42px;background:rgba(11,27,48,.82);backdrop-filter:blur(12px);border:1px solid rgba(198,166,100,.3);border-radius:12px;padding:16px 20px;box-shadow:0 20px 40px -16px rgba(0,0,0,.6);animation:floatY 6s ease-in-out infinite")}>
+          <div className="hv2-hero-float" style={css("position:absolute;left:-26px;top:42px;background:rgba(11,27,48,.82);backdrop-filter:blur(12px);border:1px solid rgba(198,166,100,.3);border-radius:12px;padding:16px 20px;box-shadow:0 20px 40px -16px rgba(0,0,0,.6);animation:floatY 6s ease-in-out infinite")}>
             <div style={css("font-family:'Cormorant Garamond';font-size:11px;letter-spacing:.14em;color:#9AA7B5;text-transform:uppercase;margin-bottom:6px")}>Upfront Fee</div>
             <div style={css("font-family:'Cormorant Garamond';font-weight:700;font-size:34px;color:#E7CE92;line-height:1")}>¥0</div>
             <div style={css("font-size:11.5px;color:#B9C2CF;margin-top:2px")}>着手金・中間金なし</div>
           </div>
-          <div style={css("position:absolute;right:-22px;bottom:38px;background:rgba(11,27,48,.82);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:16px 20px;box-shadow:0 20px 40px -16px rgba(0,0,0,.6);animation:floatY 6s ease-in-out infinite .8s")}>
+          <div className="hv2-hero-float" style={css("position:absolute;right:-22px;bottom:38px;background:rgba(11,27,48,.82);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:16px 20px;box-shadow:0 20px 40px -16px rgba(0,0,0,.6);animation:floatY 6s ease-in-out infinite .8s")}>
             <div style={css("font-family:'Cormorant Garamond';font-size:11px;letter-spacing:.14em;color:#9AA7B5;text-transform:uppercase;margin-bottom:6px")}>Success Fee Only</div>
             <div style={css("display:flex;align-items:baseline;gap:6px")}><span style={css("font-family:'Cormorant Garamond';font-weight:700;font-size:30px;color:#fff;line-height:1")}>成約時</span></div>
             <div style={css("font-size:11.5px;color:#B9C2CF;margin-top:2px")}>成果に対してのみ報酬</div>
@@ -108,7 +108,7 @@ function HomeHero({ navigate }) {
         </div>
       </div>
 
-      <div style={css("position:relative;width:100%;max-width:1240px;margin:64px auto 0;border-top:1px solid rgba(255,255,255,.09);padding-top:26px;display:grid;grid-template-columns:repeat(5,1fr);gap:20px")}>
+      <div className="hv2-trust-grid" style={css("position:relative;width:100%;max-width:1240px;margin:64px auto 0;border-top:1px solid rgba(255,255,255,.09);padding-top:26px;display:grid;grid-template-columns:repeat(5,1fr);gap:20px")}>
         {HOME_TRUST.map((t, i) => (
           <div key={t.big} style={css("text-align:center" + (i > 0 ? ";border-left:1px solid rgba(255,255,255,.09)" : ""))}>
             <div style={css("font-family:'Shippori Mincho';font-weight:700;font-size:24px;color:#fff")}>{t.big}</div>
@@ -123,7 +123,7 @@ function HomeHero({ navigate }) {
 function HomeSellerBand({ navigate }) {
   return (
     <section id="seller" data-reveal style={css("background:#0B1B30;padding:96px 40px;border-top:1px solid rgba(255,255,255,.05)")}>
-      <div style={css("width:100%;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.15fr 0.85fr;gap:60px;align-items:center")}>
+      <div className="hv2-seller-grid" style={css("width:100%;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.15fr 0.85fr;gap:60px;align-items:center")}>
         <div>
           <div style={css("font-family:'Cormorant Garamond';font-size:17px;letter-spacing:.05em;font-style:italic;color:#C6A664;margin-bottom:20px")}>90-Day Owner-Absence Check</div>
           <h2 style={css("font-family:'Shippori Mincho';font-weight:700;font-size:42px;line-height:1.4;color:#fff;margin:0 0 24px")}>明日から社長が90日不在でも、<br/>会社は<span style={css("color:#E7CE92")}>回りますか。</span></h2>
@@ -157,7 +157,7 @@ function HomePricing() {
           <p style={css("font-size:16px;line-height:2;color:#5E687A;margin:0")}>M&Aは、結果がすべて。だから私たちは、着手金も中間金も月額報酬もいただきません。「成約」という成果に対してのみ、報酬を申し受けます。</p>
         </div>
 
-        <div style={css("display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:56px")}>
+        <div className="hv2-pillars-grid" style={css("display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:56px")}>
           {HOME_PILLARS.map((p) => (
             <div key={p.label} style={css(p.dark
               ? "background:#0B1B30;border:1px solid #0B1B30;border-radius:14px;padding:34px;text-align:center;color:#fff;transform:translateY(-8px);box-shadow:0 30px 60px -24px rgba(11,27,48,.5)"
@@ -211,7 +211,7 @@ function HomeAnxiety() {
           <h2 style={css("font-family:'Shippori Mincho';font-weight:700;font-size:42px;line-height:1.35;color:#11192A;margin:0 0 16px")}>譲渡の不安に、ひとつずつ。</h2>
           <p style={css("font-size:16px;line-height:1.9;color:#5E687A;margin:0")}>「従業員は」「取引先は」「価格は」「情報は漏れないか」。オーナー経営者が抱える4つの不安に、私たちはこう向き合います。</p>
         </div>
-        <div style={css("display:grid;grid-template-columns:repeat(2,1fr);gap:20px")}>
+        <div className="hv2-anxiety-grid" style={css("display:grid;grid-template-columns:repeat(2,1fr);gap:20px")}>
           {HOME_ANXIETY.map((c) => (
             <div key={c.n} style={css("background:#fff;border:1px solid #ECE7DA;border-radius:14px;padding:34px;display:flex;gap:22px")}>
               <div style={css("font-family:'Cormorant Garamond';font-weight:700;font-size:15px;color:#C6A664;flex-shrink:0;padding-top:4px")}>{c.n}</div>
@@ -236,7 +236,7 @@ function HomeFlow() {
           <h2 style={css("font-family:'Shippori Mincho';font-weight:700;font-size:42px;line-height:1.3;color:#fff;margin:0 0 16px")}>成約までの、6つの歩み。</h2>
           <p style={css("font-size:16px;line-height:1.9;color:#A9B4C2;margin:0")}>費用が発生するのは、最後の「成約」の瞬間だけ。それまでのすべての工程を、無料で伴走します。</p>
         </div>
-        <div style={css("display:grid;grid-template-columns:repeat(3,1fr);gap:18px")}>
+        <div className="hv2-flow-grid" style={css("display:grid;grid-template-columns:repeat(3,1fr);gap:18px")}>
           {HOME_FLOW.map((f) => (
             f.highlight ? (
               <div key={f.step} style={css("background:linear-gradient(160deg,#1B3252,#102742);border:1px solid rgba(198,166,100,.4);border-radius:14px;padding:30px;position:relative;overflow:hidden")}>
@@ -262,7 +262,7 @@ function HomeFlow() {
 function HomeNumbers() {
   return (
     <section style={css("background:#07131F;color:#fff;padding:90px 40px;border-top:1px solid rgba(255,255,255,.05)")}>
-      <div data-reveal style={css("width:100%;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px")}>
+      <div data-reveal className="hv2-numbers-grid" style={css("width:100%;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px")}>
         {HOME_NUMBERS.map((n) => (
           <div key={n.label}>
             <div style={css("font-family:'Cormorant Garamond';font-weight:700;font-size:56px;color:#E7CE92;line-height:1")}>{n.n}<span style={css("font-size:24px;color:#fff")}>{n.suf}</span></div>
@@ -279,14 +279,14 @@ function HomeCases({ navigate }) {
   return (
     <section id="cases" data-reveal style={css("background:#F5F3ED;color:#161E2B;padding:104px 40px")}>
       <div style={css("width:100%;max-width:1240px;margin:0 auto")}>
-        <div style={css("display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;flex-wrap:wrap;gap:20px")}>
+        <div className="hv2-section-head" style={css("display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;flex-wrap:wrap;gap:20px")}>
           <div>
             <div style={css("font-family:'Cormorant Garamond';font-size:17px;letter-spacing:.05em;font-style:italic;color:#A9853D;margin-bottom:18px")}>Case Examples</div>
             <h2 style={css("font-family:'Shippori Mincho';font-weight:700;font-size:42px;line-height:1.3;color:#11192A;margin:0")}>譲渡事例イメージ。</h2>
           </div>
           <button onClick={() => navigate("contact")} style={css("display:inline-flex;align-items:center;gap:8px;color:#0B1B30;background:none;border:none;border-bottom:1px solid #0B1B30;cursor:pointer;font-family:'Noto Sans JP';font-size:14px;font-weight:700;padding-bottom:4px")}>類似事例を相談する <span style={css("font-family:'Cormorant Garamond'")}>→</span></button>
         </div>
-        <div style={css("display:grid;grid-template-columns:repeat(3,1fr);gap:22px")}>
+        <div className="hv2-cases-grid" style={css("display:grid;grid-template-columns:repeat(3,1fr);gap:22px")}>
           {HOME_CASES.map((c) => (
             <div key={c.title} style={css("background:#fff;border:1px solid #E6E1D4;border-radius:14px;overflow:hidden")}>
               <img src={c.img} alt={c.alt} style={css("display:block;width:100%;height:188px;object-fit:cover")} />
@@ -313,9 +313,9 @@ function HomeFinalCTA({ navigate }) {
   return (
     <section data-reveal style={css("position:relative;background:radial-gradient(110% 120% at 20% 0%,#13314F,#0B1B30 55%,#07131F);color:#fff;padding:110px 40px;overflow:hidden")}>
       <div style={css("position:absolute;right:6%;top:50%;transform:translateY(-50%);font-family:'Shippori Mincho';font-weight:700;font-size:260px;color:rgba(255,255,255,.025);line-height:1;pointer-events:none;user-select:none")}>M&A</div>
-      <div style={css("position:relative;width:100%;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.2fr 0.8fr;gap:50px;align-items:center")}>
+      <div className="hv2-cta-grid" style={css("position:relative;width:100%;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.2fr 0.8fr;gap:50px;align-items:center")}>
         <div>
-          <h2 style={css("font-family:'Shippori Mincho';font-weight:700;font-size:48px;line-height:1.35;color:#fff;margin:0 0 22px")}>経営の重要な決断は、<br/>信頼できる相手と。</h2>
+          <h2 className="hv2-cta-h2" style={css("font-family:'Shippori Mincho';font-weight:700;font-size:48px;line-height:1.35;color:#fff;margin:0 0 22px")}>経営の重要な決断は、<br/>信頼できる相手と。</h2>
           <p style={css("font-size:16px;line-height:2;color:#A9B4C2;margin:0;max-width:520px")}>ご相談は何度でも無料です。まずは「社長不在90日診断」で現在地を確かめるか、直接ご相談ください。秘密は厳守します。</p>
         </div>
         <div style={css("display:flex;flex-direction:column;gap:14px")}>
@@ -385,7 +385,7 @@ function PageHome({ navigate }) {
   }, []);
 
   return (
-    <main style={{ overflowX: "hidden" }}>
+    <main className="home-v2" style={{ overflowX: "hidden" }}>
       <HomeHero navigate={navigate} />
       <HomeSellerBand navigate={navigate} />
       <HomePricing />
