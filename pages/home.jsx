@@ -1,7 +1,5 @@
 /* Home page — new design (adapted from Claude Design export) */
 
-const PH = "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
-
 /* ===== Data ===== */
 const HOME_TRUST = [
   { big: "全国", sub: "対応エリア" },
@@ -54,9 +52,9 @@ const HOME_NUMBERS = [
 ];
 
 const HOME_CASES = [
-  { alt: "製造業の写真", tags: ["製造業", "関東"], title: "創業52年・精密金属加工", sales: "12.4", reason: "後継者不在" },
-  { alt: "ITサービスの写真", tags: ["ITサービス", "首都圏"], title: "BtoB SaaS／ARR成長中", sales: "3.6", reason: "成長加速" },
-  { alt: "小売・店舗の写真", tags: ["小売", "中部"], title: "5店舗・地域密着型チェーン", sales: "8.0", reason: "事業承継" },
+  { img: "assets/generated/industry-manufacturing.webp", alt: "製造業の写真", tags: ["製造業", "関東"], title: "創業52年・精密金属加工", sales: "12.4", reason: "後継者不在" },
+  { img: "assets/generated/industry-saas.webp", alt: "ITサービスの写真", tags: ["ITサービス", "首都圏"], title: "BtoB SaaS／ARR成長中", sales: "3.6", reason: "成長加速" },
+  { img: "assets/generated/news-insight.webp", alt: "小売・店舗の写真", tags: ["小売", "中部"], title: "5店舗・地域密着型チェーン", sales: "8.0", reason: "事業承継" },
 ];
 
 const HOME_NEWS = [
@@ -94,7 +92,7 @@ function HomeHero({ navigate }) {
 
         <div style={css("position:relative")}>
           <div style={css("position:relative;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.1);box-shadow:0 40px 80px -30px rgba(0,0,0,.7)")}>
-            <img src={PH} alt="経営者・面談シーンの写真" style={css("display:block;width:100%;height:480px;background:#0E2238;object-fit:cover")} />
+            <img src="assets/generated/hero-advisory.webp" alt="経営者・面談シーンの写真" style={css("display:block;width:100%;height:480px;object-fit:cover")} />
             <div style={css("position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,19,31,0) 40%,rgba(7,19,31,.55) 100%);pointer-events:none")}></div>
           </div>
           <div style={css("position:absolute;left:-26px;top:42px;background:rgba(11,27,48,.82);backdrop-filter:blur(12px);border:1px solid rgba(198,166,100,.3);border-radius:12px;padding:16px 20px;box-shadow:0 20px 40px -16px rgba(0,0,0,.6);animation:floatY 6s ease-in-out infinite")}>
@@ -291,7 +289,7 @@ function HomeCases({ navigate }) {
         <div style={css("display:grid;grid-template-columns:repeat(3,1fr);gap:22px")}>
           {HOME_CASES.map((c) => (
             <div key={c.title} style={css("background:#fff;border:1px solid #E6E1D4;border-radius:14px;overflow:hidden")}>
-              <img src={PH} alt={c.alt} style={css("display:block;width:100%;height:188px;background:#E9E4D7;object-fit:cover")} />
+              <img src={c.img} alt={c.alt} style={css("display:block;width:100%;height:188px;object-fit:cover")} />
               <div style={css("padding:24px")}>
                 <div style={css("display:flex;gap:8px;margin-bottom:14px")}>
                   <span style={css("font-size:11px;font-weight:700;color:#0B1B30;background:#ECE6D6;padding:4px 10px;border-radius:100px")}>{c.tags[0]}</span>
