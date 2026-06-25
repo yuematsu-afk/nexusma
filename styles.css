@@ -1,21 +1,21 @@
 /* ===== NexusM&A — Premium Portal ===== */
 :root {
   /* Brand palette — navy × gold, traditional/premium */
-  --navy-900: #0a1a30;
-  --navy-800: #0e2240;
-  --navy-700: #142d52;
-  --navy-600: #1c3c6b;
+  --navy-900: #07131F;
+  --navy-800: #0B1B30;
+  --navy-700: #102742;
+  --navy-600: #1B3252;
   --navy-500: #2a508a;
   --navy-100: #e5ecf5;
 
   --gold-700: #8a6f2e;
-  --gold-600: #a88940;
-  --gold-500: #c9a961;
-  --gold-400: #d9bd80;
+  --gold-600: #A9853D;
+  --gold-500: #C6A664;
+  --gold-400: #D8BC7E;
   --gold-100: #f3ead4;
 
-  --ivory: #f7f2e9;
-  --paper: #faf7f0;
+  --ivory: #F5F3ED;
+  --paper: #FBFAF6;
   --white: #ffffff;
 
   --ink-900: #16181d;
@@ -626,3 +626,23 @@ nav.primary { display: flex; align-items: center; gap: 36px; }
     gap: 10px;
   }
 }
+
+/* ===== New design: keyframes & interactive classes ===== */
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes revealUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.navlink:hover { color: #fff !important; }
+.btn-gold-up:hover, .btn-gold:hover { filter: brightness(1.08); }
+.btn-ghost:hover { background: rgba(255,255,255,.1) !important; }
+.opt:hover { border-color: rgba(198,166,100,.5) !important; }
+.news-row:hover span:last-child { color: #C6A664; }

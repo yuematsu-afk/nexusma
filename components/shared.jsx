@@ -1,6 +1,16 @@
 /* Shared components: Header, Footer, Brand, ProcessTimeline, etc. */
 const { useState, useEffect, useRef } = React;
 
+/* css() — converts a CSS string to a React style object (camelCase keys) */
+const css = (str) =>
+  Object.fromEntries(
+    String(str).split(";").filter((r) => r.trim()).map((r) => {
+      const i = r.indexOf(":");
+      const key = r.slice(0, i).trim().replace(/-([a-z])/g, (_, c) => c.toUpperCase());
+      return [key, r.slice(i + 1).trim()];
+    })
+  );
+
 function Brand({ size = "default", onClick }) {
   return (
     <div className="brand" onClick={onClick} style={{ cursor: onClick ? "pointer" : "default" }}>
@@ -252,4 +262,4 @@ function ProcessTimeline({ active = 0, onStep }) {
   );
 }
 
-Object.assign(window, { Brand, Header, PageHero, SectionHead, ConversionCTA, Footer, ProcessTimeline, getVisualClass, getNewsVisual });
+Object.assign(window, { css, Brand, Header, PageHero, SectionHead, ConversionCTA, Footer, ProcessTimeline, getVisualClass, getNewsVisual });
