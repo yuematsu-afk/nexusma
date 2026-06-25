@@ -28,40 +28,42 @@ function PageCompany({ navigate }) {
       />
 
       {/* CEO Message */}
-      <section style={css("background:#F5F3ED;padding:104px 40px")}>
-        <div style={css("width:100%;max-width:1040px;margin:0 auto")}>
-          <div className="company-ceo-grid" style={css("display:grid;grid-template-columns:1fr 1.7fr;gap:64px;align-items:start")}>
-            <div>
-              <div style={css("border-radius:16px;overflow:hidden;position:relative;max-width:300px;background:#0B1B30")}>
-                <img
-                  src="assets/generated/company-profile.webp"
-                  alt="代表 植松 勇樹"
-                  style={css("display:block;width:100%;height:auto;opacity:.85")}
-                  loading="lazy"
-                />
-                <div style={css("position:absolute;bottom:0;left:0;right:0;padding:24px 20px;background:linear-gradient(transparent,rgba(7,19,31,.92))")}>
-                  <div style={css("font-family:'Shippori Mincho';font-size:18px;color:#fff;letter-spacing:.08em")}>植松 勇樹</div>
-                  <div style={css("font-family:'Cormorant Garamond';font-style:italic;font-size:13px;color:#C6A664;margin-top:4px")}>Yuuki Uematsu — Representative</div>
-                </div>
+      <section style={{ background: "var(--paper)" }}>
+        <div className="container">
+          <div className="ceo-grid">
+            <div className="ceo-portrait-wrap">
+              <img
+                src="assets/generated/company-profile.webp"
+                alt="代表 植松 勇樹"
+                className="ceo-portrait"
+                style={{ display: "block", objectFit: "contain", background: "var(--navy-900)" }}
+                loading="lazy"
+              />
+              <div className="ceo-portrait-cap">
+                <div className="font-serif-jp" style={{ fontSize: 18, color: "var(--ivory)", letterSpacing: "0.08em" }}>植松 勇樹</div>
+                <div className="font-serif-en" style={{ fontStyle: "italic", fontSize: 13, color: "var(--gold-400)", marginTop: 4 }}>Yuuki Uematsu — Representative</div>
               </div>
             </div>
-            <div>
-              <div style={css("font-family:'Cormorant Garamond';font-size:13px;letter-spacing:.1em;color:#A9853D;margin-bottom:12px")}>Message from CEO</div>
-              <h2 style={css("font-family:'Shippori Mincho';font-weight:700;font-size:34px;line-height:1.75;color:#11192A;margin:0 0 32px")}>
+            <div className="ceo-message">
+              <div className="eyebrow">Message from CEO</div>
+              <h2 className="font-serif-jp" style={{ fontSize: 36, lineHeight: 1.7, margin: "20px 0 40px" }}>
                 経営者の決断に、<br />誠実に寄り添うこと。
               </h2>
-              <p style={css("font-size:14.5px;line-height:2.1;color:#5E687A;margin:0 0 20px")}>
-                私たちが大切にしていることは、ただひとつ。「経営者の決断に、誠実に寄り添う」ということです。
+              <p>
+                私たちが大切にしていることは、ただひとつ。<em>「経営者の決断に、誠実に寄り添う」</em>ということです。
               </p>
-              <p style={css("font-size:14.5px;line-height:2.1;color:#5E687A;margin:0 0 20px")}>
+              <p>
                 M&Aは、単なる取引ではありません。創業者にとっては数十年の人生を託す決断であり、従業員にとっては未来の生活を左右する出来事です。だからこそ、件数や報酬ではなく、一件一件の質と納得感を最優先に考えます。
               </p>
-              <p style={css("font-size:14.5px;line-height:2.1;color:#5E687A;margin:0")}>
-                派手な広告や強引な営業に頼らず、全国の中小企業経営者の重要な決断に、誠実に向き合います。次の章へ向かう、あなたの大切な決断に、お手伝いさせていただけましたら幸いです。
+              <p>
+                派手な広告や強引な営業に頼らず、全国の中小企業経営者の重要な決断に、誠実に向き合います。
               </p>
-              <div style={css("margin-top:36px;padding-top:28px;border-top:1px solid #E6E1D4")}>
-                <div style={css("font-family:'Shippori Mincho';font-size:22px;color:#0B1B30;letter-spacing:.08em")}>植松 勇樹</div>
-                <div style={css("font-family:'Cormorant Garamond';font-style:italic;color:#8A929E;font-size:13px;margin-top:4px")}>NexusM&A — Representative</div>
+              <p>
+                次の章へ向かう、あなたの大切な決断に、お手伝いさせていただけましたら幸いです。
+              </p>
+              <div className="ceo-sig">
+                <div className="font-serif-jp" style={{ fontSize: 22, color: "var(--navy-900)", letterSpacing: "0.08em" }}>植松 勇樹</div>
+                <div className="font-serif-en" style={{ fontStyle: "italic", color: "var(--ink-500)", fontSize: 13, marginTop: 4 }}>NexusM&amp;A — Representative</div>
               </div>
             </div>
           </div>
