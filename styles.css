@@ -701,3 +701,18 @@ nav.primary { display: flex; align-items: center; gap: 36px; }
   /* Numbers：2列→2列（そのまま） */
   .hv2-numbers-grid { grid-template-columns: repeat(2, 1fr) !important; }
 }
+
+/* ===== Pricing ページ レスポンシブ ===== */
+@media (max-width: 900px) {
+  .pricing-cards-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ===== Company ページ レスポンシブ ===== */
+@media (max-width: 900px) {
+  .company-ceo-grid { grid-template-columns: 1fr !important; }
+  .company-ceo-grid img { max-width: 240px !important; }
+  .company-values-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 600px) {
+  .company-values-grid { grid-template-columns: 1fr !important; }
+}

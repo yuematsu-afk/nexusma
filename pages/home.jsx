@@ -45,10 +45,10 @@ const HOME_FLOW = [
 ];
 
 const HOME_NUMBERS = [
-  { n: "1,200", suf: "+", label: "累計ご相談件数" },
-  { n: "180", suf: "件", label: "成約実績" },
-  { n: "9.2", suf: "ヶ月", label: "平均成約期間" },
-  { n: "98", suf: "%", label: "雇用維持率" },
+  { n: "全国", suf: "", label: "対応エリア" },
+  { n: "全", suf: "業種", label: "取扱対象" },
+  { n: "登録", suf: "", label: "M&A支援機関" },
+  { n: "初回", suf: "無料", label: "ご相談" },
 ];
 
 const HOME_CASES = [
@@ -270,7 +270,6 @@ function HomeNumbers() {
           </div>
         ))}
       </div>
-      <div style={css("width:100%;max-width:1240px;margin:18px auto 0;font-size:11px;color:#5C6775")}>※ 数値は表示イメージです。実データに差し替えてご利用ください。</div>
     </section>
   );
 }
@@ -289,7 +288,7 @@ function HomeCases({ navigate }) {
         <div className="hv2-cases-grid" style={css("display:grid;grid-template-columns:repeat(3,1fr);gap:22px")}>
           {HOME_CASES.map((c) => (
             <div key={c.title} style={css("background:#fff;border:1px solid #E6E1D4;border-radius:14px;overflow:hidden")}>
-              <img src={c.img} alt={c.alt} style={css("display:block;width:100%;height:188px;object-fit:cover")} />
+              <img src={c.img} alt={c.alt} loading="lazy" style={css("display:block;width:100%;height:188px;object-fit:cover")} />
               <div style={css("padding:24px")}>
                 <div style={css("display:flex;gap:8px;margin-bottom:14px")}>
                   <span style={css("font-size:11px;font-weight:700;color:#0B1B30;background:#ECE6D6;padding:4px 10px;border-radius:100px")}>{c.tags[0]}</span>
