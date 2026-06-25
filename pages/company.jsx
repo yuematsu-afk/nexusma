@@ -32,11 +32,11 @@ function PageCompany({ navigate }) {
         <div style={css("width:100%;max-width:1040px;margin:0 auto")}>
           <div className="company-ceo-grid" style={css("display:grid;grid-template-columns:1fr 1.7fr;gap:64px;align-items:start")}>
             <div>
-              <div style={css("border-radius:16px;overflow:hidden;aspect-ratio:3/4;position:relative;max-width:300px;background:#0B1B30")}>
+              <div style={css("border-radius:16px;overflow:hidden;position:relative;max-width:300px;background:#0B1B30")}>
                 <img
                   src="assets/generated/company-profile.webp"
                   alt="代表 植松 勇樹"
-                  style={css("width:100%;height:100%;object-fit:cover;opacity:.85")}
+                  style={css("display:block;width:100%;height:auto;opacity:.85")}
                   loading="lazy"
                 />
                 <div style={css("position:absolute;bottom:0;left:0;right:0;padding:24px 20px;background:linear-gradient(transparent,rgba(7,19,31,.92))")}>
