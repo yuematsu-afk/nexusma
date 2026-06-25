@@ -698,6 +698,53 @@ nav.primary { display: flex; align-items: center; gap: 36px; }
   .pricing-cards-grid { grid-template-columns: 1fr !important; }
 }
 
+/* ===== ConversionCTA（全ページ共通） ===== */
+.cta-band {
+  background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-700) 100%);
+  position: relative;
+  overflow: hidden;
+}
+.cta-band::before {
+  content: "M&A";
+  position: absolute;
+  right: -40px;
+  top: -60px;
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 380px;
+  color: rgba(201,169,97,0.04);
+  line-height: 1;
+  pointer-events: none;
+}
+.cta-inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 60px;
+  position: relative;
+}
+.cta-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 28px;
+}
+.cta-note {
+  max-width: 280px;
+  color: rgba(247,242,233,0.62);
+  font-size: 12.5px;
+  line-height: 1.8;
+  text-align: right;
+}
+@media (max-width: 960px) {
+  .cta-inner { grid-template-columns: 1fr; }
+  .cta-band::before { font-size: 200px; }
+}
+@media (max-width: 600px) {
+  .cta-actions { flex-direction: column; align-items: stretch; }
+  .cta-note { max-width: none; text-align: left; }
+}
+
 /* ===== Company ページ レスポンシブ ===== */
 @media (max-width: 900px) {
   .company-ceo-grid { grid-template-columns: 1fr !important; }
