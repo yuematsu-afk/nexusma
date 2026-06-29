@@ -165,6 +165,7 @@ function PageDiagnosis({ navigate }) {
                     <p style={css("font-size:14.5px;line-height:1.9;color:#A9B4C2;margin:0 auto 26px;max-width:440px")}>着手金・中間金0円の完全成功報酬。診断結果をもとに、譲渡に向けた具体的なご相談を無料で承ります。</p>
                     <div style={css("display:flex;gap:12px;justify-content:center;flex-wrap:wrap")}>
                       <button className="btn-gold" onClick={() => navigate("contact")} style={css("display:inline-flex;align-items:center;gap:9px;background:#C6A664;color:#07131F;border:none;cursor:pointer;font-family:'Noto Sans JP';font-size:15px;font-weight:700;padding:15px 30px;border-radius:8px")}>無料で相談する<span style={css("font-family:'Cormorant Garamond'")}>→</span></button>
+                      <a className="btn-ghost" href="/columns/president-stay-after-ma/" style={css("display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);color:#fff;cursor:pointer;font-family:'Noto Sans JP';font-size:15px;font-weight:600;padding:15px 26px;border-radius:8px;text-decoration:none")}>社長を続ける承継方法を読む</a>
                       <button className="btn-ghost" onClick={restart} style={css("display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);color:#fff;cursor:pointer;font-family:'Noto Sans JP';font-size:15px;font-weight:600;padding:15px 26px;border-radius:8px")}>もう一度診断する</button>
                     </div>
                   </div>

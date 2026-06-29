@@ -58,6 +58,7 @@ const HOME_CASES = [
 ];
 
 const HOME_NEWS = [
+  { date: "2026.06.29", cat: "コラム", info: false, title: "社長を続けながら会社を譲渡できるのか", url: "/columns/president-stay-after-ma/" },
   { date: "2026.06.20", cat: "コラム", info: false, title: "社長が90日不在でも回る会社へ。事業承継前に見直すべき5つの論点", toDiagnosis: true },
   { date: "2026.06.12", cat: "コラム", info: false, title: "完全成功報酬とは何か。着手金型との違いを、オーナー目線で解説する" },
   { date: "2026.05.30", cat: "お知らせ", info: true, title: "譲渡後も従業員の雇用を守る。当社の候補先選定基準を公開しました" },
@@ -340,7 +341,7 @@ function HomeNews({ navigate }) {
         </div>
         <div>
           {HOME_NEWS.map((n, i) => (
-            <button key={n.title} className="news-row" onClick={() => navigate(n.toDiagnosis ? "diagnosis" : "news")} style={css("display:flex;align-items:center;gap:24px;padding:22px 4px;background:none;border:none;border-top:1px solid #E6E1D4;cursor:pointer;width:100%;text-align:left;font-family:'Noto Sans JP'" + (i === HOME_NEWS.length - 1 ? ";border-bottom:1px solid #E6E1D4" : ""))}>
+            <button key={n.title} className="news-row" onClick={() => n.url ? (window.location.href = n.url) : navigate(n.toDiagnosis ? "diagnosis" : "news")} style={css("display:flex;align-items:center;gap:24px;padding:22px 4px;background:none;border:none;border-top:1px solid #E6E1D4;cursor:pointer;width:100%;text-align:left;font-family:'Noto Sans JP'" + (i === HOME_NEWS.length - 1 ? ";border-bottom:1px solid #E6E1D4" : ""))}>
               <span style={css("font-family:'Cormorant Garamond';font-size:13px;color:#9AA0AB;width:96px;flex-shrink:0")}>{n.date}</span>
               <span style={css("font-size:11px;font-weight:700;flex-shrink:0;padding:4px 12px;border-radius:100px;" + (n.info ? "color:#5E687A;background:#EDEBE4" : "color:#A9853D;background:#F2EBDB"))}>{n.cat}</span>
               <span style={css("font-size:15px;color:#2A3446;font-weight:500")}>{n.title}</span>

@@ -222,11 +222,19 @@ const PRIORITY_RELATED_LINKS = [
 function getRelatedColumnLinks(index) {
   const relatedIndexes = PRIORITY_RELATED_LINKS[index];
   if (!relatedIndexes) return [];
-  return relatedIndexes.map((relatedIndex) => ({
+  const links = relatedIndexes.map((relatedIndex) => ({
     title: SEO_COLUMN_SEEDS[relatedIndex][1],
     issue: SEO_COLUMN_SEEDS[relatedIndex][2],
     url: `/columns/${SEO_COLUMN_SLUGS[relatedIndex]}/`,
   }));
+  if ([5, 7].includes(index)) {
+    links.unshift({
+      title: "社長を続けながら会社を譲渡できるのか",
+      issue: "段階承継",
+      url: "/columns/president-stay-after-ma/",
+    });
+  }
+  return links;
 }
 
 function getImportantSeoBlocks(index, issue, action) {
