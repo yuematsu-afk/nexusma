@@ -898,6 +898,12 @@
 .article-cta .btn + .btn {
   margin-left: 12px;
 }
+.article-cta-note {
+  margin: 16px 0 0;
+  color: var(--ink-400);
+  font-size: 12.5px;
+  line-height: 1.8;
+}
 
 /* ===== Contact / Form ===== */
 .form-shell {

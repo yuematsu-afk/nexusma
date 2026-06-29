@@ -861,6 +861,19 @@ function getArticleCta(article) {
   };
 }
 
+function getArticleConcerns(article) {
+  const slug = article.slug || "";
+  const title = article.title || "";
+  const text = `${slug} ${title}`;
+  const concerns = ["事業承継", "情報収集"];
+  if (/owner|president|社長/.test(text)) concerns.push("社長依存");
+  if (/successor|後継|succession/.test(text)) concerns.push("後継者不在");
+  if (/guarantee|保証/.test(text)) concerns.push("経営者保証の扱い");
+  if (/employee|雇用|従業員|labor|hiring/.test(text)) concerns.push("従業員の雇用継続");
+  if (/population|local|regional|地方|人口|地域/.test(text)) concerns.push("地域・人口減少");
+  return [...new Set(concerns)];
+}
+
 function getArticleFromLocation() {
   const pathMatch = window.location.pathname.match(/^\/columns\/([^/]+)\/?$/);
   if (pathMatch) {
@@ -922,6 +935,22 @@ function PageNews({ navigate }) {
 
   if (selectedNews) {
     const cta = getArticleCta(selectedNews);
+    const openArticleConsultation = () => {
+      try {
+        sessionStorage.setItem("nexusma_diagnosis_prefill", JSON.stringify({
+          step: 1,
+          data: {
+            role: "seller",
+            concerns: getArticleConcerns(selectedNews),
+            method: "email",
+            message: `コラム「${selectedNews.title}」を読みました。自社に当てはめた場合の論点と、売却前提ではない事業承継・M&Aの選択肢について相談したいです。`,
+          },
+        }));
+      } catch (error) {
+        // sessionStorageが使えない環境でも、通常の問い合わせ導線へ進める。
+      }
+      navigate("contact");
+    };
     return (
       <main>
         <PageHero
@@ -945,7 +974,8 @@ function PageNews({ navigate }) {
                 <h3>{cta.title}</h3>
                 <p>{cta.text}</p>
                 <button className="btn btn-ghost" onClick={() => navigate("diagnosis")}>{cta.secondaryLabel} <span className="arrow" /></button>
-                <button className="btn btn-primary" onClick={() => navigate("contact")}>{cta.primaryLabel} <span className="arrow" /></button>
+                <button className="btn btn-primary" onClick={openArticleConsultation}>{cta.primaryLabel} <span className="arrow" /></button>
+                <p className="article-cta-note">記事テーマを相談フォームに反映して送信できます。電話番号は任意です。</p>
               </div>
             </article>
           </div>
