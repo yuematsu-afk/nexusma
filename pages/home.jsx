@@ -129,7 +129,10 @@ function HomeSellerBand({ navigate }) {
           <div style={css("font-family:'Cormorant Garamond';font-size:17px;letter-spacing:.05em;font-style:italic;color:#C6A664;margin-bottom:20px")}>90-Day Owner-Absence Check</div>
           <h2 style={css("font-family:'Shippori Mincho';font-weight:700;font-size:42px;line-height:1.4;color:#fff;margin:0 0 24px")}>明日から社長が90日不在でも、<br/>会社は<span style={css("color:#E7CE92")}>回りますか。</span></h2>
           <p style={css("font-size:16px;line-height:2;color:#A9B4C2;margin:0 0 30px;max-width:560px")}>属人化・後継者・財務・取引先依存——。10の質問に答えるだけで、いまの事業承継の「準備度」と、譲渡に向けた課題を可視化します。会社名も電話番号も不要。所要時間は約3分です。</p>
-          <button className="btn-gold" onClick={() => navigate("diagnosis")} style={css("display:inline-flex;align-items:center;gap:10px;background:#C6A664;color:#07131F;border:none;cursor:pointer;font-family:'Noto Sans JP';font-size:15px;font-weight:700;padding:15px 28px;border-radius:7px")}>無料診断を始める<span style={css("font-family:'Cormorant Garamond'")}>→</span></button>
+          <div style={css("display:flex;gap:12px;flex-wrap:wrap;align-items:center")}>
+            <button className="btn-gold" onClick={() => navigate("diagnosis")} style={css("display:inline-flex;align-items:center;gap:10px;background:#C6A664;color:#07131F;border:none;cursor:pointer;font-family:'Noto Sans JP';font-size:15px;font-weight:700;padding:15px 28px;border-radius:7px")}>無料診断を始める<span style={css("font-family:'Cormorant Garamond'")}>→</span></button>
+            <a href="assets/downloads/owner-90day-absence-guide.pdf" target="_blank" rel="noopener noreferrer" style={css("display:inline-flex;align-items:center;gap:10px;color:#E7CE92;border:1px solid rgba(198,166,100,.45);text-decoration:none;font-family:'Noto Sans JP';font-size:14px;font-weight:700;padding:14px 22px;border-radius:7px")}>無料PDFを読む<span style={css("font-family:'Cormorant Garamond'")}>→</span></a>
+          </div>
         </div>
         <div style={css("background:linear-gradient(160deg,#102742,#0A1828);border:1px solid rgba(198,166,100,.28);border-radius:16px;padding:38px;position:relative;overflow:hidden")}>
           <div style={css("position:absolute;right:-30px;top:-30px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(198,166,100,.16),transparent 70%)")}></div>
