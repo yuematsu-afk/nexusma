@@ -151,7 +151,7 @@ function HomeSellerBand({ navigate }) {
             <a href="assets/downloads/owner-90day-absence-guide.pdf" target="_blank" rel="noopener noreferrer" style={css("display:inline-flex;align-items:center;gap:10px;color:#E7CE92;border:1px solid rgba(198,166,100,.45);text-decoration:none;font-family:'Noto Sans JP';font-size:14px;font-weight:700;padding:14px 22px;border-radius:7px")}>無料PDFを読む<span style={css("font-family:'Cormorant Garamond'")}>→</span></a>
             <button onClick={openPdfConsultation} style={css("display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.16);cursor:pointer;font-family:'Noto Sans JP';font-size:14px;font-weight:700;padding:14px 22px;border-radius:7px")}>PDFを読んで相談する<span style={css("font-family:'Cormorant Garamond'")}>→</span></button>
           </div>
-          <p style={css("font-size:12.5px;line-height:1.8;color:#7C879A;margin:14px 0 0")}>PDFは登録不要で読めます。相談フォームへ進む場合は、社長不在リスクに関する相談内容をあらかじめ反映します。</p>
+          <p style={css("font-size:12.5px;line-height:1.8;color:#7C879A;margin:14px 0 0")}>PDFは登録不要で読めます。相談フォームへ進む場合は、社長不在リスクに関する相談内容をあらかじめ反映します。<br/><a href="/owner-emergency-checklist/" style={css("color:#E7CE92;text-decoration:none;border-bottom:1px solid rgba(231,206,146,.45)")}>社長が急に入院した時の会社チェックリストも確認できます。</a></p>
         </div>
         <div style={css("background:linear-gradient(160deg,#102742,#0A1828);border:1px solid rgba(198,166,100,.28);border-radius:16px;padding:38px;position:relative;overflow:hidden")}>
           <div style={css("position:absolute;right:-30px;top:-30px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(198,166,100,.16),transparent 70%)")}></div>

@@ -8,6 +8,9 @@ const DEFAULT_META = {
 };
 
 function getRouteFromHash() {
+  if (window.location.pathname.match(/^\/owner-emergency-checklist\/?$/)) {
+    return "owner-emergency";
+  }
   if (window.location.pathname.match(/^\/columns\/[^/]+\/?$/)) {
     return "news";
   }
@@ -48,6 +51,10 @@ const ROUTE_META = {
   diagnosis: {
     title: "社長不在90日診断 | NexusM&A",
     description: "会社名・電話番号不要。経営者に依存している業務や判断を3分で整理できる匿名セルフチェックです。",
+  },
+  "owner-emergency": {
+    title: "社長が急に入院した時の会社チェックリスト | NexusM&A",
+    description: "社長が急病・入院・長期不在になった時、資金繰り、従業員、取引先、家族に何が起きるかを整理するチェックリストです。売却前提ではなく、会社が止まる場所を確認できます。",
   },
   contact: {
     title: "無料相談・お問い合わせ | NexusM&A",
@@ -123,7 +130,11 @@ function App() {
       return;
     }
     const meta = ROUTE_META[route] || DEFAULT_META;
-    const canonical = route === "home" ? SITE_BASE_URL : `${SITE_BASE_URL}#/${route}`;
+    const canonical = route === "home"
+      ? SITE_BASE_URL
+      : route === "owner-emergency"
+        ? `${SITE_BASE_URL}owner-emergency-checklist/`
+        : `${SITE_BASE_URL}#/${route}`;
     document.title = meta.title;
     setMeta("description", meta.description);
     setMeta("og:title", meta.title, "property");
@@ -150,6 +161,7 @@ function App() {
     case "news": page = <PageNews navigate={navigate} />; break;
     case "contact": page = <PageContact navigate={navigate} />; break;
     case "diagnosis": page = <PageDiagnosis navigate={navigate} />; break;
+    case "owner-emergency": page = <PageOwnerEmergency navigate={navigate} />; break;
     case "faq": page = <PageInfo navigate={navigate} type="faq" />; break;
     case "glossary": page = <PageInfo navigate={navigate} type="glossary" />; break;
     case "privacy": page = <PageInfo navigate={navigate} type="privacy" />; break;
