@@ -74,18 +74,18 @@ function HomeHero({ navigate }) {
         <div>
           <div style={css("display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(198,166,100,.4);border-radius:100px;padding:7px 16px;margin-bottom:30px")}>
             <span style={css("width:6px;height:6px;border-radius:50%;background:#C6A664")}></span>
-            <span style={css("font-family:'Cormorant Garamond';font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#D8BC7E")}>Fully Success-Based · 独立系M&A仲介</span>
+            <span style={css("font-family:'Cormorant Garamond';font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#D8BC7E")}>Owner-Dependent Succession · 90-Day Check</span>
           </div>
           <h1 className="hv2-hero-h1" style={css("font-family:'Shippori Mincho',sans-serif;font-weight:700;font-size:64px;line-height:1.4;letter-spacing:.02em;color:#fff;margin:0 0 26px")}>
-            譲渡という、<br/>前向きな<span style={css("position:relative;color:#E7CE92")}>選択。<span style={css("position:absolute;left:0;right:0;bottom:6px;height:10px;background:rgba(198,166,100,.22);z-index:-1")}></span></span>
+            社長がいないと<br/>回らない会社の、<br/><span style={css("position:relative;color:#E7CE92")}>事業承継・M&A相談。<span style={css("position:absolute;left:0;right:0;bottom:6px;height:10px;background:rgba(198,166,100,.22);z-index:-1")}></span></span>
           </h1>
-          <p style={css("font-size:17px;line-height:2;color:#B9C2CF;margin:0 0 34px;max-width:480px")}>事業承継に悩む中小企業オーナーへ。<br/>着手金・中間金<strong style={css("color:#fff")}>0円</strong>の完全成功報酬で、<br/>納得できる承継を、成約まで伴走します。</p>
+          <p style={css("font-size:17px;line-height:2;color:#B9C2CF;margin:0 0 34px;max-width:520px")}>会社を売るかどうかを決める前に、まず「社長が90日不在でも止まらないか」を整理します。<br/>顧客・営業・資金繰り・金融機関対応・従業員への判断を見える化し、社長を続けながら責任を軽くする選択肢まで一緒に考えます。</p>
           <div className="hv2-hero-ctas" style={css("display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px")}>
             <button className="btn-gold-up" onClick={() => navigate("diagnosis")} style={css("display:inline-flex;align-items:center;gap:10px;background:#C6A664;color:#07131F;border:none;cursor:pointer;font-family:'Noto Sans JP';font-size:15px;font-weight:700;padding:16px 26px;border-radius:7px;box-shadow:0 10px 30px -8px rgba(198,166,100,.5)")}>社長不在90日診断を受ける<span style={css("font-family:'Cormorant Garamond'")}>→</span></button>
-            <button className="btn-ghost" onClick={() => navigate("contact")} style={css("display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.16);cursor:pointer;font-family:'Noto Sans JP';font-size:15px;font-weight:600;padding:16px 26px;border-radius:7px")}>無料で相談する</button>
+            <button className="btn-ghost" onClick={() => navigate("contact")} style={css("display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.16);cursor:pointer;font-family:'Noto Sans JP';font-size:15px;font-weight:600;padding:16px 26px;border-radius:7px")}>無料相談で整理する</button>
           </div>
           <div style={css("display:flex;gap:24px;align-items:center;flex-wrap:wrap")}>
-            {["無料・匿名で診断", "会社名・電話番号不要", "秘密厳守"].map((t) => (
+            {["会社名・電話番号不要", "診断だけなら営業連絡なし", "売却前提でなく相談可能"].map((t) => (
               <div key={t} style={css("display:flex;align-items:center;gap:8px;color:#9AA7B5;font-size:13px")}><span style={css("color:#C6A664;font-size:15px")}>✓</span>{t}</div>
             ))}
           </div>
@@ -97,14 +97,14 @@ function HomeHero({ navigate }) {
             <div style={css("position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,19,31,0) 40%,rgba(7,19,31,.55) 100%);pointer-events:none")}></div>
           </div>
           <div className="hv2-hero-float" style={css("position:absolute;left:-26px;top:42px;background:rgba(11,27,48,.82);backdrop-filter:blur(12px);border:1px solid rgba(198,166,100,.3);border-radius:12px;padding:16px 20px;box-shadow:0 20px 40px -16px rgba(0,0,0,.6);animation:floatY 6s ease-in-out infinite")}>
-            <div style={css("font-family:'Cormorant Garamond';font-size:11px;letter-spacing:.14em;color:#9AA7B5;text-transform:uppercase;margin-bottom:6px")}>Upfront Fee</div>
-            <div style={css("font-family:'Cormorant Garamond';font-weight:700;font-size:34px;color:#E7CE92;line-height:1")}>¥0</div>
-            <div style={css("font-size:11.5px;color:#B9C2CF;margin-top:2px")}>着手金・中間金なし</div>
+            <div style={css("font-family:'Cormorant Garamond';font-size:11px;letter-spacing:.14em;color:#9AA7B5;text-transform:uppercase;margin-bottom:6px")}>Start Point</div>
+            <div style={css("font-family:'Cormorant Garamond';font-weight:700;font-size:34px;color:#E7CE92;line-height:1")}>90日</div>
+            <div style={css("font-size:11.5px;color:#B9C2CF;margin-top:2px")}>社長不在で止まる業務を確認</div>
           </div>
           <div className="hv2-hero-float" style={css("position:absolute;right:-22px;bottom:38px;background:rgba(11,27,48,.82);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:16px 20px;box-shadow:0 20px 40px -16px rgba(0,0,0,.6);animation:floatY 6s ease-in-out infinite .8s")}>
-            <div style={css("font-family:'Cormorant Garamond';font-size:11px;letter-spacing:.14em;color:#9AA7B5;text-transform:uppercase;margin-bottom:6px")}>Success Fee Only</div>
-            <div style={css("display:flex;align-items:baseline;gap:6px")}><span style={css("font-family:'Cormorant Garamond';font-weight:700;font-size:30px;color:#fff;line-height:1")}>成約時</span></div>
-            <div style={css("font-size:11.5px;color:#B9C2CF;margin-top:2px")}>成果に対してのみ報酬</div>
+            <div style={css("font-family:'Cormorant Garamond';font-size:11px;letter-spacing:.14em;color:#9AA7B5;text-transform:uppercase;margin-bottom:6px")}>Owner Role</div>
+            <div style={css("display:flex;align-items:baseline;gap:6px")}><span style={css("font-family:'Shippori Mincho';font-weight:700;font-size:28px;color:#fff;line-height:1")}>社長継続</span></div>
+            <div style={css("font-size:11.5px;color:#B9C2CF;margin-top:2px")}>辞める前提ではなく責任を軽くする</div>
           </div>
         </div>
       </div>

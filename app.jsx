@@ -3,8 +3,8 @@ const { useState, useEffect } = React;
 
 const SITE_BASE_URL = "https://sasa-eru.com/";
 const DEFAULT_META = {
-  title: "NexusM&A — 中小企業のための、独立系M&Aアドバイザリー",
-  description: "NexusM&Aは中小企業の事業承継・成長戦略M&Aを支援する独立系アドバイザリーです。会社名・電話番号不要の社長不在90日診断も利用できます。",
+  title: "NexusM&A — 社長がいないと回らない会社の事業承継・M&A相談",
+  description: "NexusM&Aは、社長依存・後継者不在・経営者保証に悩む中小企業向けに、売却前提ではない事業承継・M&A相談を行います。会社名・電話番号不要の社長不在90日診断も利用できます。",
 };
 
 function getRouteFromHash() {
