@@ -874,6 +874,11 @@ function getArticleConcerns(article) {
   return [...new Set(concerns)];
 }
 
+function shouldShowOwnerEmergencyLink(article) {
+  const slug = article.slug || "";
+  return /owner|president|successor|succession|retirement|bcp|delaying|founder/.test(slug);
+}
+
 function getArticleFromLocation() {
   const pathMatch = window.location.pathname.match(/^\/columns\/([^/]+)\/?$/);
   if (pathMatch) {
@@ -970,6 +975,16 @@ function PageNews({ navigate }) {
                 <span className="news-date-inline font-serif-en">{selectedNews.date}</span>
               </div>
               {selectedNews.body.map((block, i) => <ArticleBlock key={i} block={block} article={selectedNews} index={i} />)}
+              {shouldShowOwnerEmergencyLink(selectedNews) && (
+                <aside className="article-point-box">
+                  <h3>社長が急に不在になった場合も確認する</h3>
+                  <ul>
+                    <li>資金繰り、給与、取引先対応、金融機関対応が止まらないかを確認できます。</li>
+                    <li>売却前提ではなく、社長不在時に会社と家族を守るためのチェックリストです。</li>
+                    <li><a className="text-link" href="/owner-emergency-checklist/">社長が急に入院した時の会社チェックリストを見る</a></li>
+                  </ul>
+                </aside>
+              )}
               <div className="article-cta">
                 <h3>{cta.title}</h3>
                 <p>{cta.text}</p>
