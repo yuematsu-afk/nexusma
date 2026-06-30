@@ -879,6 +879,11 @@ function shouldShowOwnerEmergencyLink(article) {
   return /owner|president|successor|succession|retirement|bcp|delaying|founder/.test(slug);
 }
 
+function shouldShowFamilyGuaranteeLink(article) {
+  const slug = article.slug || "";
+  return /guarantee|family|personal-assets|owner|president|succession/.test(slug);
+}
+
 function getArticleFromLocation() {
   const pathMatch = window.location.pathname.match(/^\/columns\/([^/]+)\/?$/);
   if (pathMatch) {
@@ -982,6 +987,16 @@ function PageNews({ navigate }) {
                     <li>資金繰り、給与、取引先対応、金融機関対応が止まらないかを確認できます。</li>
                     <li>売却前提ではなく、社長不在時に会社と家族を守るためのチェックリストです。</li>
                     <li><a className="text-link" href="/owner-emergency-checklist/">社長が急に入院した時の会社チェックリストを見る</a></li>
+                  </ul>
+                </aside>
+              )}
+              {shouldShowFamilyGuaranteeLink(selectedNews) && (
+                <aside className="article-point-box">
+                  <h3>家族に残る借入・保証も確認する</h3>
+                  <ul>
+                    <li>会社借入、経営者保証、個人資産、家族への説明が整理されていないと、社長不在時の混乱が大きくなります。</li>
+                    <li>売却前提ではなく、まず家族が困る可能性のある論点を確認できます。</li>
+                    <li><a className="text-link" href="/family-guarantee-risk/">社長が倒れた時、家族が困る借入・保証の整理を見る</a></li>
                   </ul>
                 </aside>
               )}

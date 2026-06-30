@@ -93,6 +93,23 @@ function PageOwnerEmergency({ navigate }) {
               そのうえで、社長が会社に残り続ける場合、役割を軽くする場合、親族や社内に引き継ぐ場合、第三者に承継する場合を比較します。最初からM&Aを決める必要はありません。
             </p>
 
+            <div className="article-related-box">
+              <div className="article-related-head">
+                <span className="section-kicker">Related</span>
+                <h3>家族と保証も確認する</h3>
+              </div>
+              <div className="article-related-grid">
+                <a className="article-related-card" href="/family-guarantee-risk/">
+                  <span>家族と保証</span>
+                  <strong>社長が倒れた時、家族が困る借入・保証の整理</strong>
+                </a>
+                <a className="article-related-card" href="/columns/owner-guarantee-succession-first-step/">
+                  <span>経営者保証</span>
+                  <strong>経営者保証がある会社の事業承継で最初に見ること</strong>
+                </a>
+              </div>
+            </div>
+
             <div className="article-cta">
               <h3>社長不在時に止まる業務を整理しませんか。</h3>
               <p>会社名や電話番号を出さずに、まずは匿名診断で現在地を確認できます。具体的に相談したい場合は、メール中心で初期整理から対応します。</p>
