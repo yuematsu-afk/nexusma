@@ -113,9 +113,10 @@ function PageFamilyGuarantee({ navigate }) {
             <div className="article-cta">
               <h3>家族に残る保証・借入の負担を整理しませんか。</h3>
               <p>売却を決める前に、会社の借入、経営者保証、個人資産、社長不在時の対応を整理できます。まずはメール中心の無料相談から始められます。</p>
+              <a className="btn btn-ghost" href="/assets/downloads/family-guarantee-risk-guide.pdf" target="_blank" rel="noopener noreferrer">無料PDFを読む <span className="arrow" /></a>
               <button className="btn btn-ghost" onClick={() => navigate("diagnosis")}>社長不在90日診断を受ける <span className="arrow" /></button>
               <button className="btn btn-primary" onClick={startConsultation}>保証と家族への影響を相談する <span className="arrow" /></button>
-              <p className="article-cta-note">相談フォームには、このページを見た前提の相談内容が自動で反映されます。電話番号は任意です。</p>
+              <p className="article-cta-note">PDFは登録不要で読めます。相談フォームには、このページを見た前提の相談内容が自動で反映されます。電話番号は任意です。</p>
             </div>
           </div>
         </div>
