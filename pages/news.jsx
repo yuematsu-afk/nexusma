@@ -879,9 +879,22 @@ function shouldShowOwnerEmergencyLink(article) {
   return /owner|president|successor|succession|retirement|bcp|delaying|founder/.test(slug);
 }
 
+const FAMILY_GUARANTEE_LINK_SLUGS = new Set([
+  "president-stay-after-ma",
+  "owner-dependent-company-risk",
+  "owner-guarantee-succession-first-step",
+  "family-succession-decision-points",
+  "owner-health-succession-preparation",
+  "family-outside-succession",
+  "family-meeting-business-succession",
+  "owner-personal-assets-company-succession",
+  "founder-letting-go-preparation",
+  "senior-owner-retirement-planning",
+]);
+
 function shouldShowFamilyGuaranteeLink(article) {
   const slug = article.slug || "";
-  return /guarantee|family|personal-assets|owner|president|succession/.test(slug);
+  return FAMILY_GUARANTEE_LINK_SLUGS.has(slug);
 }
 
 function getArticleFromLocation() {
@@ -991,13 +1004,21 @@ function PageNews({ navigate }) {
                 </aside>
               )}
               {shouldShowFamilyGuaranteeLink(selectedNews) && (
-                <aside className="article-point-box">
-                  <h3>家族に残る借入・保証も確認する</h3>
-                  <ul>
-                    <li>会社借入、経営者保証、個人資産、家族への説明が整理されていないと、社長不在時の混乱が大きくなります。</li>
-                    <li>売却前提ではなく、まず家族が困る可能性のある論点を確認できます。</li>
-                    <li><a className="text-link" href="/family-guarantee-risk/">社長が倒れた時、家族が困る借入・保証の整理を見る</a></li>
-                  </ul>
+                <aside className="article-related-box">
+                  <div className="article-related-head">
+                    <span className="section-kicker">Next Step</span>
+                    <h3>家族に残る借入・保証も確認する</h3>
+                  </div>
+                  <div className="article-related-grid">
+                    <a className="article-related-card" href="/family-guarantee-risk/">
+                      <span>家族と保証</span>
+                      <strong>社長が倒れた時、家族が困る借入・保証の整理</strong>
+                    </a>
+                    <a className="article-related-card" href="/owner-emergency-checklist/">
+                      <span>社長不在</span>
+                      <strong>社長が急に入院した時の会社チェックリスト</strong>
+                    </a>
+                  </div>
                 </aside>
               )}
               <div className="article-cta">
