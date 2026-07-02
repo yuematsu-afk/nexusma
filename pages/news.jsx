@@ -1022,12 +1022,17 @@ function PageNews({ navigate }) {
                       <span>無料PDF</span>
                       <strong>社長が倒れた時、家族が困る借入と保証を読む</strong>
                     </a>
+                    <a className="article-related-card" href="/resources/">
+                      <span>無料資料</span>
+                      <strong>社長不在・保証・借入を整理する資料一覧</strong>
+                    </a>
                   </div>
                 </aside>
               )}
               <div className="article-cta">
                 <h3>{cta.title}</h3>
                 <p>{cta.text}</p>
+                <a className="btn btn-ghost" href="/resources/">無料資料を見る <span className="arrow" /></a>
                 <button className="btn btn-ghost" onClick={() => navigate("diagnosis")}>{cta.secondaryLabel} <span className="arrow" /></button>
                 <button className="btn btn-primary" onClick={openArticleConsultation}>{cta.primaryLabel} <span className="arrow" /></button>
                 <p className="article-cta-note">記事テーマを相談フォームに反映して送信できます。電話番号は任意です。</p>

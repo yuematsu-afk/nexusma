@@ -108,6 +108,10 @@ function PageOwnerEmergency({ navigate }) {
                   <span>経営者保証</span>
                   <strong>経営者保証がある会社の事業承継で最初に見ること</strong>
                 </a>
+                <a className="article-related-card" href="/resources/">
+                  <span>無料資料</span>
+                  <strong>社長不在・保証・借入を整理する資料一覧</strong>
+                </a>
               </div>
             </div>
 
@@ -116,6 +120,7 @@ function PageOwnerEmergency({ navigate }) {
               <p>会社名や電話番号を出さずに、まずは匿名診断で現在地を確認できます。具体的に相談したい場合は、メール中心で初期整理から対応します。</p>
               <button className="btn btn-ghost" onClick={() => navigate("diagnosis")}>社長不在90日診断を受ける <span className="arrow" /></button>
               <a className="btn btn-ghost" href="/assets/downloads/family-guarantee-risk-guide.pdf" target="_blank" rel="noopener noreferrer">家族と保証のPDFを読む <span className="arrow" /></a>
+              <a className="btn btn-ghost" href="/resources/">無料資料一覧を見る <span className="arrow" /></a>
               <button className="btn btn-primary" onClick={startConsultation}>チェックリストをもとに相談する <span className="arrow" /></button>
               <p className="article-cta-note">売却前提ではなく、社長依存・資金繰り・家族への影響を整理する相談として送信できます。</p>
             </div>
