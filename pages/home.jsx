@@ -138,6 +138,23 @@ function HomeSellerBand({ navigate }) {
     }
     navigate("contact");
   };
+  const openFamilyPdfConsultation = () => {
+    try {
+      sessionStorage.setItem("nexusma_diagnosis_prefill", JSON.stringify({
+        step: 1,
+        data: {
+          role: "seller",
+          source: "family_guarantee",
+          concerns: ["経営者保証の扱い", "会社借入・返済予定", "家族への影響", "社長依存", "情報収集"],
+          method: "email",
+          message: "家族と保証のPDFを見ました。経営者保証、会社借入、個人資産、家族への影響について、売却前提ではなく整理したいです。",
+        },
+      }));
+    } catch (error) {
+      // sessionStorageが使えない環境でも、通常の問い合わせ導線へ進める。
+    }
+    navigate("contact");
+  };
 
   return (
     <section id="seller" data-reveal style={css("background:#0B1B30;padding:96px 40px;border-top:1px solid rgba(255,255,255,.05)")}>
@@ -150,9 +167,10 @@ function HomeSellerBand({ navigate }) {
             <button className="btn-gold" onClick={() => navigate("diagnosis")} style={css("display:inline-flex;align-items:center;gap:10px;background:#C6A664;color:#07131F;border:none;cursor:pointer;font-family:'Noto Sans JP';font-size:15px;font-weight:700;padding:15px 28px;border-radius:7px")}>無料診断を始める<span style={css("font-family:'Cormorant Garamond'")}>→</span></button>
             <a href="assets/downloads/owner-90day-absence-guide.pdf" target="_blank" rel="noopener noreferrer" style={css("display:inline-flex;align-items:center;gap:10px;color:#E7CE92;border:1px solid rgba(198,166,100,.45);text-decoration:none;font-family:'Noto Sans JP';font-size:14px;font-weight:700;padding:14px 22px;border-radius:7px")}>無料PDFを読む<span style={css("font-family:'Cormorant Garamond'")}>→</span></a>
             <a href="assets/downloads/family-guarantee-risk-guide.pdf" target="_blank" rel="noopener noreferrer" style={css("display:inline-flex;align-items:center;gap:10px;color:#fff;border:1px solid rgba(255,255,255,.18);text-decoration:none;font-family:'Noto Sans JP';font-size:14px;font-weight:700;padding:14px 22px;border-radius:7px;background:rgba(255,255,255,.05)")}>家族と保証のPDFを読む<span style={css("font-family:'Cormorant Garamond'")}>→</span></a>
-            <button onClick={openPdfConsultation} style={css("display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.16);cursor:pointer;font-family:'Noto Sans JP';font-size:14px;font-weight:700;padding:14px 22px;border-radius:7px")}>PDFを読んで相談する<span style={css("font-family:'Cormorant Garamond'")}>→</span></button>
+            <button onClick={openPdfConsultation} style={css("display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.16);cursor:pointer;font-family:'Noto Sans JP';font-size:14px;font-weight:700;padding:14px 22px;border-radius:7px")}>90日PDFを相談する<span style={css("font-family:'Cormorant Garamond'")}>→</span></button>
+            <button onClick={openFamilyPdfConsultation} style={css("display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.16);cursor:pointer;font-family:'Noto Sans JP';font-size:14px;font-weight:700;padding:14px 22px;border-radius:7px")}>家族・保証を相談する<span style={css("font-family:'Cormorant Garamond'")}>→</span></button>
           </div>
-          <p style={css("font-size:12.5px;line-height:1.8;color:#7C879A;margin:14px 0 0")}>PDFは登録不要で読めます。相談フォームへ進む場合は、社長不在リスクに関する相談内容をあらかじめ反映します。<br/><a href="/owner-emergency-checklist/" style={css("color:#E7CE92;text-decoration:none;border-bottom:1px solid rgba(231,206,146,.45)")}>社長が急に入院した時の会社チェックリストも確認できます。</a></p>
+          <p style={css("font-size:12.5px;line-height:1.8;color:#7C879A;margin:14px 0 0")}>PDFは登録不要で読めます。相談フォームへ進む場合は、社長不在・保証・借入に関する相談内容をあらかじめ反映します。<br/><a href="/owner-emergency-checklist/" style={css("color:#E7CE92;text-decoration:none;border-bottom:1px solid rgba(231,206,146,.45)")}>社長が急に入院した時の会社チェックリストも確認できます。</a></p>
         </div>
         <div style={css("background:linear-gradient(160deg,#102742,#0A1828);border:1px solid rgba(198,166,100,.28);border-radius:16px;padding:38px;position:relative;overflow:hidden")}>
           <div style={css("position:absolute;right:-30px;top:-30px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(198,166,100,.16),transparent 70%)")}></div>

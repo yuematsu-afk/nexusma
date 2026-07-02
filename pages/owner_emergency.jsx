@@ -7,7 +7,8 @@ function PageOwnerEmergency({ navigate }) {
         step: 1,
         data: {
           role: "seller",
-          concerns: ["社長依存", "事業承継", "経営者保証の扱い", "情報収集"],
+          source: "owner_emergency",
+          concerns: ["社長依存", "事業承継", "経営者保証の扱い", "家族への影響", "情報収集"],
           method: "email",
           message: "「社長が急に不在になった時の会社チェックリスト」を見ました。自社で社長が入院・急病になった場合に止まりそうな業務と、今から整理すべきことを相談したいです。",
         },

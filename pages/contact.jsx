@@ -15,6 +15,11 @@ const METHOD_LABELS = {
   visit: "訪問相談を希望",
 };
 
+const SOURCE_LABELS = {
+  owner_emergency: "社長不在チェックリスト",
+  family_guarantee: "家族と経営者保証PDF・整理ページ",
+};
+
 const CONTACT_PROFILES = {
   seller: {
     title: "譲渡・事業承継についてお聞かせください。",
@@ -25,7 +30,7 @@ const CONTACT_PROFILES = {
       { key: "timing", label: "ご検討時期", required: true, options: ["3ヶ月以内", "6ヶ月以内", "1年以内", "2〜3年以内", "未定／情報収集"] },
     ],
     concernLabel: "主なご関心事項（複数選択可）",
-    concerns: ["事業承継", "後継者不在", "経営者保証の扱い", "従業員の雇用継続", "創業者利潤", "譲渡価格の目安", "候補先探し", "情報収集"],
+    concerns: ["事業承継", "後継者不在", "経営者保証の扱い", "社長依存", "借入・資金繰り", "家族への影響", "従業員の雇用継続", "創業者利潤", "譲渡価格の目安", "候補先探し", "情報収集"],
   },
   buyer: {
     title: "買収・成長戦略についてお聞かせください。",
@@ -48,6 +53,17 @@ const CONTACT_PROFILES = {
     ],
     concernLabel: "関連するテーマ（複数選択可）",
     concerns: ["サービス内容", "料金・契約条件", "中小M&Aガイドライン", "提携相談", "取材・掲載", "セミナー", "採用・協業", "その他"],
+  },
+  familyRisk: {
+    title: "社長不在・保証・借入の状況をお聞かせください。",
+    lead: "売却を決める前の整理相談として扱います。会社名は任意です。分かる範囲だけで問題ありません。",
+    fields: [
+      { key: "industry", label: "主な相談テーマ", required: true, options: ["経営者保証・会社借入", "社長不在時の対応", "会社と個人資産の整理", "家族への説明", "従業員・取引先への影響", "事業承継の選択肢", "その他"] },
+      { key: "revenue", label: "現在の整理状況", required: false, options: ["借入・保証の全体像が分からない", "一部は把握している", "金融機関別に整理済み", "家族には共有していない", "急ぎではなく事前整理したい", "その他"] },
+      { key: "timing", label: "相談の緊急度", required: true, options: ["早めに整理したい", "1ヶ月以内に相談したい", "急ぎではないが不安がある", "家族・役員に説明する前に確認したい"] },
+    ],
+    concernLabel: "特に整理したいこと（複数選択可）",
+    concerns: ["経営者保証の扱い", "会社借入・返済予定", "担保・個人資産", "家族への影響", "社長依存", "事業承継", "金融機関対応", "従業員・取引先への影響", "承継・M&Aの選択肢", "情報収集"],
   },
 };
 
@@ -77,6 +93,7 @@ function PageContact({ navigate }) {
     phone: "",
     message: "",
     method: "email",
+    source: "",
     agree: false,
     ...(diagnosisPrefill?.data || {}),
   });
@@ -92,6 +109,7 @@ function PageContact({ navigate }) {
     revenue: "",
     timing: "",
     concerns: [],
+    source: "",
   }));
   const toggle = (k, v) => setData((d) => ({
     ...d,
@@ -100,14 +118,16 @@ function PageContact({ navigate }) {
 
   const stepLabels = ["ご立場", "ご状況", "ご連絡先", "ご相談方法", "確認"];
   const total = stepLabels.length;
-  const profile = CONTACT_PROFILES[data.role] || CONTACT_PROFILES.seller;
+  const isFamilyRiskConsult = data.source === "family_guarantee" || data.source === "owner_emergency";
+  const profile = isFamilyRiskConsult ? CONTACT_PROFILES.familyRisk : (CONTACT_PROFILES[data.role] || CONTACT_PROFILES.seller);
   const isOtherInquiry = data.role === "other";
+  const isCompanyOptional = isOtherInquiry || isFamilyRiskConsult;
   const isEmailValid = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
 
   const canNext = () => {
     if (step === 0) return data.role !== "";
     if (step === 1) return profile.fields.every((field) => !field.required || data[field.key] !== "");
-    if (step === 2) return (isOtherInquiry || data.company) && data.name && isEmailValid(data.email);
+    if (step === 2) return (isCompanyOptional || data.company) && data.name && isEmailValid(data.email);
     if (step === 3) return data.method !== "";
     return true;
   };
@@ -116,6 +136,7 @@ function PageContact({ navigate }) {
     "NexusM&A 無料相談フォーム",
     "",
     `ご立場: ${ROLE_LABELS[data.role] || "未選択"}`,
+    `流入元: ${SOURCE_LABELS[data.source] || "通常フォーム"}`,
     ...profile.fields.map((field) => `${field.label}: ${data[field.key] || "未選択"}`),
     `${profile.concernLabel}: ${data.concerns.length ? data.concerns.join(" / ") : "なし"}`,
     `会社名: ${data.company}`,
@@ -134,7 +155,8 @@ function PageContact({ navigate }) {
     setSubmitState({ submitting: true, error: "" });
 
     const senderLabel = data.company ? `${data.company} ${data.name}` : data.name;
-    const subject = `【NexusM&A 無料相談】${senderLabel}様`;
+    const subjectPrefix = isFamilyRiskConsult ? "【NexusM&A 社長不在・保証相談】" : "【NexusM&A 無料相談】";
+    const subject = `${subjectPrefix}${senderLabel}様`;
     const payload = {
       access_key: WEB3FORMS_ACCESS_KEY,
       subject,
@@ -150,6 +172,8 @@ function PageContact({ navigate }) {
       timing: data.timing,
       concerns: data.concerns.join(" / "),
       consultation_method: data.method,
+      source: data.source,
+      source_label: SOURCE_LABELS[data.source] || "通常フォーム",
       message: buildMailBody(),
       botcheck: "",
     };
@@ -181,7 +205,7 @@ function PageContact({ navigate }) {
     if (step === 0 && !data.role) return "まずは該当する相談区分を選択してください。";
     if (step === 1 && !canNext()) return "必須項目を選択すると次へ進めます。";
     if (step === 2) {
-      if (!isOtherInquiry && !data.company) return "会社名をご入力ください。";
+      if (!isCompanyOptional && !data.company) return "会社名をご入力ください。";
       if (!data.name) return "お名前をご入力ください。";
       if (!data.email) return "返信先メールアドレスをご入力ください。";
       if (!isEmailValid(data.email)) return "メールアドレスの形式をご確認ください。";
@@ -328,14 +352,16 @@ function PageContact({ navigate }) {
                   <div className="form-step-eyebrow font-serif-en">Step 03 of {total - 1}</div>
                   <h3 className="font-serif-jp" style={{ fontSize: 28, marginTop: 14 }}>ご連絡先を教えてください。</h3>
                   <p className="form-step-lead">
-                    {data.message && data.message.includes("社長不在90日診断")
-                      ? "診断結果を引き継ぎました。返信先として、お名前とメールアドレスをご入力ください。"
-                      : "電話番号は任意です。まずはメールのみでのご相談も可能です。"}
+                    {isFamilyRiskConsult
+                      ? "社長不在・保証・借入の相談内容を引き継ぎました。会社名・電話番号は任意です。返信先として、お名前とメールアドレスをご入力ください。"
+                      : data.message && data.message.includes("社長不在90日診断")
+                        ? "診断結果を引き継ぎました。返信先として、お名前とメールアドレスをご入力ください。"
+                        : "電話番号は任意です。まずはメールのみでのご相談も可能です。"}
                   </p>
 
                   <div className="field">
-                    <label>{isOtherInquiry ? "会社名・ご所属" : "会社名"} {!isOtherInquiry && <span className="req">必須</span>}</label>
-                    <input type="text" value={data.company} onChange={(e) => update("company", e.target.value)} placeholder={isOtherInquiry ? "会社名・媒体名・ご所属など" : "株式会社○○○○"} />
+                    <label>{isCompanyOptional ? "会社名・ご所属" : "会社名"} {!isCompanyOptional && <span className="req">必須</span>}</label>
+                    <input type="text" value={data.company} onChange={(e) => update("company", e.target.value)} placeholder={isCompanyOptional ? "任意。会社名・媒体名・ご所属など" : "株式会社○○○○"} />
                   </div>
                   <div className="field-row">
                     <div className="field">
@@ -397,6 +423,7 @@ function PageContact({ navigate }) {
                   <table className="confirm-table">
                     <tbody>
                       <tr><th>ご立場</th><td>{ROLE_LABELS[data.role]}</td></tr>
+                      <tr><th>流入元</th><td>{SOURCE_LABELS[data.source] || "通常フォーム"}</td></tr>
                       {profile.fields.map((field) => (
                         <tr key={field.key}><th>{field.label}</th><td>{data[field.key] || "—"}</td></tr>
                       ))}

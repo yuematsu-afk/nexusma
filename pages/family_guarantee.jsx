@@ -7,7 +7,8 @@ function PageFamilyGuarantee({ navigate }) {
         step: 1,
         data: {
           role: "seller",
-          concerns: ["経営者保証の扱い", "社長依存", "事業承継", "情報収集"],
+          source: "family_guarantee",
+          concerns: ["経営者保証の扱い", "社長依存", "家族への影響", "会社借入・返済予定", "情報収集"],
           method: "email",
           message: "「社長が倒れた時、家族が困ること」を見ました。経営者保証、会社借入、個人資産、家族への影響について、売却前提ではなく整理したいです。",
         },
