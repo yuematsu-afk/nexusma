@@ -223,6 +223,39 @@ function PageContact({ navigate }) {
     setStep(step - 1);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+  const completeNextItems = isFamilyRiskConsult
+    ? [
+      "金融機関ごとの借入残高、返済予定、担保、保証人が分かる資料",
+      "家族や役員が把握している会社・個人資産の範囲",
+      "社長が不在になった場合に止まりそうな支払、取引先対応、金融機関対応",
+    ]
+    : data.role === "buyer"
+      ? [
+        "希望する業種、地域、売上規模、投資可能額の目安",
+        "買収後に引き継ぎたい人材、顧客、技術、許認可",
+        "検討不可となる条件や、秘密保持上の制約",
+      ]
+      : [
+        "直近3期分の決算書、月次試算表、借入一覧",
+        "後継者候補の有無、社長が残りたい期間、従業員への配慮事項",
+        "譲渡・承継で守りたいものと、避けたい条件",
+      ];
+  const completeRelatedLinks = isFamilyRiskConsult
+    ? [
+      { href: "/assets/downloads/family-guarantee-risk-guide.pdf", label: "家族と保証のPDFをもう一度読む", external: true },
+      { href: "/owner-emergency-checklist/", label: "社長不在チェックリストを見る" },
+    ]
+    : [
+      { href: "/assets/downloads/owner-90day-absence-guide.pdf", label: "90日チェックPDFを読む", external: true },
+      { href: "/#/diagnosis", label: "社長不在90日診断を確認する" },
+    ];
+  const completeDepartment = isFamilyRiskConsult
+    ? "社長不在・保証相談窓口"
+    : data.role === "seller"
+      ? "セラー・アドバイザリー本部"
+      : data.role === "buyer"
+        ? "バイヤー・ソリューション本部"
+        : "ジェネラル・インクワイアリー";
 
   if (step === total) {
     return (
@@ -251,10 +284,34 @@ function PageContact({ navigate }) {
               </div>
               <div>
                 <div className="complete-meta-label">担当部門</div>
-                <div className="complete-meta-val">{data.role === "seller" ? "セラー・アドバイザリー本部" : data.role === "buyer" ? "バイヤー・ソリューション本部" : "ジェネラル・インクワイアリー"}</div>
+                <div className="complete-meta-val">{completeDepartment}</div>
               </div>
             </div>
-            <div style={{ marginTop: 60 }}>
+            <div style={{ marginTop: 34, background: "rgba(255,255,255,.06)", border: "1px solid rgba(255,255,255,.12)", borderRadius: 16, padding: 28, textAlign: "left" }}>
+              <div className="eyebrow" style={{ color: "var(--gold-400)", marginBottom: 10 }}>Before Our Reply</div>
+              <h3 className="font-serif-jp" style={{ color: "var(--ivory)", fontSize: 22, lineHeight: 1.5, margin: 0 }}>返信までに、分かる範囲で準備しておくと相談が進みやすいもの</h3>
+              <ul style={{ margin: "18px 0 0", paddingLeft: 20, color: "rgba(247,242,233,.78)", lineHeight: 2, fontSize: 14 }}>
+                {completeNextItems.map((item) => <li key={item}>{item}</li>)}
+              </ul>
+              <p style={{ color: "rgba(247,242,233,.56)", margin: "16px 0 0", fontSize: 12.5, lineHeight: 1.8 }}>
+                すべて揃っていなくても問題ありません。分からない部分を整理すること自体が初回相談の目的です。
+              </p>
+            </div>
+            <div style={{ marginTop: 22, display: "flex", gap: 12, flexWrap: "wrap", justifyContent: "center" }}>
+              {completeRelatedLinks.map((link) => (
+                <a
+                  key={link.href}
+                  className="btn btn-ghost-light"
+                  href={link.href}
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noopener noreferrer" : undefined}
+                  style={{ textDecoration: "none" }}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+            <div style={{ marginTop: 42 }}>
               <button className="btn btn-ghost-light" onClick={() => navigate("home")}>トップへ戻る</button>
             </div>
           </div>
