@@ -44,6 +44,7 @@ function Header({ route, navigate }) {
     { id: "pricing", label: "料金・契約条件" },
     { id: "company", label: "会社概要" },
     { id: "news", label: "ニュース" },
+    { id: "resources", label: "無料資料" },
     { id: "diagnosis", label: "匿名診断" },
   ];
   return (
@@ -186,6 +187,7 @@ function Footer({ navigate }) {
               {lk("売り手の方へ", "service-seller")}
               {lk("買い手の方へ", "service-buyer")}
               {lk("案件イメージ", "cases")}
+              {lk("無料資料", "resources")}
               {lk("社長不在90日診断", "diagnosis")}
               {lk("料金・契約条件", "pricing")}
             </div>

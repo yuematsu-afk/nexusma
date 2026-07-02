@@ -14,6 +14,9 @@ function getRouteFromHash() {
   if (window.location.pathname.match(/^\/family-guarantee-risk\/?$/)) {
     return "family-guarantee";
   }
+  if (window.location.pathname.match(/^\/resources\/?$/)) {
+    return "resources";
+  }
   if (window.location.pathname.match(/^\/columns\/[^/]+\/?$/)) {
     return "news";
   }
@@ -62,6 +65,10 @@ const ROUTE_META = {
   "family-guarantee": {
     title: "社長が倒れた時、家族が困る借入・保証の整理 | NexusM&A",
     description: "社長が急病・長期不在になった時、配偶者や家族が困りやすい会社借入、経営者保証、個人資産、従業員対応を整理するページです。売却前提ではなく、家族に残る負担を減らすための確認ができます。",
+  },
+  resources: {
+    title: "無料資料 | NexusM&A",
+    description: "社長不在、経営者保証、会社借入、家族への影響を整理できる無料PDF・チェックリスト・匿名診断をまとめた資料ページです。登録不要で読めます。",
   },
   contact: {
     title: "無料相談・お問い合わせ | NexusM&A",
@@ -143,6 +150,8 @@ function App() {
         ? `${SITE_BASE_URL}owner-emergency-checklist/`
         : route === "family-guarantee"
           ? `${SITE_BASE_URL}family-guarantee-risk/`
+          : route === "resources"
+            ? `${SITE_BASE_URL}resources/`
           : `${SITE_BASE_URL}#/${route}`;
     document.title = meta.title;
     setMeta("description", meta.description);
@@ -172,6 +181,7 @@ function App() {
     case "diagnosis": page = <PageDiagnosis navigate={navigate} />; break;
     case "owner-emergency": page = <PageOwnerEmergency navigate={navigate} />; break;
     case "family-guarantee": page = <PageFamilyGuarantee navigate={navigate} />; break;
+    case "resources": page = <PageResources navigate={navigate} />; break;
     case "faq": page = <PageInfo navigate={navigate} type="faq" />; break;
     case "glossary": page = <PageInfo navigate={navigate} type="glossary" />; break;
     case "privacy": page = <PageInfo navigate={navigate} type="privacy" />; break;
