@@ -1018,6 +1018,10 @@ function PageNews({ navigate }) {
                       <span>社長不在</span>
                       <strong>社長が急に入院した時の会社チェックリスト</strong>
                     </a>
+                    <a className="article-related-card" href="/assets/downloads/family-guarantee-risk-guide.pdf" target="_blank" rel="noopener noreferrer">
+                      <span>無料PDF</span>
+                      <strong>社長が倒れた時、家族が困る借入と保証を読む</strong>
+                    </a>
                   </div>
                 </aside>
               )}
