@@ -5,16 +5,20 @@
 The site has a privacy-safe analytics event helper at `components/analytics.jsx`.
 It pushes events to `window.dataLayer` without sending form-entered personal information such as name, email, phone, company, or message.
 
-Google Tag Manager and GA4 are not active until a real GTM container ID is added to the HTML.
+Google Tag Manager is installed in the site HTML.
+
+- GTM container ID: `GTM-PBWXLDXG`
+- Site cache version: `20260707c`
+
+GA4 tracking becomes active after a GA4 configuration tag and event tags are created and published inside GTM.
 
 ## Recommended setup
 
-1. Create a Google Tag Manager web container for `sasa-eru.com`.
-2. Create a GA4 property and web data stream for `https://sasa-eru.com/`.
-3. In GTM, create a GA4 configuration tag.
-4. In GTM, create custom event triggers for the events below.
-5. Publish the GTM container.
-6. Add the GTM container ID to the site HTML.
+1. Create a GA4 property and web data stream for `https://sasa-eru.com/`.
+2. In GTM, create a GA4 configuration tag.
+3. In GTM, create custom event triggers for the events below.
+4. Publish the GTM container.
+5. Confirm events in GA4 DebugView / Realtime.
 
 ## DataLayer events
 
