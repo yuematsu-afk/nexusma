@@ -957,6 +957,12 @@ function PageNews({ navigate }) {
     if (typeof window.setNexusCanonical === "function") {
       window.setNexusCanonical(canonical);
     }
+    window.NexusAnalytics?.track("nexus_page_view", {
+      route: "column",
+      article_id: selectedNews.id,
+      article_slug: selectedNews.slug,
+      page_location: canonical,
+    });
   }, [selectedNews]);
 
   if (selectedNews) {

@@ -98,6 +98,13 @@ function PageContact({ navigate }) {
     ...(diagnosisPrefill?.data || {}),
   });
 
+  React.useEffect(() => {
+    window.NexusAnalytics?.track("contact_form_view", {
+      source: diagnosisPrefill?.data?.source || "direct",
+      prefilled: Boolean(diagnosisPrefill?.data),
+    });
+  }, []);
+
   const update = (k, v) => {
     if (submitState.error) setSubmitState((state) => ({ ...state, error: "" }));
     setData((d) => ({ ...d, [k]: v }));
@@ -191,6 +198,13 @@ function PageContact({ navigate }) {
       if (!response.ok || !result.success) {
         throw new Error(result.message || "送信に失敗しました。");
       }
+      window.NexusAnalytics?.track("contact_form_submit_success", {
+        role: data.role,
+        source: data.source || "direct",
+        inquiry_type: data.industry,
+        consultation_method: data.method,
+        concern_count: data.concerns.length,
+      });
       setStep(total);
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (error) {

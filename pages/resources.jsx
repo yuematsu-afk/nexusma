@@ -2,6 +2,7 @@
 
 function PageResources({ navigate }) {
   const startResourceConsultation = () => {
+    window.NexusAnalytics?.trackCta("無料資料をもとに相談する", "resources", "contact");
     try {
       sessionStorage.setItem("nexusma_diagnosis_prefill", JSON.stringify({
         step: 1,
@@ -20,6 +21,7 @@ function PageResources({ navigate }) {
   };
 
   const startFamilyConsultation = () => {
+    window.NexusAnalytics?.trackCta("保証・借入を相談する", "resources", "contact");
     try {
       sessionStorage.setItem("nexusma_diagnosis_prefill", JSON.stringify({
         step: 1,
@@ -163,6 +165,7 @@ function PageResources({ navigate }) {
                     href={item.href}
                     target={item.external ? "_blank" : undefined}
                     rel={item.external ? "noopener noreferrer" : undefined}
+                    onClick={() => item.external ? window.NexusAnalytics?.trackPdf(item.title, item.href) : window.NexusAnalytics?.trackCta(item.primary, "resources", item.href)}
                     style={{ textDecoration: "none" }}
                   >
                     {item.primary} <span className="arrow" />
@@ -202,6 +205,7 @@ function PageResources({ navigate }) {
                   href={card.href}
                   target={card.external ? "_blank" : undefined}
                   rel={card.external ? "noopener noreferrer" : undefined}
+                  onClick={() => card.external ? window.NexusAnalytics?.trackPdf(card.title, card.href) : window.NexusAnalytics?.trackCta(card.action, "resources_how_to_choose", card.href)}
                   style={{ marginTop: 18, textDecoration: "none" }}
                 >
                   {card.action}へ進む <span className="arrow" />

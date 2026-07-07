@@ -71,8 +71,36 @@ function PageDiagnosis({ navigate }) {
 
   const total = DIAG_QUESTIONS.length;
 
-  const start = () => { setScreen("quiz"); setIdx(0); };
-  const restart = () => { setScreen("intro"); setIdx(0); setAnswers([]); };
+  React.useEffect(() => {
+    if (screen !== "result" || answers.length < total) return;
+    const score = answers.reduce((s, a) => s + (a || 0), 0);
+    const pct = Math.round((score / (total * 3)) * 100);
+    const level = diagGetLevel(pct);
+    const weakestCategory = DIAG_CAT_NAMES.map((name) => {
+      const qIdxs = DIAG_QUESTIONS.map((q, i) => (q.cat === name ? i : -1)).filter((i) => i >= 0);
+      const s = qIdxs.reduce((t, i) => t + (answers[i] || 0), 0);
+      const cp = Math.round((s / (qIdxs.length * 3)) * 100);
+      return { name, score: cp };
+    }).sort((a, b) => a.score - b.score)[0];
+    window.NexusAnalytics?.track("diagnosis_complete", {
+      diagnosis_name: "owner_90day",
+      score: pct,
+      result_label: level.label,
+      weakest_category: weakestCategory.name,
+    });
+  }, [screen]);
+
+  const start = () => {
+    window.NexusAnalytics?.track("diagnosis_start", { diagnosis_name: "owner_90day" });
+    setScreen("quiz");
+    setIdx(0);
+  };
+  const restart = () => {
+    window.NexusAnalytics?.track("diagnosis_restart", { diagnosis_name: "owner_90day" });
+    setScreen("intro");
+    setIdx(0);
+    setAnswers([]);
+  };
   const prev = () => { if (idx > 0) setIdx(idx - 1); else setScreen("intro"); };
   const answer = (i) => {
     const next = answers.slice();

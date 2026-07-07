@@ -159,6 +159,7 @@ function App() {
     setMeta("og:description", meta.description, "property");
     setMeta("og:url", canonical, "property");
     setCanonical(canonical);
+    window.NexusAnalytics?.trackPageView(route);
   }, [route]);
 
   const navigate = (r) => {

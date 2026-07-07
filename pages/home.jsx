@@ -123,6 +123,7 @@ function HomeHero({ navigate }) {
 
 function HomeSellerBand({ navigate }) {
   const openPdfConsultation = () => {
+    window.NexusAnalytics?.trackCta("90日PDFを相談する", "home", "contact");
     try {
       sessionStorage.setItem("nexusma_diagnosis_prefill", JSON.stringify({
         step: 1,
@@ -139,6 +140,7 @@ function HomeSellerBand({ navigate }) {
     navigate("contact");
   };
   const openFamilyPdfConsultation = () => {
+    window.NexusAnalytics?.trackCta("家族・保証を相談する", "home", "contact");
     try {
       sessionStorage.setItem("nexusma_diagnosis_prefill", JSON.stringify({
         step: 1,
