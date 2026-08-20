@@ -48,8 +48,8 @@ function PageOwnerEmergency({ navigate }) {
     <main>
       <PageHero
         eyebrow="Owner Emergency Checklist"
-        title="社長が急に入院したら、会社は何日止まらずに動けますか。"
-        lead="M&Aや売却を考える前に、まず確認すべきことがあります。社長が急病・事故・長期不在になった時、資金繰り、従業員、取引先、家族に何が起きるかを整理するためのページです。"
+        title="社長・代表取締役が急病で不在になったら、会社は何日動けますか。"
+        lead="病気・入院・事故・長期療養で代表者が不在になった時、資金繰り、給与、取引先、金融機関、家族に起きることを時系列で確認するチェックリストです。"
         crumbs={["社長不在チェックリスト"]}
         navigate={navigate}
       />
@@ -77,6 +77,22 @@ function PageOwnerEmergency({ navigate }) {
               {checklist.map((item) => <li key={item}>{item}</li>)}
             </ul>
 
+            <h2 className="article-heading">社長不在後の24時間・7日・30日・90日</h2>
+            <div className="article-numbered-grid">
+              {[
+                { title: "24時間以内", text: "代表者の容体と意思決定可否を確認し、家族・役員・幹部の連絡経路と、緊急支払・重要取引への対応者を決めます。" },
+                { title: "7日以内", text: "給与、仕入、税金、借入返済の予定を確認し、金融機関・主要取引先・従業員へ誰が何を伝えるかを整理します。" },
+                { title: "30日以内", text: "代表権、契約、許認可、銀行取引、重要判断を継続できる体制を確認し、復帰までの暫定運営方針を決めます。" },
+                { title: "90日を超える場合", text: "復帰、代表変更、社内承継、外部との提携、第三者承継・M&A、休廃業を比較し、家族と従業員への影響を整理します。" },
+              ].map((item, i) => (
+                <section className="article-numbered-card" key={item.title}>
+                  <span className="article-number">{String(i + 1).padStart(2, "0")}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </section>
+              ))}
+            </div>
+
             <aside className="article-point-box">
               <h3>重要なのは「売るかどうか」ではありません</h3>
               <ul>
@@ -93,6 +109,25 @@ function PageOwnerEmergency({ navigate }) {
             <p>
               そのうえで、社長が会社に残り続ける場合、役割を軽くする場合、親族や社内に引き継ぐ場合、第三者に承継する場合を比較します。最初からM&Aを決める必要はありません。
             </p>
+
+            <h2 className="article-heading">よくある質問</h2>
+            <div className="article-related-grid">
+              <section className="article-related-card">
+                <span>Q1</span>
+                <strong>代表取締役が入院しただけで会社は止まりますか。</strong>
+                <p>入院だけで直ちに会社が止まるとは限りません。ただし、銀行取引、契約、重要判断、印章・ID管理が代表者一人に集中していると、実務が止まる可能性があります。</p>
+              </section>
+              <section className="article-related-card">
+                <span>Q2</span>
+                <strong>社長が意思表示できない場合、最初に何を確認しますか。</strong>
+                <p>役員構成、定款、代表権、緊急支払、借入・保証、重要契約、許認可の順に確認します。法的判断が必要な場合は弁護士・司法書士等へ相談してください。</p>
+              </section>
+              <section className="article-related-card">
+                <span>Q3</span>
+                <strong>M&Aを考えていなくても相談できますか。</strong>
+                <p>相談できます。まず社長不在時に止まる業務を整理し、社内承継、業務分散、提携、第三者承継を比較します。</p>
+              </section>
+            </div>
 
             <div className="article-related-box">
               <div className="article-related-head">
