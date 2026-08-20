@@ -26,6 +26,7 @@ function setMeta(html, item, published) {
     .replace(/<meta property="og:title" content=[\s\S]*?\/>/, `<meta property="og:title" content="${title}" />`)
     .replace(/<meta property="og:description" content=[\s\S]*?\/>/, `<meta property="og:description" content="${description}" />`)
     .replace(/<meta property="og:url" content="[^"]*" \/>/, `<meta property="og:url" content="${url}" />`)
+    .replace(/<meta property="og:image" content="[^"]*" \/>/, `<meta property="og:image" content="https://sasa-eru.com/assets/generated/${item.image}" />`)
     .replace(/\n\s*<meta name="robots" content="noindex, nofollow" \/>/, "");
 
   if (!published) {

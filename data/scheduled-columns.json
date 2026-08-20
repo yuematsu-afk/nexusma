@@ -4,27 +4,31 @@
     "publishDate": "2026-08-27",
     "title": "社長が病気・入院した場合、会社経営と資金繰りはどうなるか",
     "metaTitle": "社長が病気・入院した場合の会社経営と資金繰り | NexusM&A",
-    "description": "社長が病気、入院、長期療養で不在になった時、給与、支払、借入返済、金融機関、取引先、従業員への対応を時系列で解説します。"
+    "description": "社長が病気、入院、長期療養で不在になった時、給与、支払、借入返済、金融機関、取引先、従業員への対応を時系列で解説します。",
+    "image": "column-owner-illness-timeline.webp"
   },
   {
     "slug": "owner-death-loan-shares-guarantee",
     "publishDate": "2026-09-10",
     "title": "社長が亡くなった場合、会社の借入・株式・連帯保証はどうなるか",
     "metaTitle": "社長が亡くなった時の会社借入・株式・連帯保証 | NexusM&A",
-    "description": "中小企業の社長が亡くなった場合に確認する会社借入、経営者保証、自社株式、代表者変更、相続、従業員対応を順番に整理します。"
+    "description": "中小企業の社長が亡くなった場合に確認する会社借入、経営者保証、自社株式、代表者変更、相続、従業員対応を順番に整理します。",
+    "image": "column-owner-death-four-issues.webp"
   },
   {
     "slug": "no-successor-owner-not-ready-to-retire",
     "publishDate": "2026-09-24",
     "title": "後継者がいないが、社長を辞めたくない場合の選択肢",
     "metaTitle": "後継者がいないが社長を辞めたくない場合の選択肢 | NexusM&A",
-    "description": "後継者不在でも社長をすぐ辞める必要はありません。権限移譲、共同経営、提携、段階承継、M&A後の継続関与を比較します。"
+    "description": "後継者不在でも社長をすぐ辞める必要はありません。権限移譲、共同経営、提携、段階承継、M&A後の継続関与を比較します。",
+    "image": "column-owner-continues-options.webp"
   },
   {
     "slug": "business-succession-when-to-start",
     "publishDate": "2026-10-08",
     "title": "事業承継は何年前から準備すべきか。5年・3年・1年でできること",
     "metaTitle": "事業承継は何年前から準備すべきか | 5年・3年・1年の計画 | NexusM&A",
-    "description": "事業承継の準備は何年前から必要か。中小企業庁のガイドラインを踏まえ、5年以上前、3年前、1年前に行うことを解説します。"
+    "description": "事業承継の準備は何年前から必要か。中小企業庁のガイドラインを踏まえ、5年以上前、3年前、1年前に行うことを解説します。",
+    "image": "column-succession-preparation-timeline.webp"
   }
 ]

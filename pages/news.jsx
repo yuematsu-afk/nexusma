@@ -469,12 +469,14 @@ const SCHEDULED_COLUMNS = [
     metaTitle: "社長が病気・入院した場合の会社経営と資金繰り | NexusM&A",
     metaDescription: "社長が病気、入院、長期療養で不在になった時、給与、支払、借入返済、金融機関、取引先、従業員への対応を時系列で解説します。",
     excerpt: "社長の急病や入院で、会社のお金と判断を止めないために何を確認するか。初日、1週間、1か月以降の対応を整理します。",
-    summaryImage: "assets/generated/president-90day-summary.svg",
+    summaryImage: "assets/generated/column-owner-illness-timeline.webp",
     summaryAlt: "社長の病気・入院時に会社経営と資金繰りを守る確認事項",
+    summaryCaption: "社長不在後の時間軸。24時間は連絡体制、7日は給与・支払、30日は金融機関・契約、90日は承継を含む選択肢を確認します。",
     body: [
       { type: "lead", text: "社長が病気や事故で突然入院しても、会社が直ちに休業するとは限りません。しかし、資金繰り、銀行取引、価格決定、主要顧客への説明が社長一人に集中している会社では、数日で判断が止まる可能性があります。" },
       { type: "quote", text: "最初に確認するのはM&Aではなく、会社が今月の給与と支払を継続できるかです。" },
       { type: "point", title: "最初の24時間で確認すること", items: ["社長が意思表示・承認できる状態か", "役員・幹部・家族の緊急連絡経路", "直近の給与、仕入、税金、借入返済日", "銀行口座、印章、電子証明書、重要IDの管理", "主要取引先へ説明が必要な案件"] },
+      { type: "image" },
       { type: "heading", level: 2, text: "1. 会社経営で最初に止まりやすい判断" },
       { type: "paragraph", text: "見積、値引き、採用、支払、設備修繕、クレーム対応などに社長承認が必要な場合、不在期間が長くなるほど現場は動けなくなります。日常判断と重要判断を分け、誰がどこまで代行できるかを明確にします。" },
       { type: "heading", level: 2, text: "2. 資金繰りは1週間先ではなく3か月先まで見る" },
@@ -499,12 +501,14 @@ const SCHEDULED_COLUMNS = [
     metaTitle: "社長が亡くなった時の会社借入・株式・連帯保証 | NexusM&A",
     metaDescription: "中小企業の社長が亡くなった場合に確認する会社借入、経営者保証、自社株式、代表者変更、相続、従業員対応を順番に整理します。",
     excerpt: "社長の死亡後、会社と家族が同時に判断を迫られる借入、保証、株式、代表者変更。混同しやすい論点を分けて整理します。",
-    summaryImage: "assets/generated/president-90day-summary.svg",
+    summaryImage: "assets/generated/column-owner-death-four-issues.webp",
     summaryAlt: "社長死亡時の会社借入・株式・連帯保証を整理する図",
+    summaryCaption: "社長死亡時は、会社借入、個人の連帯保証、自社株式、後任代表者を一つにせず、別々に確認します。",
     body: [
       { type: "lead", text: "社長が亡くなった場合、会社そのものが自動的になくなるわけではありません。一方で、代表者、株主、保証人という三つの立場が同じ人に集中している会社では、会社運営と相続の問題が同時に発生します。" },
       { type: "quote", text: "会社の借入、自社株式、個人の連帯保証は、同じ問題に見えても分けて確認する必要があります。" },
       { type: "point", title: "最初に分ける4つの論点", items: ["会社が負っている借入・リース・買掛金", "亡くなった社長個人の連帯保証・担保", "社長が保有していた自社株式", "代表取締役の選任と変更登記"] },
+      { type: "image" },
       { type: "heading", level: 2, text: "1. 会社の借入は会社に残る" },
       { type: "paragraph", text: "法人名義の借入は会社の債務です。社長が亡くなったことだけで当然に消えるものではありません。返済予定、期限の利益に関する契約条項、担保、保証人、金融機関への報告事項を確認し、早めに金融機関へ状況を説明します。" },
       { type: "heading", level: 2, text: "2. 個人の連帯保証は契約と相続の確認が必要" },
@@ -530,13 +534,15 @@ const SCHEDULED_COLUMNS = [
     metaTitle: "後継者がいないが社長を辞めたくない場合の選択肢 | NexusM&A",
     metaDescription: "後継者不在でも社長をすぐ辞める必要はありません。権限移譲、共同経営、提携、段階承継、M&A後の継続関与を比較します。",
     excerpt: "肩書、収入、役割を失いたくない社長が、経営を続けながら責任と会社依存を軽くする選択肢を整理します。",
-    summaryImage: "assets/generated/president-90day-summary.svg",
+    summaryImage: "assets/generated/column-owner-continues-options.webp",
     summaryAlt: "社長を続けながら後継者不在へ備える選択肢",
+    summaryCaption: "社長を続けることと、すべての責任を抱え続けることは別です。権限移譲、共同経営、業務提携、段階承継を比較します。",
     body: [
       { type: "lead", text: "後継者がいないからといって、社長がすぐに引退する必要はありません。会社は収入源であるだけでなく、肩書、役割、居場所、地域とのつながりでもあります。辞めたくない気持ちを否定せず、責任とリスクだけを軽くする方法を比較します。" },
       { type: "quote", text: "事業承継は、社長を辞めさせる計画ではなく、社長が選べる状態をつくる計画です。" },
       { type: "heading", level: 2, text: "1. 社長を辞めたくない理由を分ける" },
       { type: "point", title: "混ぜずに考える5項目", items: ["肩書を残したい", "仕事と顧客との関係を続けたい", "役員報酬などの収入が必要", "従業員と取引先への責任がある", "後継者や買い手へ任せることが不安"] },
+      { type: "image" },
       { type: "heading", level: 2, text: "2. 社長を続けながら責任を軽くする方法" },
       { type: "numbered", items: [{ title: "権限移譲", text: "日常判断を幹部へ渡し、社長は重要顧客や経営方針に集中します。" }, { title: "共同経営・外部人材", text: "経営幹部や外部人材に管理・営業・財務の一部を担ってもらいます。" }, { title: "業務提携・資本提携", text: "単独で抱える採用、営業、管理、設備投資を他社と補います。" }, { title: "段階的な第三者承継", text: "株式や責任を段階的に移し、社長は会長・顧問・営業支援として残ります。" }] },
       { type: "heading", level: 2, text: "3. M&A後も社長として残れるのか" },
@@ -559,12 +565,14 @@ const SCHEDULED_COLUMNS = [
     metaTitle: "事業承継は何年前から準備すべきか | 5年・3年・1年の計画 | NexusM&A",
     metaDescription: "事業承継の準備は何年前から必要か。中小企業庁のガイドラインを踏まえ、5年以上前、3年前、1年前に行うことを解説します。",
     excerpt: "事業承継の準備期間は承継方法で変わります。5年以上前、3年前、1年前、緊急時に分けて現実的な準備を整理します。",
-    summaryImage: "assets/generated/president-90day-summary.svg",
+    summaryImage: "assets/generated/column-succession-preparation-timeline.webp",
     summaryAlt: "事業承継の5年・3年・1年前の準備工程",
+    summaryCaption: "5年以上前は候補者育成、3年前は課題の棚卸し、1年前は手続と引き継ぎ、緊急時は事業継続を優先します。",
     body: [
       { type: "lead", text: "事業承継は、後継者を決めれば終わるものではありません。経営、株式、保証、資産、取引先、従業員、許認可を引き継ぐため、準備期間は承継方法と会社の状態によって変わります。" },
       { type: "quote", text: "準備開始の基準は引退年齢ではなく、選択肢を比較できる時間が残っているかです。" },
       { type: "point", title: "公的資料が示す準備期間", items: ["中小企業庁は、後継者の育成を含めると5年から10年程度かかる場合があると案内しています", "2026年版の事業承継ガイドラインでは、移行期間が3年以上の企業が半数を上回るとされています", "親族内承継・従業員承継・第三者承継で必要な準備は異なります"] },
+      { type: "image" },
       { type: "heading", level: 2, text: "1. 5年以上前に行うこと" },
       { type: "paragraph", text: "後継者候補の意思確認、経営経験、権限移譲、株式・資産の方針、会社の中長期戦略を整理します。後継者が決まっていない場合は、親族、従業員、外部人材、第三者承継を同時に比較します。" },
       { type: "heading", level: 2, text: "2. 3年前に行うこと" },
@@ -935,7 +943,7 @@ function ArticleBlock({ block, article, index }) {
       return (
         <figure className="article-summary-figure">
           <img src={article.summaryImage} alt={article.summaryAlt || article.title} />
-          <figcaption>この記事の要点。まず買い手を探すのではなく、選択肢を比較できる状態をつくることが出発点です。</figcaption>
+          <figcaption>{article.summaryCaption || "この記事の要点。まず買い手を探すのではなく、選択肢を比較できる状態をつくることが出発点です。"}</figcaption>
         </figure>
       );
     case "closing":
