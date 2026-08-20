@@ -2,7 +2,12 @@ const fs = require("fs");
 const path = require("path");
 
 const root = path.resolve(__dirname, "..");
-const today = "2026-07-21";
+const today = new Intl.DateTimeFormat("en-CA", {
+  timeZone: "Asia/Tokyo",
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+}).format(new Date());
 
 function htmlEscape(value) {
   return String(value)
@@ -43,6 +48,17 @@ function updateMeta(relativeFile, title, description, type = "website", url = "h
   fs.writeFileSync(file, html, "utf8");
 }
 
+function updateOgImage(relativeFile, imagePath) {
+  const file = path.join(root, relativeFile);
+  let html = fs.readFileSync(file, "utf8");
+  const imageUrl = `https://sasa-eru.com/${imagePath.replace(/^\//, "")}`;
+  html = html.replace(
+    /<meta property="og:image" content="[^"]*" \/>/,
+    `<meta property="og:image" content="${htmlEscape(imageUrl)}" />`,
+  );
+  fs.writeFileSync(file, html, "utf8");
+}
+
 function extractArray(source, constName) {
   const match = source.match(new RegExp(`const ${constName} = (\\[[\\s\\S]*?\\]);`));
   if (!match) {
@@ -56,6 +72,7 @@ updateMeta(
   "NexusM&A — 社長がいないと回らない会社の事業承継・M&A相談",
   "NexusM&Aは、社長依存・後継者不在・経営者保証に悩む中小企業向けに、売却前提ではない事業承継・M&A相談を行います。会社名・電話番号不要の社長不在90日診断も利用できます。",
 );
+updateOgImage("owner-emergency-checklist/index.html", "assets/generated/existing-owner-emergency-summary.webp");
 
 updateMeta(
   "owner-emergency-checklist/index.html",
@@ -64,6 +81,7 @@ updateMeta(
   "article",
   "https://sasa-eru.com/owner-emergency-checklist/",
 );
+updateOgImage("family-guarantee-risk/index.html", "assets/generated/existing-family-guarantee-summary.webp");
 
 updateMeta(
   "family-guarantee-risk/index.html",
@@ -112,6 +130,17 @@ const overrides = {
   ],
 };
 
+const columnImages = {
+  "succession-local-successor-shortage": "assets/generated/existing-successor-shortage-summary.webp",
+  "population-decline-business-succession": "assets/generated/existing-population-decline-summary.webp",
+  "youth-decline-hiring-succession-risk": "assets/generated/existing-youth-decline-summary.webp",
+  "aging-employees-succession-timing": "assets/generated/existing-aging-employees-summary.webp",
+  "local-sales-decline-checkpoints": "assets/generated/existing-sales-decline-checkpoints.webp",
+  "owner-dependent-company-risk": "assets/generated/existing-owner-dependency-map.webp",
+  "senior-owner-retirement-planning": "assets/generated/existing-senior-owner-retirement-summary.webp",
+  "regional-labor-shortage-ma-options": "assets/generated/existing-labor-shortage-options.webp",
+};
+
 slugs.forEach((slug, index) => {
   const seed = seeds[index];
   const [title, description] =
@@ -127,6 +156,9 @@ slugs.forEach((slug, index) => {
     "article",
     `https://sasa-eru.com/columns/${slug}/`,
   );
+  if (columnImages[slug]) {
+    updateOgImage(`columns/${slug}/index.html`, columnImages[slug]);
+  }
 });
 
 updateMeta(
@@ -140,12 +172,9 @@ updateMeta(
 const sitemapFile = path.join(root, "sitemap.xml");
 let sitemap = fs.readFileSync(sitemapFile, "utf8");
 const updatedLocs = [
-  "https://sasa-eru.com/",
   "https://sasa-eru.com/owner-emergency-checklist/",
   "https://sasa-eru.com/family-guarantee-risk/",
-  "https://sasa-eru.com/resources/",
-  ...slugs.map((slug) => `https://sasa-eru.com/columns/${slug}/`),
-  "https://sasa-eru.com/columns/president-stay-after-ma/",
+  ...Object.keys(columnImages).map((slug) => `https://sasa-eru.com/columns/${slug}/`),
 ];
 
 updatedLocs.forEach((loc) => {

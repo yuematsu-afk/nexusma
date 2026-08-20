@@ -271,6 +271,7 @@ function getCustomSeoColumnOverride(index, title, issue, action) {
         { type: "numbered", items: [{ title: "年齢構成を一覧にする", text: "部署・役割・年齢・退職見込みを並べ、同時期に人が抜ける部門を確認します。" }, { title: "止まる業務を特定する", text: "その人が1か月不在になった場合に、納期・品質・顧客対応のどこが止まるかを確認します。" }, { title: "引き継ぎ方法を選ぶ", text: "社内教育、採用、外注、提携、第三者承継・M&Aを比較します。" }] },
         { type: "heading", level: 2, text: "3. 買い手や後継者が確認する人材情報" },
         { type: "checklist", items: ["従業員ごとの役割・年齢・勤続年数", "資格・免許・許認可との関係", "特定の人しかできない作業・判断", "主要顧客との担当関係", "退職予定と継続勤務の意向", "教育手順・マニュアル・作業記録", "採用地域と直近の採用実績"] },
+        { type: "detailImage", src: "assets/generated/existing-skill-transfer-priority.webp", alt: "退職時期と事業への影響から技能承継の優先順位を決める図", caption: "退職が近く事業への影響が大きい技能から最優先で承継し、それ以外は計画化・記録・代替検討に分けます。" },
         { type: "heading", level: 2, text: "4. 従業員の高齢化を理由にM&Aを急ぐ必要はない" },
         { type: "paragraph", text: "すぐに会社を売る必要はありません。ただし、技能や顧客関係が会社に残っている間に、社内承継、採用、提携、第三者承継のどれが現実的かを比較する必要があります。人材が抜けた後より、働いている間の方が引き継ぎ条件を設計しやすくなります。" },
         { type: "point", title: "NexusM&Aで整理できること", items: ["退職時に止まる業務と技能を見える化する", "社長と熟練従業員への依存を分ける", "雇用継続を重視した承継条件を整理する", "社内承継・提携・M&Aを売却前提にせず比較する"] },
@@ -354,6 +355,7 @@ function getCustomSeoColumnOverride(index, title, issue, action) {
         { type: "numbered", items: [{ title: "社長が残る期間を決める", text: "譲渡後も一定期間、会長・顧問・営業支援として残ることで、顧客や金融機関への移行を進めます。" }, { title: "買い手の機能で補う", text: "買い手側の営業、経理、採用、技術、管理体制で社長機能を分散できるかを確認します。" }, { title: "残す業務と渡す業務を分ける", text: "社長が続けたい役割と、買い手に移すべき責任を分けて交渉します。" }] },
         { type: "heading", level: 2, text: "3. 相談前に整理すべき資料" },
         { type: "checklist", items: ["上位10社の顧客別売上と担当者", "見積・価格決定の基準", "主要顧客との商談履歴", "社長しか対応できない業務一覧", "金融機関との借入・保証・担保の一覧", "従業員ごとの役割と代替可能性", "譲渡後も社長が関与できる期間と範囲"] },
+        { type: "detailImage", src: "assets/generated/existing-owner-dependency-actions.webp", alt: "社長依存を見つける、共有する、任せるの3段階で減らす図", caption: "依存業務を見つけ、情報と手順を共有し、権限を任せる順番で社長依存を減らします。" },
         { type: "heading", level: 2, text: "4. M&Aの前に必要なのは売却判断ではなく依存度診断" },
         { type: "paragraph", text: "社長依存の会社では、最初から売却するかどうかを決める必要はありません。先に確認すべきことは、社長が90日間不在になった場合に、売上、支払、給与、金融機関対応、取引先対応のどこが止まるかです。" },
         { type: "point", title: "NexusM&Aで確認できること", items: ["社長依存の種類を分解する", "買い手に説明しにくいリスクを先に整理する", "社長が続けながら責任を軽くする選択肢を検討する", "M&Aだけでなく、社内承継・提携・業務整理も比較する"] },
@@ -378,6 +380,7 @@ function getCustomSeoColumnOverride(index, title, issue, action) {
         { type: "heading", level: 2, text: "2. 先に決めるべきことは「辞める日」ではない" },
         { type: "paragraph", text: "最初に決めるべきことは、完全引退の日付ではありません。社長として続けたい役割、他人に任せたい責任、家族に残したくないリスク、会社として残したいものを分けることです。" },
         { type: "numbered", items: [{ title: "肩書", text: "代表を続けるのか、会長・顧問・相談役として残るのかを分けます。" }, { title: "収入", text: "役員報酬、退職金、譲渡対価、譲渡後の関与報酬を分けて考えます。" }, { title: "責任", text: "金融機関対応、保証、採用、重要判断をいつ誰に移すかを確認します。" }, { title: "時間", text: "毎日出社するのか、週数日関与するのか、顧客対応だけ残るのかを設計します。" }] },
+        { type: "detailImage", src: "assets/generated/existing-retirement-four-items.webp", alt: "経営者の引退前に肩書、収入、責任、時間を分けて考える図", caption: "引退日を先に決めるのではなく、肩書・収入・責任・時間を分けると、段階的な承継を設計しやすくなります。" },
         { type: "heading", level: 2, text: "3. 社長を続けながら会社を譲る選択肢" },
         { type: "paragraph", text: "M&Aや第三者承継は、社長がその日から会社を離れることだけを意味しません。買い手との条件次第では、一定期間社長が残り、顧客・従業員・金融機関との関係を段階的に引き継ぐ形もあります。" },
         { type: "checklist", items: ["譲渡後も関与したい業務がある", "経営責任は軽くしたいが会社との関係は残したい", "従業員や取引先への説明を段階的に進めたい", "経営者保証や借入の整理をしたい", "家族に会社のリスクを残したくない"] },
@@ -424,9 +427,53 @@ function getCustomSeoColumnOverride(index, title, issue, action) {
   return null;
 }
 
+const SEO_COLUMN_VISUALS = {
+  "succession-local-successor-shortage": {
+    image: "assets/generated/existing-successor-shortage-summary.webp",
+    alt: "後継者不在の会社が事業の強み、人と業務、社長の希望を整理する流れ",
+    caption: "後継者探しの前に、事業の強み、人と業務、社長の希望を整理し、承継方法を比較します。",
+  },
+  "population-decline-business-succession": {
+    image: "assets/generated/existing-population-decline-summary.webp",
+    alt: "人口減少から顧客減少、人手不足、後継者不足へ進む流れ",
+    caption: "人口減少は、顧客・人材・後継者候補を同時に減らします。業績に余裕があるうちに事業を残す方法を比較します。",
+  },
+  "youth-decline-hiring-succession-risk": {
+    image: "assets/generated/existing-youth-decline-summary.webp",
+    alt: "若者減少が応募減少、高齢化、技能断絶、後継者不足につながる流れ",
+    caption: "若者減少を採用だけの問題にせず、技能と事業を誰に引き継ぐかまで考えることが重要です。",
+  },
+  "aging-employees-succession-timing": {
+    image: "assets/generated/existing-aging-employees-summary.webp",
+    alt: "従業員高齢化から技能集中、退職、業務停止リスクへ進む流れ",
+    caption: "重要な従業員の退職前に、技能承継・採用・事業承継の選択肢を並行して準備します。",
+  },
+  "local-sales-decline-checkpoints": {
+    image: "assets/generated/existing-sales-decline-checkpoints.webp",
+    alt: "売上減少時に市場、顧客、商品、人材、社長依存を確認する図",
+    caption: "売上減少を一つの原因で捉えず、市場・顧客・商品・人材・社長依存の5項目に分けて確認します。",
+  },
+  "owner-dependent-company-risk": {
+    image: "assets/generated/existing-owner-dependency-map.webp",
+    alt: "顧客、営業、技術、判断、金融機関、地域信用の社長依存を示す図",
+    caption: "社長依存は、顧客・営業・技術・判断・金融機関・地域信用の6領域に分けると整理しやすくなります。",
+  },
+  "senior-owner-retirement-planning": {
+    image: "assets/generated/existing-senior-owner-retirement-summary.webp",
+    alt: "社長の引退を継続、段階承継、社内承継、第三者承継で比較する図",
+    caption: "完全引退だけをゴールにせず、続ける・段階承継・社内承継・第三者承継を比較します。",
+  },
+  "regional-labor-shortage-ma-options": {
+    image: "assets/generated/existing-labor-shortage-options.webp",
+    alt: "人手不足に対して業務改善、連携、事業承継とM&Aを比較する図",
+    caption: "人手不足への対応は求人だけではありません。業務改善・連携・事業承継を横並びで検討します。",
+  },
+};
+
 function buildSeoColumn(seed, index) {
   const [date, title, issue, action] = seed;
   const override = getCustomSeoColumnOverride(index, title, issue, action);
+  const visual = SEO_COLUMN_VISUALS[SEO_COLUMN_SLUGS[index]];
   return {
     id: 100 + index,
     slug: SEO_COLUMN_SLUGS[index],
@@ -436,8 +483,9 @@ function buildSeoColumn(seed, index) {
     metaTitle: override?.metaTitle || `${title} | 事業承継・M&Aコラム | NexusM&A`,
     metaDescription: override?.metaDescription || `${issue}を背景に、中小企業経営者が事業承継・第三者承継・M&Aの前に整理すべき論点を解説します。`,
     excerpt: override?.excerpt || `${issue}を背景に、中小企業経営者が事業承継・M&Aの前に整理すべき論点を解説します。`,
-    summaryImage: "assets/generated/president-90day-summary.svg",
-    summaryAlt: `${title}の要点を整理した図`,
+    summaryImage: visual?.image || "assets/generated/president-90day-summary.svg",
+    summaryAlt: visual?.alt || `${title}の要点を整理した図`,
+    summaryCaption: visual?.caption,
     body: override?.body || [
       { type: "lead", text: `人口減少、若者減少、高齢化、人手不足は、地方の中小企業にとって一時的な問題ではありません。${issue}が進む会社では、事業承継やM&Aを「いつか考えること」ではなく、経営の選択肢として早めに整理する必要があります。` },
       { type: "quote", text: "重要なのは、会社を売るかどうかを急いで決めることではなく、選べる状態を残すことです。" },
@@ -944,6 +992,13 @@ function ArticleBlock({ block, article, index }) {
         <figure className="article-summary-figure">
           <img src={article.summaryImage} alt={article.summaryAlt || article.title} />
           <figcaption>{article.summaryCaption || "この記事の要点。まず買い手を探すのではなく、選択肢を比較できる状態をつくることが出発点です。"}</figcaption>
+        </figure>
+      );
+    case "detailImage":
+      return (
+        <figure className="article-summary-figure">
+          <img src={block.src} alt={block.alt || article.title} loading="lazy" />
+          {block.caption && <figcaption>{block.caption}</figcaption>}
         </figure>
       );
     case "closing":

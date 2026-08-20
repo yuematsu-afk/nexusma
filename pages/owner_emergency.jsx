@@ -61,6 +61,11 @@ function PageOwnerEmergency({ navigate }) {
               多くの中小企業では、社長が売上、資金繰り、金融機関対応、重要な判断を一人で抱えています。普段はそれで回っていても、社長が急に不在になると、会社は「誰に聞けばよいか分からない状態」になります。
             </p>
 
+            <figure className="article-summary-figure">
+              <img src="/assets/generated/existing-owner-emergency-summary.webp" alt="社長不在後の24時間、7日、30日、90日の対応を示す図" />
+              <figcaption>社長不在直後は連絡と緊急支払、7日以内は給与・取引先、30日以内は代表権・契約、90日以降は承継を含む選択肢を確認します。</figcaption>
+            </figure>
+
             <h2 className="article-heading">最初に起きやすい3つの停止</h2>
             <div className="article-numbered-grid">
               {risks.map((risk, i) => (
@@ -76,6 +81,11 @@ function PageOwnerEmergency({ navigate }) {
             <ul className="article-checklist">
               {checklist.map((item) => <li key={item}>{item}</li>)}
             </ul>
+
+            <figure className="article-summary-figure">
+              <img src="/assets/generated/existing-owner-emergency-actions.webp" alt="社長不在時に連絡、支払、社内外説明、銀行と契約、継続判断を進める順序" loading="lazy" />
+              <figcaption>社長不在時は、連絡、緊急支払、社内外への説明、銀行・契約、会社の継続判断の順に確認します。</figcaption>
+            </figure>
 
             <h2 className="article-heading">社長不在後の24時間・7日・30日・90日</h2>
             <div className="article-numbered-grid">

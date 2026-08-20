@@ -61,6 +61,11 @@ function PageFamilyGuarantee({ navigate }) {
               経営者にとって会社の借入や保証は日常業務の一部でも、家族にとっては突然知らされる重い問題になり得ます。特に中小企業では、会社の信用と社長個人の信用が強く結びついていることが多く、社長不在時の混乱は家族にも広がります。
             </p>
 
+            <figure className="article-summary-figure">
+              <img src="/assets/generated/existing-family-guarantee-summary.webp" alt="社長不在時に家族へ影響する借入、保証、担保、相続の4論点" />
+              <figcaption>家族への影響は、会社借入・個人保証・担保・相続を分け、金融機関との関係も含めて確認します。</figcaption>
+            </figure>
+
             <h2 className="article-heading">家族が困りやすい3つの場面</h2>
             <div className="article-numbered-grid">
               {troubleCards.map((card, i) => (
@@ -76,6 +81,11 @@ function PageFamilyGuarantee({ navigate }) {
             <ul className="article-checklist">
               {checklist.map((item) => <li key={item}>{item}</li>)}
             </ul>
+
+            <figure className="article-summary-figure">
+              <img src="/assets/generated/existing-family-guarantee-documents.webp" alt="家族と共有する借入一覧、保証と担保、会社と個人資産、緊急連絡先の資料" loading="lazy" />
+              <figcaption>家族と共有する資料は、借入一覧、保証・担保、会社と個人の資産区分、緊急連絡先の4つから始めます。</figcaption>
+            </figure>
 
             <aside className="article-point-box">
               <h3>家族に話すべきことは、売却の話ではありません</h3>
