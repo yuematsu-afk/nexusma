@@ -458,7 +458,131 @@ function buildSeoColumn(seed, index) {
 
 const SEO_COLUMNS = SEO_COLUMN_SEEDS.map(buildSeoColumn);
 
+const SCHEDULED_COLUMNS = [
+  {
+    id: 2001,
+    slug: "owner-illness-company-management-cashflow",
+    publishDate: "2026-08-27",
+    date: "2026.08.27",
+    tag: "コラム",
+    title: "社長が病気・入院した場合、会社経営と資金繰りはどうなるか",
+    metaTitle: "社長が病気・入院した場合の会社経営と資金繰り | NexusM&A",
+    metaDescription: "社長が病気、入院、長期療養で不在になった時、給与、支払、借入返済、金融機関、取引先、従業員への対応を時系列で解説します。",
+    excerpt: "社長の急病や入院で、会社のお金と判断を止めないために何を確認するか。初日、1週間、1か月以降の対応を整理します。",
+    summaryImage: "assets/generated/president-90day-summary.svg",
+    summaryAlt: "社長の病気・入院時に会社経営と資金繰りを守る確認事項",
+    body: [
+      { type: "lead", text: "社長が病気や事故で突然入院しても、会社が直ちに休業するとは限りません。しかし、資金繰り、銀行取引、価格決定、主要顧客への説明が社長一人に集中している会社では、数日で判断が止まる可能性があります。" },
+      { type: "quote", text: "最初に確認するのはM&Aではなく、会社が今月の給与と支払を継続できるかです。" },
+      { type: "point", title: "最初の24時間で確認すること", items: ["社長が意思表示・承認できる状態か", "役員・幹部・家族の緊急連絡経路", "直近の給与、仕入、税金、借入返済日", "銀行口座、印章、電子証明書、重要IDの管理", "主要取引先へ説明が必要な案件"] },
+      { type: "heading", level: 2, text: "1. 会社経営で最初に止まりやすい判断" },
+      { type: "paragraph", text: "見積、値引き、採用、支払、設備修繕、クレーム対応などに社長承認が必要な場合、不在期間が長くなるほど現場は動けなくなります。日常判断と重要判断を分け、誰がどこまで代行できるかを明確にします。" },
+      { type: "heading", level: 2, text: "2. 資金繰りは1週間先ではなく3か月先まで見る" },
+      { type: "paragraph", text: "預金残高だけでは判断できません。入金予定、給与、仕入、外注費、税金、社会保険、借入返済を日付順に並べます。金融機関への説明が社長に集中している場合は、試算表、資金繰り表、借入一覧を役員や経理担当者が説明できる状態にします。" },
+      { type: "numbered", items: [{ title: "1週間以内", text: "緊急支払と取引先対応を継続し、社内の暫定責任者を決めます。" }, { title: "1か月以内", text: "代表権、銀行取引、契約、許認可、月次資金繰りの継続方法を確認します。" }, { title: "3か月を超える場合", text: "復帰、権限移譲、代表変更、社内承継、提携、第三者承継を比較します。" }] },
+      { type: "heading", level: 2, text: "3. 従業員と取引先へ何を伝えるか" },
+      { type: "paragraph", text: "病名や詳細を広く伝える必要はありません。業務を誰が引き継ぐか、納期や支払に影響があるか、今後の連絡先は誰かを事実に沿って説明します。説明の範囲と順番は、社長本人・家族・役員で確認します。" },
+      { type: "heading", level: 2, text: "4. 長期療養になった場合の選択肢" },
+      { type: "checklist", items: ["社長が治療しながら重要判断だけを担う", "役員・幹部へ段階的に権限を移す", "管理・営業・現場の一部を外部へ委託する", "親族内承継または従業員承継を進める", "資本提携・第三者承継・M&Aを比較する", "事業縮小・休廃業も含めて資金への影響を確認する"] },
+      { type: "related", items: [{ title: "社長が急に入院した時の会社チェックリスト", issue: "緊急対応", url: "/owner-emergency-checklist/" }, { title: "社長がいないと回らない会社は売れるのか", issue: "社長依存", url: "/columns/owner-dependent-company-risk/" }, { title: "社長の体調不安がある会社の承継準備", issue: "健康不安", url: "/columns/owner-health-succession-preparation/" }] },
+      { type: "source", items: [{ label: "中小企業庁「事業承継ガイドライン」", url: "https://www.chusho.meti.go.jp/zaimu/shoukei/download/shoukei_guideline.pdf" }, { label: "中小企業庁「事業承継を実施する」", url: "https://www.chusho.meti.go.jp/zaimu/shoukei/implement_business_succession.html" }] },
+      { type: "closing", text: "社長の病気は、承継方法を急いで決める理由ではありません。まず会社と家族に起きる停止を防ぎ、社長の回復見込みと会社の継続可能性を見ながら選択肢を比較します。" },
+    ],
+  },
+  {
+    id: 2002,
+    slug: "owner-death-loan-shares-guarantee",
+    publishDate: "2026-09-10",
+    date: "2026.09.10",
+    tag: "コラム",
+    title: "社長が亡くなった場合、会社の借入・株式・連帯保証はどうなるか",
+    metaTitle: "社長が亡くなった時の会社借入・株式・連帯保証 | NexusM&A",
+    metaDescription: "中小企業の社長が亡くなった場合に確認する会社借入、経営者保証、自社株式、代表者変更、相続、従業員対応を順番に整理します。",
+    excerpt: "社長の死亡後、会社と家族が同時に判断を迫られる借入、保証、株式、代表者変更。混同しやすい論点を分けて整理します。",
+    summaryImage: "assets/generated/president-90day-summary.svg",
+    summaryAlt: "社長死亡時の会社借入・株式・連帯保証を整理する図",
+    body: [
+      { type: "lead", text: "社長が亡くなった場合、会社そのものが自動的になくなるわけではありません。一方で、代表者、株主、保証人という三つの立場が同じ人に集中している会社では、会社運営と相続の問題が同時に発生します。" },
+      { type: "quote", text: "会社の借入、自社株式、個人の連帯保証は、同じ問題に見えても分けて確認する必要があります。" },
+      { type: "point", title: "最初に分ける4つの論点", items: ["会社が負っている借入・リース・買掛金", "亡くなった社長個人の連帯保証・担保", "社長が保有していた自社株式", "代表取締役の選任と変更登記"] },
+      { type: "heading", level: 2, text: "1. 会社の借入は会社に残る" },
+      { type: "paragraph", text: "法人名義の借入は会社の債務です。社長が亡くなったことだけで当然に消えるものではありません。返済予定、期限の利益に関する契約条項、担保、保証人、金融機関への報告事項を確認し、早めに金融機関へ状況を説明します。" },
+      { type: "heading", level: 2, text: "2. 個人の連帯保証は契約と相続の確認が必要" },
+      { type: "paragraph", text: "保証債務の扱いは、保証契約、借入状況、相続、金融機関との協議によって異なります。家族だけで結論を出さず、契約書と残高を確認したうえで、金融機関、弁護士、税理士等へ相談します。相続放棄などには期限があるため、早期確認が重要です。" },
+      { type: "heading", level: 2, text: "3. 自社株式と代表者の地位は同じではない" },
+      { type: "paragraph", text: "社長が保有していた自社株式は相続の対象になり得ますが、株式を相続した人が自動的に代表取締役になるわけではありません。定款、株主構成、取締役会設置の有無等に応じて、後任代表者の選任と登記を進めます。" },
+      { type: "numbered", items: [{ title: "会社側の確認", text: "役員、定款、株主名簿、借入、支払、許認可、重要契約を確認します。" }, { title: "家族側の確認", text: "遺言、相続人、株式、保証、担保、個人資産を確認します。" }, { title: "専門家との確認", text: "登記、相続、税務、保証、金融機関対応を役割別に相談します。" }] },
+      { type: "heading", level: 2, text: "4. 生前に整理できること" },
+      { type: "checklist", items: ["株主名簿と自社株式数を最新にする", "遺言・後継者・議決権の方針を専門家と確認する", "会社借入と個人保証・担保を一覧化する", "社長不在時の役員・幹部の役割を決める", "金融機関、司法書士、税理士、弁護士の連絡先を共有する", "家族が会社の概況を把握できる資料を用意する"] },
+      { type: "point", title: "法務・税務上の注意", items: ["個別の相続・保証・登記は契約内容と会社形態で結論が変わります", "本記事は一般的な整理であり、法的・税務的判断を代替するものではありません", "実際の対応は弁護士、司法書士、税理士、金融機関等へ確認してください"] },
+      { type: "related", items: [{ title: "社長が倒れた時、家族が困る借入・保証の整理", issue: "家族と保証", url: "/family-guarantee-risk/" }, { title: "経営者保証がある会社の事業承継で最初に見ること", issue: "経営者保証", url: "/columns/owner-guarantee-succession-first-step/" }, { title: "社長が急に入院した時の会社チェックリスト", issue: "緊急対応", url: "/owner-emergency-checklist/" }] },
+      { type: "source", items: [{ label: "中小企業庁「事業承継ガイドライン」", url: "https://www.chusho.meti.go.jp/zaimu/shoukei/download/shoukei_guideline.pdf" }, { label: "中小企業庁「経営者保証」", url: "https://www.chusho.meti.go.jp/kinyu/keieihosyou/" }, { label: "金融庁「経営者保証に関するガイドライン」", url: "https://www.fsa.go.jp/news/25/ginkou/20131209-1.html" }] },
+      { type: "closing", text: "社長の死亡後に会社を続けるか、承継するか、第三者へ引き継ぐかを考える前に、会社の債務、個人保証、株式、代表者を分けて確認することが出発点です。" },
+    ],
+  },
+  {
+    id: 2003,
+    slug: "no-successor-owner-not-ready-to-retire",
+    publishDate: "2026-09-24",
+    date: "2026.09.24",
+    tag: "コラム",
+    title: "後継者がいないが、社長を辞めたくない場合の選択肢",
+    metaTitle: "後継者がいないが社長を辞めたくない場合の選択肢 | NexusM&A",
+    metaDescription: "後継者不在でも社長をすぐ辞める必要はありません。権限移譲、共同経営、提携、段階承継、M&A後の継続関与を比較します。",
+    excerpt: "肩書、収入、役割を失いたくない社長が、経営を続けながら責任と会社依存を軽くする選択肢を整理します。",
+    summaryImage: "assets/generated/president-90day-summary.svg",
+    summaryAlt: "社長を続けながら後継者不在へ備える選択肢",
+    body: [
+      { type: "lead", text: "後継者がいないからといって、社長がすぐに引退する必要はありません。会社は収入源であるだけでなく、肩書、役割、居場所、地域とのつながりでもあります。辞めたくない気持ちを否定せず、責任とリスクだけを軽くする方法を比較します。" },
+      { type: "quote", text: "事業承継は、社長を辞めさせる計画ではなく、社長が選べる状態をつくる計画です。" },
+      { type: "heading", level: 2, text: "1. 社長を辞めたくない理由を分ける" },
+      { type: "point", title: "混ぜずに考える5項目", items: ["肩書を残したい", "仕事と顧客との関係を続けたい", "役員報酬などの収入が必要", "従業員と取引先への責任がある", "後継者や買い手へ任せることが不安"] },
+      { type: "heading", level: 2, text: "2. 社長を続けながら責任を軽くする方法" },
+      { type: "numbered", items: [{ title: "権限移譲", text: "日常判断を幹部へ渡し、社長は重要顧客や経営方針に集中します。" }, { title: "共同経営・外部人材", text: "経営幹部や外部人材に管理・営業・財務の一部を担ってもらいます。" }, { title: "業務提携・資本提携", text: "単独で抱える採用、営業、管理、設備投資を他社と補います。" }, { title: "段階的な第三者承継", text: "株式や責任を段階的に移し、社長は会長・顧問・営業支援として残ります。" }] },
+      { type: "heading", level: 2, text: "3. M&A後も社長として残れるのか" },
+      { type: "paragraph", text: "相手との合意によりますが、譲渡後も一定期間、代表取締役、会長、顧問、営業責任者などとして関与する設計は可能です。肩書、決裁権、報酬、関与期間、競業避止、経営者保証の扱いを契約前に整理します。" },
+      { type: "heading", level: 2, text: "4. 辞めない場合にも期限を決める" },
+      { type: "paragraph", text: "無期限に先送りすると、健康、従業員高齢化、取引先減少によって選択肢が狭くなります。完全引退日ではなく、権限移譲を始める日、保証を見直す日、候補者を比較する日を決めます。" },
+      { type: "checklist", items: ["残したい肩書と役割を書き出した", "必要な生活資金と収入を確認した", "社長しかできない業務を分けた", "任せられる幹部・外部人材を確認した", "譲渡後に続けたい仕事と期間を決めた", "家族と従業員に残したくないリスクを整理した"] },
+      { type: "related", items: [{ title: "社長を続けながら会社を譲渡できるのか", issue: "段階承継", url: "/columns/president-stay-after-ma/" }, { title: "社長・経営者の引退タイミングはいつか", issue: "引退時期", url: "/columns/senior-owner-retirement-planning/" }, { title: "社長がいないと回らない会社は売れるのか", issue: "社長依存", url: "/columns/owner-dependent-company-risk/" }] },
+      { type: "source", items: [{ label: "中小企業庁「事業承継を知る」", url: "https://www.chusho.meti.go.jp/zaimu/shoukei/know_business_succession.html" }, { label: "中小企業庁「事業承継ガイドライン」", url: "https://www.chusho.meti.go.jp/zaimu/shoukei/download/shoukei_guideline.pdf" }] },
+      { type: "closing", text: "辞めたくない社長に必要なのは、引退の説得ではありません。続けたい役割を残しながら、会社と家族に集中している責任を少しずつ移す設計です。" },
+    ],
+  },
+  {
+    id: 2004,
+    slug: "business-succession-when-to-start",
+    publishDate: "2026-10-08",
+    date: "2026.10.08",
+    tag: "コラム",
+    title: "事業承継は何年前から準備すべきか。5年・3年・1年でできること",
+    metaTitle: "事業承継は何年前から準備すべきか | 5年・3年・1年の計画 | NexusM&A",
+    metaDescription: "事業承継の準備は何年前から必要か。中小企業庁のガイドラインを踏まえ、5年以上前、3年前、1年前に行うことを解説します。",
+    excerpt: "事業承継の準備期間は承継方法で変わります。5年以上前、3年前、1年前、緊急時に分けて現実的な準備を整理します。",
+    summaryImage: "assets/generated/president-90day-summary.svg",
+    summaryAlt: "事業承継の5年・3年・1年前の準備工程",
+    body: [
+      { type: "lead", text: "事業承継は、後継者を決めれば終わるものではありません。経営、株式、保証、資産、取引先、従業員、許認可を引き継ぐため、準備期間は承継方法と会社の状態によって変わります。" },
+      { type: "quote", text: "準備開始の基準は引退年齢ではなく、選択肢を比較できる時間が残っているかです。" },
+      { type: "point", title: "公的資料が示す準備期間", items: ["中小企業庁は、後継者の育成を含めると5年から10年程度かかる場合があると案内しています", "2026年版の事業承継ガイドラインでは、移行期間が3年以上の企業が半数を上回るとされています", "親族内承継・従業員承継・第三者承継で必要な準備は異なります"] },
+      { type: "heading", level: 2, text: "1. 5年以上前に行うこと" },
+      { type: "paragraph", text: "後継者候補の意思確認、経営経験、権限移譲、株式・資産の方針、会社の中長期戦略を整理します。後継者が決まっていない場合は、親族、従業員、外部人材、第三者承継を同時に比較します。" },
+      { type: "heading", level: 2, text: "2. 3年前に行うこと" },
+      { type: "paragraph", text: "社長依存、従業員高齢化、顧客依存、財務、借入、保証、許認可を棚卸しします。第三者承継を検討する場合も、資料整備や候補先との調整、引き継ぎに時間が必要です。" },
+      { type: "heading", level: 2, text: "3. 1年前に行うこと" },
+      { type: "paragraph", text: "後任体制、株式・契約・登記・税務、金融機関、従業員、取引先への説明順序を具体化します。1年しかない場合でも準備は可能ですが、候補者の育成や企業価値改善に使える時間は限られます。" },
+      { type: "numbered", items: [{ title: "5年以上前", text: "候補者、育成、会社の将来像、株式の方向性を決める時期です。" }, { title: "3年前", text: "会社の弱点を改善し、承継方法と条件を比較する時期です。" }, { title: "1年前", text: "手続、説明、引き継ぎ、保証・資金を具体化する時期です。" }, { title: "緊急時", text: "会社を止めない対応を優先し、公的機関・専門家へ早急に相談します。" }] },
+      { type: "heading", level: 2, text: "4. 後継者がいなくても準備は始められる" },
+      { type: "checklist", items: ["会社に残したい事業・雇用・取引先を決める", "社長が不在になると止まる業務を確認する", "直近3期の財務資料と借入・保証を整理する", "従業員の年齢構成とキーパーソンを確認する", "親族内・従業員・第三者承継を比較する", "事業承継・引継ぎ支援センター等の相談先を確認する"] },
+      { type: "related", items: [{ title: "地方で後継者が見つからない会社が最初に整理すべきこと", issue: "後継者不在", url: "/columns/succession-local-successor-shortage/" }, { title: "社長不在90日診断", issue: "現在地診断", url: "/#/diagnosis" }, { title: "従業員の高齢化と事業承継", issue: "技能承継", url: "/columns/aging-employees-succession-timing/" }] },
+      { type: "source", items: [{ label: "中小企業庁「事業承継ガイドライン」", url: "https://www.chusho.meti.go.jp/zaimu/shoukei/download/shoukei_guideline.pdf" }, { label: "中小企業庁「事業承継診断」", url: "https://www.chusho.meti.go.jp/zaimu/shoukei/shoukei_sindan.html" }, { label: "中小企業庁「事業承継を実施する」", url: "https://www.chusho.meti.go.jp/zaimu/shoukei/implement_business_succession.html" }] },
+      { type: "closing", text: "5年あれば育成と改善ができ、3年あれば複数の承継方法を比較でき、1年でも必要な手続と引き継ぎを整理できます。残された期間に合わせて、今日できる準備から始めることが重要です。" },
+    ],
+  },
+];
+
 const NEWS = [
+  ...SCHEDULED_COLUMNS,
   ...SEO_COLUMNS,
   {
     id: 12,
@@ -853,7 +977,21 @@ function getColumnUrl(article) {
   return article.slug ? `/columns/${article.slug}/` : `/#/news?article=${article.id}`;
 }
 
+function isArticlePublished(article) {
+  if (!article.publishDate) return true;
+  const jstToday = new Date(Date.now() + (9 * 60 * 60 * 1000)).toISOString().slice(0, 10);
+  return article.publishDate <= jstToday;
+}
+
 function getArticleCta(article) {
+  const scheduledCtas = {
+    2001: { title: "社長の療養中に止まる業務と資金を整理する", text: "会社名・電話番号を出さずに、資金繰り、金融機関対応、重要判断のどこが社長に集中しているか確認できます。", primaryLabel: "社長の病気・不在を相談する", secondaryLabel: "90日診断で確認する" },
+    2002: { title: "会社借入・保証・株式を分けて整理する", text: "個別の法務・税務判断の前に、会社と家族が確認すべき資料と相談先を整理します。", primaryLabel: "借入・保証の整理を相談する", secondaryLabel: "90日診断で会社の備えを見る" },
+    2003: { title: "社長を続けながら責任を軽くする方法を整理する", text: "肩書、収入、役割を残しながら、権限移譲、提携、段階承継、M&A後の関与を比較できます。", primaryLabel: "辞めない承継を相談する", secondaryLabel: "90日診断で依存を見る" },
+    2004: { title: "自社に必要な承継準備期間を確認する", text: "後継者が決まっていない段階から、5年・3年・1年で優先すべき準備を整理します。", primaryLabel: "承継の準備時期を相談する", secondaryLabel: "90日診断で現在地を見る" },
+  };
+  if (scheduledCtas[article.id]) return scheduledCtas[article.id];
+
   if (article.slug === "president-stay-after-ma") {
     return {
       title: "社長を続けながら責任を軽くする選択肢を整理する",
@@ -930,24 +1068,26 @@ function shouldShowFamilyGuaranteeLink(article) {
 }
 
 function getArticleFromLocation() {
+  const publishedNews = NEWS.filter(isArticlePublished);
   const pathMatch = window.location.pathname.match(/^\/columns\/([^/]+)\/?$/);
   if (pathMatch) {
     const slug = decodeURIComponent(pathMatch[1]);
-    return NEWS.find((n) => n.slug === slug) || null;
+    return publishedNews.find((n) => n.slug === slug) || null;
   }
 
   const query = window.location.hash.split("?")[1] || "";
   const id = Number(new URLSearchParams(query).get("article"));
-  return NEWS.find((n) => n.id === id) || null;
+  return publishedNews.find((n) => n.id === id) || null;
 }
 
 function PageNews({ navigate }) {
   const [filter, setFilter] = useState("すべて");
   const [selectedNews, setSelectedNews] = useState(() => getArticleFromLocation());
   const tags = ["すべて", "お知らせ", "コラム"];
-  const list = filter === "すべて" ? NEWS : NEWS.filter((n) => n.tag === filter);
+  const publishedNews = NEWS.filter(isArticlePublished);
+  const list = filter === "すべて" ? publishedNews : publishedNews.filter((n) => n.tag === filter);
 
-  const featured = NEWS.find((n) => n.featured) || NEWS[0];
+  const featured = publishedNews.find((n) => n.featured) || publishedNews[0];
   const rest = list.filter((n) => n.id !== featured.id);
   const openArticle = (article) => {
     setSelectedNews(article);
