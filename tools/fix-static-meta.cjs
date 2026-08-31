@@ -76,8 +76,8 @@ updateOgImage("owner-emergency-checklist/index.html", "assets/generated/existing
 
 updateMeta(
   "owner-emergency-checklist/index.html",
-  "社長・代表取締役が病気で不在になった時の会社対応 | NexusM&A",
-  "社長・代表取締役が病気、入院、事故、長期療養で不在になった時、24時間・7日・30日・90日で確認する資金繰り、給与、取引先、金融機関、家族への対応を整理します。",
+  "社長が病気・入院で長期不在になったら？会社経営と資金繰りの対応 | NexusM&A",
+  "社長・代表取締役が病気や入院で長期不在になった場合、会社経営と資金繰りをどう継続するか。24時間・7日・30日・90日の対応、給与、取引先、銀行、家族への影響を解説します。",
   "article",
   "https://sasa-eru.com/owner-emergency-checklist/",
 );
