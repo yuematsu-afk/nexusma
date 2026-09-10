@@ -130,7 +130,7 @@ function PageDiagnosis({ navigate }) {
 
   return (
     <div style={css("min-height:calc(100vh - 74px);background:radial-gradient(120% 80% at 50% -10%,#13314F 0%,#0B1B30 38%,#07131F 100%);color:#EAEDF1;font-family:'Noto Sans JP',sans-serif;display:flex;flex-direction:column")}>
-      <main style={css("flex:1;display:flex;align-items:center;justify-content:center;padding:48px 28px")}>
+      <main className="diagnosis-v2-main" style={css("flex:1;display:flex;align-items:center;justify-content:center;padding:48px 28px")}>
         <div style={css("width:100%;max-width:720px")}>
 
           {/* INTRO */}
@@ -140,8 +140,8 @@ function PageDiagnosis({ navigate }) {
                 <span style={css("width:6px;height:6px;border-radius:50%;background:#C6A664")}></span>
                 <span style={css("font-family:'Cormorant Garamond';font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#D8BC7E")}>90-Day Owner-Absence Check</span>
               </div>
-              <h1 style={css("font-family:'Shippori Mincho';font-weight:700;font-size:42px;line-height:1.4;color:#fff;margin:0 0 22px")}>明日から社長が90日不在でも、<br/>会社は<span style={css("color:#E7CE92")}>回りますか。</span></h1>
-              <p style={css("font-size:16px;line-height:2;color:#A9B4C2;margin:0 auto 38px;max-width:520px")}>10の質問に答えるだけで、いまの事業承継の「準備度」を可視化します。譲渡に向けて、どこに課題があるのかが分かります。</p>
+              <h1 className="diagnosis-v2-title" style={css("font-family:'Shippori Mincho';font-weight:700;font-size:42px;line-height:1.4;color:#fff;margin:0 0 22px")}>明日から社長が90日不在でも、<br/>会社は<span style={css("color:#E7CE92")}>回りますか。</span></h1>
+              <p className="diagnosis-v2-lead" style={css("font-size:16px;line-height:2;color:#A9B4C2;margin:0 auto 38px;max-width:520px")}>10の質問に答えるだけで、いまの事業承継の「準備度」を可視化します。譲渡に向けて、どこに課題があるのかが分かります。</p>
               <div style={css("display:flex;gap:14px;justify-content:center;margin-bottom:36px;flex-wrap:wrap")}>
                 {["無料・登録不要", "会社名・電話番号不要", "約3分"].map((t) => (
                   <div key={t} style={css("display:flex;align-items:center;gap:9px;color:#C2CAD6;font-size:13.5px")}><span style={css("color:#C6A664")}>✓</span>{t}</div>

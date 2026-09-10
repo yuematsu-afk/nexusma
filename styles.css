@@ -556,15 +556,16 @@ nav.primary { display: flex; align-items: center; gap: 36px; }
 }
 
 @media (max-width: 600px) {
-  section { padding: 64px 0; }
+  section { padding: 56px 0; }
   .container { padding: 0 18px; }
   .page-hero {
-    padding: 108px 0 64px;
+    padding: 88px 0 48px;
   }
   .page-hero h1 {
     font-size: 32px;
     line-height: 1.45;
     letter-spacing: 0.04em;
+    text-wrap: balance;
   }
   .page-hero .lead {
     font-size: 14px;
@@ -578,6 +579,7 @@ nav.primary { display: flex; align-items: center; gap: 36px; }
   .section-head h2 {
     font-size: 30px !important;
     line-height: 1.55;
+    text-wrap: balance;
   }
   .section-head .lead {
     font-size: 14px;
@@ -600,7 +602,7 @@ nav.primary { display: flex; align-items: center; gap: 36px; }
   }
   .footer-grid {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 22px;
   }
   .legal {
     flex-direction: column;
@@ -675,6 +677,17 @@ nav.primary { display: flex; align-items: center; gap: 36px; }
 @media (max-width: 600px) {
   /* セクションの横padding縮小 */
   .home-v2 section { padding-left: 20px !important; padding-right: 20px !important; }
+  .home-v2 section:not(:first-child) { padding-top: 64px !important; padding-bottom: 64px !important; }
+  .home-v2 section h2 {
+    font-size: 32px !important;
+    line-height: 1.42 !important;
+    text-wrap: balance;
+  }
+  .hv2-hero-h1 {
+    font-size: 36px !important;
+    line-height: 1.42 !important;
+    text-wrap: balance;
+  }
 
   /* ヒーローのボタン縦並び */
   .hv2-hero-ctas { flex-direction: column !important; }

@@ -920,6 +920,7 @@
   padding: 0 12px;
   margin-bottom: 40px;
 }
+.step-progress-mobile { display: none; }
 .step-item {
   display: flex;
   flex-direction: column;
@@ -1306,6 +1307,17 @@
   .article-numbered-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
+  .company-message-title {
+    font-size: 30px !important;
+    line-height: 1.55 !important;
+    margin: 18px 0 28px !important;
+    text-wrap: balance;
+  }
+  .company-section-title {
+    font-size: 30px !important;
+    line-height: 1.45 !important;
+    text-wrap: balance;
+  }
   .pillars-grid, .why-grid, .case-grid, .plans-grid, .news-grid,
   .team-grid, .values-grid, .usecase-grid, .concerns-grid {
     grid-template-columns: 1fr;
@@ -1334,6 +1346,11 @@
   .full-text-document,
   .article-detail {
     padding: 28px 20px;
+  }
+  .article-detail { margin-top: 24px; }
+  .article-detail p {
+    font-size: 16px;
+    line-height: 1.9;
   }
   .ceo-portrait-wrap {
     position: static;
@@ -1375,17 +1392,41 @@
     grid-column: auto;
     grid-row: auto;
   }
-  .step-progress {
-    justify-content: flex-start;
-    gap: 10px;
-    padding-bottom: 8px;
+  .step-progress { display: none; }
+  .step-progress-mobile {
+    display: block;
+    grid-column: 1 / -1;
+    margin-bottom: 18px;
+    padding: 0 2px;
   }
-  .step-item {
-    min-width: 72px;
+  .step-progress-mobile-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 10px;
+    color: var(--ink-500);
+    font-size: 12px;
+    letter-spacing: 0.08em;
   }
-  .step-label {
-    font-size: 10px;
-    white-space: nowrap;
+  .step-progress-mobile-head strong {
+    color: var(--navy-900);
+    font-family: var(--serif-jp);
+    font-size: 14px;
+    letter-spacing: 0.04em;
+  }
+  .step-progress-mobile-track {
+    height: 4px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: var(--ink-100);
+  }
+  .step-progress-mobile-track span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: var(--gold-500);
+    transition: width 0.3s ease;
   }
   .confirm-table,
   .confirm-table tbody,
@@ -1499,16 +1540,24 @@
   .article-lead {
     padding: 20px 18px;
     font-size: 16px !important;
+    line-height: 1.9 !important;
   }
   .article-heading {
-    margin-top: 42px;
-    font-size: 23px;
+    margin-top: 38px;
+    font-size: 22px;
+    line-height: 1.55;
   }
   .article-quote,
   .article-point-box,
   .article-checklist,
   .article-numbered-card {
     padding: 22px 18px;
+  }
+  .article-numbered-card p,
+  .article-point-box li,
+  .article-checklist li {
+    font-size: 15px;
+    line-height: 1.85;
   }
   .article-quote {
     font-size: 17px;
@@ -1537,11 +1586,14 @@
   .article-cta .btn {
     width: 100%;
     justify-content: center;
+    font-size: 15px;
   }
   .article-cta .btn + .btn {
     margin-left: 0;
     margin-top: 12px;
   }
+  .article-cta-note,
+  .article-summary-figure figcaption { font-size: 13.5px; }
   .sitemap-grid { grid-template-columns: 1fr; }
   .info-card { grid-template-columns: 1fr; padding: 26px 22px; }
   .full-text-document { padding: 30px 22px; font-size: 13.5px; }

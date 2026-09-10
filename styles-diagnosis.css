@@ -373,6 +373,18 @@
 }
 
 @media (max-width: 600px) {
+  .diagnosis-v2-main {
+    padding: 40px 20px !important;
+  }
+  .diagnosis-v2-title {
+    font-size: 32px !important;
+    line-height: 1.4 !important;
+    text-wrap: balance;
+  }
+  .diagnosis-v2-lead {
+    line-height: 1.9 !important;
+    margin-bottom: 30px !important;
+  }
   .home-diagnosis-band,
   .diagnosis-promise {
     padding: 64px 0;
@@ -388,11 +400,12 @@
     padding: 30px 22px;
   }
   .diagnosis-hero {
-    padding: 96px 0 64px;
+    padding: 72px 0 48px;
   }
   .diagnosis-hero h1 {
-    font-size: 34px;
-    line-height: 1.45;
+    font-size: 32px;
+    line-height: 1.4;
+    text-wrap: balance;
   }
   .diagnosis-hero-actions,
   .result-actions,
@@ -407,7 +420,7 @@
     font-size: 88px;
   }
   .diagnosis-workspace {
-    padding: 56px 0;
+    padding: 48px 0;
   }
   .diagnosis-panel {
     margin: 0 -2px;

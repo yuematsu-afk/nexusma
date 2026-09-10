@@ -363,6 +363,22 @@ function PageContact({ navigate }) {
                 </div>
               ))}
             </div>
+            <div
+              className="step-progress-mobile"
+              role="progressbar"
+              aria-label="お問い合わせフォームの進捗"
+              aria-valuemin="1"
+              aria-valuemax={stepLabels.length}
+              aria-valuenow={step + 1}
+            >
+              <div className="step-progress-mobile-head">
+                <span>STEP {step + 1} / {stepLabels.length}</span>
+                <strong>{stepLabels[step]}</strong>
+              </div>
+              <div className="step-progress-mobile-track" aria-hidden="true">
+                <span style={{ width: `${((step + 1) / stepLabels.length) * 100}%` }} />
+              </div>
+            </div>
 
             <div className="form-card">
               {step === 0 && (

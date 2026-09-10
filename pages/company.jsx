@@ -46,7 +46,7 @@ function PageCompany({ navigate }) {
             </div>
             <div className="ceo-message">
               <div className="eyebrow">Message from CEO</div>
-              <h2 className="font-serif-jp" style={{ fontSize: 36, lineHeight: 1.7, margin: "20px 0 40px" }}>
+              <h2 className="font-serif-jp company-message-title" style={{ fontSize: 36, lineHeight: 1.7, margin: "20px 0 40px" }}>
                 経営者の決断に、<br />誠実に寄り添うこと。
               </h2>
               <p>
@@ -75,7 +75,7 @@ function PageCompany({ navigate }) {
         <div style={css("width:100%;max-width:1240px;margin:0 auto")}>
           <div style={css("text-align:center;margin-bottom:56px")}>
             <div style={css("font-family:'Cormorant Garamond';font-size:17px;letter-spacing:.05em;font-style:italic;color:#C6A664;margin-bottom:16px")}>Our Values</div>
-            <h2 style={css("font-family:'Shippori Mincho';font-weight:700;font-size:38px;color:#fff;margin:0")}>4つの行動指針。</h2>
+            <h2 className="company-section-title" style={css("font-family:'Shippori Mincho';font-weight:700;font-size:38px;color:#fff;margin:0")}>4つの行動指針。</h2>
           </div>
           <div className="company-values-grid" style={css("display:grid;grid-template-columns:repeat(4,1fr);gap:20px")}>
             {values.map((v) => (
@@ -95,7 +95,7 @@ function PageCompany({ navigate }) {
         <div style={css("width:100%;max-width:800px;margin:0 auto")}>
           <div style={css("text-align:center;margin-bottom:56px")}>
             <div style={css("font-family:'Cormorant Garamond';font-size:17px;letter-spacing:.05em;font-style:italic;color:#A9853D;margin-bottom:16px")}>Corporate Profile</div>
-            <h2 style={css("font-family:'Shippori Mincho';font-weight:700;font-size:38px;color:#11192A;margin:0")}>会社概要。</h2>
+            <h2 className="company-section-title" style={css("font-family:'Shippori Mincho';font-weight:700;font-size:38px;color:#11192A;margin:0")}>会社概要。</h2>
           </div>
           <div style={css("background:#fff;border:1px solid #E6E1D4;border-radius:16px;overflow:hidden")}>
             {infos.map((r, i, arr) => (
