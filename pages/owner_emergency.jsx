@@ -48,7 +48,7 @@ function PageOwnerEmergency({ navigate }) {
     <main>
       <PageHero
         eyebrow="Owner Emergency Checklist"
-        title="社長が病気・入院で長期不在になったら、会社経営と資金繰りをどうするか。"
+        title="社長が入院したら？給与・支払い・銀行対応のチェックリスト。"
         lead="代表者が長期不在になった場合に、資金繰り、給与、取引先、金融機関、家族へ起きることと、24時間・7日・30日・90日で行う対応を確認します。"
         crumbs={["社長不在チェックリスト"]}
         navigate={navigate}
@@ -58,7 +58,7 @@ function PageOwnerEmergency({ navigate }) {
         <div className="container narrow">
           <div className="article-detail">
             <p className="article-lead">
-              多くの中小企業では、社長が売上、資金繰り、金融機関対応、重要な判断を一人で抱えています。普段はそれで回っていても、社長が急に不在になると、会社は「誰に聞けばよいか分からない状態」になります。
+              社長が病気や入院で不在になったら、まず給与・取引先への支払期日、預金残高、銀行への連絡担当、承認できる人を確認します。社長への連絡が難しい場合でも業務を続けられるよう、24時間・7日・30日・90日の順に確認事項を整理します。
             </p>
 
             <figure className="article-summary-figure">
